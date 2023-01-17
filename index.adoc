@@ -78,8 +78,8 @@ ideas to life and be able to share them with others!
 Most lecture materials will contain material covered in the following text books. Both should be 
 available from the library and as an e-book.
 
-//* Real-Time Rendering, 4th Edition, by Tomas Akenine-Moller, Eric Haines, Naty Hoffman 
-//* Fundamentals of Computer Graphics, 4th Edition, by Peter Shirley, Michael Ashikhmin, and Steve Marschner
+* Real-Time Rendering, 4th Edition, by Tomas Akenine-Moller, Eric Haines, Naty Hoffman 
+* Fundamentals of Computer Graphics, 4th Edition, by Peter Shirley, Michael Ashikhmin, and Steve Marschner
 
 **References**
 
