@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Computer Graphics</title>
+<link rel="stylesheet" href="style/front.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>CS313: Computer Graphics&#8201;&#8212;&#8201;Spring 2023</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_announcements">Announcements</a></li>
+<li><a href="#_course_info">Course Info</a>
+<ul class="sectlevel2">
+<li><a href="#_meeting_times">Meeting Times</a></li>
+</ul>
+</li>
+<li><a href="#_texts_and_software">Texts and software</a></li>
+<li><a href="#_schedule"><strong>Schedule</strong></a></li>
+<li><a href="#_grading_policies">Grading Policies</a>
+<ul class="sectlevel2">
+<li><a href="#_late_policy">Late Policy</a></li>
+<li><a href="#_labs">Labs</a></li>
+</ul>
+</li>
+<li><a href="#_academic_integrity">Academic Integrity</a></li>
+<li><a href="#_academic_accommodations">Academic Accommodations</a></li>
+<li><a href="#_academic_and_student_support">Academic and Student Support</a></li>
+<li><a href="#_covid">Covid</a></li>
+<li><a href="#_title_ix">Title IX</a></li>
+<li><a href="#_external_links">External Links</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1 anns">
+<h2 id="_announcements">Announcements</h2>
+<div class="sectionbody">
+<div class="ulist unstyled">
+<ul class="unstyled">
+<li>
+<p>Topic this week: <a href="#week01">Introductions, C++</a></p>
+</li>
+<li>
+<p><a href="asst00.html">Assignment 0</a> is due Thursday, January 19th.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_course_info">Course Info</h2>
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="img/jadeDragonWithSand.jpg" alt="jadeDragonWithSand" width="600px">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Welcome to CS313</strong>. An introduction to computer graphics. Computer graphics
+is a fundamental technology underlying many applications such as digital
+photography, film, video games, simulation, training, product design,
+architecture, and fabrication.</p>
+</div>
+<div class="paragraph">
+<p>In this class, we will study the fundamental algorithms and data structures
+used to generate images on a digital display. Students will learn
+how to model 3-dimensional objects and simulate lights and materials.</p>
+</div>
+<div class="paragraph">
+<p>Students will additionally gain experience programming with C++ and using git
+for source control. Students will also practice deriving the mathematical
+models that underlie common graphics algorithms. These skills will empower
+students to create their original digital artworks as part of assignments and
+the final project.</p>
+</div>
+<div class="paragraph">
+<p>Computer graphics is a multi-disciplinary subject, combining knowledge about
+hardware, design, physics, and linear algebra. Computer graphics can be a
+daunting subject because it draws on diverse knowledge and skills. But it
+also offers many opportunities and ways to succeed! You can focus on aesthetics,
+user experience, hardware performance, mathematics, or software algorithms.
+Computer graphics are a medium of self expression that let&#8217;s you bring your own
+ideas to life and be able to share them with others!</p>
+</div>
+<div class="sect2">
+<h3 id="_meeting_times">Meeting Times</h3>
+<table class="tableblock frame-all grid-all fit-content center">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Activity</th>
+<th class="tableblock halign-left valign-top">Location</th>
+<th class="tableblock halign-left valign-top">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lecture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Park 245</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tuesday, Thursday, 1:10-2:30pm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Park 231</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Thursday, 2:25-3:45 pm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Office Hours</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Park 200A/B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TBD, by appointment</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_texts_and_software">Texts and software</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Texts</strong></p>
+</div>
+<div class="paragraph">
+<p>Most lecture materials will contain material covered in the following text books. Both should be
+available from the library and as an e-book.</p>
+</div>
+<div class="paragraph">
+<p><strong>References</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>GLFW</strong> <a href="https://www.glfw.org/documentation">Documentation</a></p>
+</li>
+<li>
+<p><strong>OpenGL</strong> <a href="https://www.khronos.org/registry/OpenGL/specs/gl/glspec46.core.pdf">Specification</a></p>
+</li>
+<li>
+<p><strong>GLSL</strong> <a href="https://www.khronos.org/registry/OpenGL/specs/gl/GLSLangSpec.4.60.pdf">Specification</a></p>
+</li>
+<li>
+<p><strong>GLM</strong> <a href="https://glm.g-truc.net/0.9.9/index.html">Project Page</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Software</strong></p>
+</div>
+<div class="paragraph">
+<p>The Bryn Mawr labs have the following software setup. Students may use the
+computers in Park 230/231 (Windows/Linux).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Github Account</strong> Please go to <a href="https://github.com/">github.com</a> and register. You will be using github to submit assignments.</p>
+</li>
+<li>
+<p><strong>Slack</strong> Please go to <a href="https://slack.com/signin">slack.com</a>. Our workspace is BrynMawr-CS312-S21. You can ask questions and request one-on-one help over zoom using this course&#8217;s slack channel.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(Optional) If you would like to setup your own laptop for graphics development, use the resources below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>C++ development environment</strong> Please follow the instructions at <a href="https://github.com/BrynMawr-CS312-2021/cplusplus-beginners">cplusplus-beginners</a></p>
+</li>
+<li>
+<p><strong>Graphics development environment</strong> Please follow the instructions at <a href="https://github.com/BrynMawr-CS312-2021/getting-started">getting-started</a></p>
+</li>
+<li>
+<p><strong>Blender</strong> Please go to <a href="https://blender.org">blender.org</a>. Blender is an open-source 3D modeling tool and advanced renderer. We will occasionally use blender to inspect and edit models and materials.</p>
+</li>
+<li>
+<p><strong>Gimp</strong> Please go to <a href="https://gimp.org">gimp.org</a>. Gimp is an open-source image manipulation tol, similar to Photoshop. Photoshop is also fine to use if you are familiar with it. We will occasionally use this program to edit images and generate textures.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schedule"><strong>Schedule</strong></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The syllabus may change during the semester. Please check here every week for updates
+on lecture content, worksheets, and assignments.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Week</th>
+<th class="tableblock halign-left valign-top">Date</th>
+<th class="tableblock halign-left valign-top">Topics &amp; ToDo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jan 17, 19</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>3D Graphics Fundamentals, C++</strong> <a id="week01"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Graphics development environment, interactive programming patterns, C++</p>
+</li>
+<li>
+<p><a href="asst00.html">Assignment 00: Hello, CS313!</a> is due January 19 at midnight</p>
+</li>
+<li>
+<p>(Optional) <a href="https://www.udemy.com/course/free-learn-c-tutorial-beginners/">C++ Course</a></p>
+</li>
+<li>
+<p><a href="https://gameprogrammingpatterns.com/game-loop.html">Game Loop</a></p>
+</li>
+<li>
+<p><a href="https://gameprogrammingpatterns.com/update-method.html">Update Loop</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jan 24,26</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Pixels and colors</strong> <a id="week02"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: pixels, images, color, compositing, C++ classes, structs, pointers and arrays</p>
+</li>
+<li>
+<p><a href="asst01.html">Assignment 01: Interaction</a> is due January 26 at midnight</p>
+</li>
+<li>
+<p>Read: Marschner and Shirley, Chapter 3</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jan 31, Feb 2</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Geometry fundamentals</strong>  <a id="week03"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Lines, vectors, points, coordinate systems, dot and cross product, sine, cosine, tangent.</p>
+</li>
+<li>
+<p>Read: <a href="http://immersivemath.com/ila/index.html">Immersive Linear Algebra</a>:Chapter 2,3</p>
+</li>
+<li>
+<p><a href=".html">Assignment 02: By the power of grayscale</a> is due in two parts: Feb 2 and Feb 9 at midnight</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 7,9</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>2D Drawing</strong> <a id="week04"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Bresenham&#8217;s algorithm, Barycentric coordinates, Triangle/Polygon rasterization</p>
+</li>
+<li>
+<p>Read: Marschner and Shirley, Sections 8.1.1, 8.1.2</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 14,16</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Meshes, Transformations I</strong> <a id="week05"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Vertices, Edges, Faces, Matrices, Translation, Rotation, Scale</p>
+</li>
+<li>
+<p>Read: Real-time Rendering, Chpt 4, 16.1-16.4.5</p>
+</li>
+<li>
+<p>Read: Marschner and Shirley, Chapter 6 and 7</p>
+</li>
+<li>
+<p><a href=".html">Assignment 03: Green eggs and Bresenham</a> is due in two parts</p>
+</li>
+<li>
+<p>Read <a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/">Meshes: VBO Indexing</a></p>
+</li>
+<li>
+<p>Read <a href="http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/">OpenGL Matrix tutorial</a></p>
+</li>
+<li>
+<p>Reference <a href="https://learnopengl.com/Getting-started/Coordinate-Systems">OpenGL Coordinate Systems</a></p>
+</li>
+<li>
+<p>Reference <a href="https://glm.g-truc.net/0.9.4/api/a00151.html#ga8925161ecc1767957900c5ca8b922dc4">GLM matrix reference</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 21,23</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Cameras, Projections, Transformations II</strong> <a id="week06"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Projections, View transforms, Matrix stacks</p>
+</li>
+<li>
+<p>Read: Real-time Rendering, Chpt 4</p>
+</li>
+<li>
+<p>Read: Marschner and Shirley, Chapter 6 and 7</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 28, March 2</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Shaders</strong> <a id="week07"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Graphics pipeline, graphics processing unit, shaders</p>
+</li>
+<li>
+<p>Read: Real-time Rendering, Chpt 2, 3, 5</p>
+</li>
+<li>
+<p><a href=".html">Assignment 04: Meshes</a></p>
+</li>
+<li>
+<p>Lab: Modeling in Blender</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">March 7,9</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Spring Break</strong> <a id="week08"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>No lab/class this week</strong></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">March 14,16</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Lighting, Materials</strong> <a id="week09"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Normals, Light sources, Phong shading model, Cartoon shading</p>
+</li>
+<li>
+<p><a href=".html">Assignment 05: Give it your best PLY</a> is due in three parts</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">March 21,23</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Textures</strong> <a id="week10"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Texture mapping, sky boxes</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">March 28,30</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Materials II</strong> <a id="week11"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Environment mapping, reflection, transparency, glow</p>
+</li>
+<li>
+<p>LaJune McMillan Visit</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">April 4,6</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Particles</strong> <a id="week12"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Billboards, sprites, textures, alpha blending and transparency</p>
+</li>
+<li>
+<p><a href=".html">Assignment 06: Special effects</a></p>
+</li>
+<li>
+<p><a href=".html">Project details</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">April 11,13</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Advanced topics (TBD)</strong> <a id="week13"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>May 10: Project presentations (in Lecture, 5 min each)</strong></p>
+</li>
+<li>
+<p><strong>May 10: Project proposals due</strong></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">April 18,20</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Shadertoy</strong> <a id="week14"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>May 10: Project presentations (in Lecture, 5 min each)</strong></p>
+</li>
+<li>
+<p>Ray tracing, ray marching, signed-distance functions</p>
+</li>
+<li>
+<p>Reference <a href="https://thebookofshaders.com/">Book of Shaders</a></p>
+</li>
+<li>
+<p>Reference <a href="https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm">Signed-distance functions</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">April 25,27</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Shadertoy</strong> <a id="week15"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="shadertoy.com">shadertoy</a>, raytracing a sphere, fragment programs</p>
+</li>
+<li>
+<p><strong>May 10: Project presentations (in Lecture, 5 min each)</strong></p>
+</li>
+<li>
+<p>Ray marching, signed-distance functions</p>
+</li>
+<li>
+<p>Reference <a href="https://thebookofshaders.com/">Book of Shaders</a></p>
+</li>
+<li>
+<p>Reference <a href="https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm">Signed-distance functions</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_grading_policies">Grading Policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All graded work will receive a grade, 4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7,
+1.3, 1.0, or 0.0. At the end of the semester, final grades will be calculated
+as a weighted average of all grades according to the following weights:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Final Project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assignments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lab jams</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class/Lab worksheets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quizzes</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_late_policy">Late Policy</h3>
+<div class="paragraph">
+<p>Because practice is so important for learning how to program, we will do frequent
+exercises, assignments, and quizzes throughout the term.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of this work is to give you hands on experience with the topics
+from class. Most of this work will be due in lecture or labs. The
+weekly time commitment for this course is approximately 10 hours per week.</p>
+</div>
+<div class="paragraph">
+<p>Assignments will generally be due on Thursdays. However, you may submit up to
+one day late (until Friday) with permission.  No submissions beyond Friday will
+be accepted. This allows us time to grade assignments in a timely manner.
+And it helps prevent you from falling behind.</p>
+</div>
+<div class="paragraph">
+<p>If you need to miss a quiz, let the instructor know and alternate arrangements for
+taking it will be arranged if possible.</p>
+</div>
+<div class="paragraph">
+<p>If you need to miss a lab, let the instructor know. Late lab work will not be accepted.
+Instead, we will reweight the missing work to your quiz grades.</p>
+</div>
+<div class="paragraph">
+<p>You may need to provide a doctor&#8217;s note if you need special accommodations due to a
+medical emergency.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs">Labs</h3>
+<div class="paragraph">
+<p>Labs will consist of active practice, quizzes, and additional office hour time.
+I expect that you will run into
+problems while working on your assignments. Lab is the perfect time to ask
+for debugging advice and clarifications on the assignment.
+That&#8217;s what I&#8217;m here for.</p>
+</div>
+<div class="paragraph">
+<p>At the end of the semester, we will use lab to share weekly progress on our projects.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_academic_integrity">Academic Integrity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At Bryn Mawr, we assume students are trustworthy and work with honesty and
+integrity. <a href="https://www.brynmawr.edu/deans/academic-and-community-integrity">Look here for information about Bryn Mawr&#8217;s Honor Code.</a></p>
+</div>
+<div class="paragraph">
+<p>As you progress in this course, you will see that programming is a creative
+process, similar to writing. The same problem can be solved in
+multiple ways. It&#8217;s essential that you develop your own skills for developing
+algorithms and implementing them through programs.</p>
+</div>
+<div class="paragraph">
+<p><strong>Discussing ideas and approaches to problems with others on a general level is
+fine (in fact, we encourage you to discuss general strategies with each other),
+but you should never read anyone else&#8217;s code or let anyone else read your
+code.</strong>  All code you submit should be your own with the following permissible
+exceptions: code distributed in class, and code found in the course text book.
+In these cases, you should always include detailed comments that indicates on
+which parts of the assignment you received help, and what your sources were.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Please don&#8217;t hesitate to ask the awesome teaching assistants (TAs) for help. They provide TA hours most week nights and are excellent mentors!</p>
+</li>
+<li>
+<p>Please discuss the readings and associated topics with each other. Work together to understand the material. Reading groups to discuss the material are highly recommended&#8201;&#8212;&#8201;we will explore many ideas and it helps to have multiple people working together to understand them.</p>
+</li>
+<li>
+<p>It is fine to discuss the topics covered in the homeworks, to discuss approaches to problems, and to sketch out general solutions. However, you MUST write up the homework answers, solutions, and programs individually without sharing specific details, mathematical results, program code, etc.</p>
+</li>
+<li>
+<p>Under NO circumstances should you share computer code with another student.  Similarly, you are not permitted to use code found on the internet for any of your assignments.</p>
+</li>
+<li>
+<p>Exams, of course, must be your own individual work.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_academic_accommodations">Academic Accommodations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All classes will be recorded and close-captioned. Links to lectures will be
+posted on slack.</p>
+</div>
+<div class="paragraph">
+<p>Any student who has a disability-related need to record this class first must
+speak with the Director of Access Services, Deb Alder, as part of university
+policy. Class members need to be aware that this class may be recorded.</p>
+</div>
+<div class="paragraph">
+<p>To receive an accommodation for quizzes
+and exams, you must have an Accommodation Letter from the Office of Student
+Disability Services <strong>and</strong> you need to contact us to work out the details of
+your accommodation at least <strong>two weeks prior</strong> to the activity. Forms can be
+emailed to me, the instructor.</p>
+</div>
+<div class="paragraph">
+<p>You are also welcome to contact us privately to discuss your academic needs.
+However, all disability-related accommodations must be arranged, in advance,
+through Student Disability Services.</p>
+</div>
+<div class="paragraph">
+<p>Students needing academic accommodations for a disability must first register
+with Access Services. Students can call 610-526-7516 to make an appointment
+with the Director of Access Services, Deb Alder, or email her at
+<a href="mailto:dalder@brynmawr.edu">dalder@brynmawr.edu</a> to begin this confidential process.  Once registered,
+students should schedule an appointment with the professor as early in the
+semester as possible to share the verification form and make appropriate
+arrangements. Please note that accommodations are not retroactive and require
+advance notice to implement. More information can be obtained at the Access
+Services website. (<a href="http://www.brynmawr.edu/access-services/" class="bare">http://www.brynmawr.edu/access-services/</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_academic_and_student_support">Academic and Student Support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.brynmawr.edu/academicsupport/academic-and-student-support-services">Academic Support, including help with math and quantitative skills!</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_covid">Covid</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Out of consideration of others, we ask that no one return to campus with COVID
+or any other easily communicable virus. If you are experiencing any symptoms,
+please self-test for COVID prior to your initial return to campus.</p>
+</div>
+<div class="paragraph">
+<p>For a full outline of college policies,
+<a href="https://www.brynmawr.edu/news/spring-semester-health-safety-policies-recommendations">please
+read the documentation here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_title_ix">Title IX</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bryn Mawr/Haverford College is committed to fostering a safe and inclusive
+living and learning environment where all can feel secure and free from
+harassment. All forms of sexual misconduct, including sexual assault, sexual
+harassment, stalking, domestic violence, and dating violence are violations of
+Bryn Mawr/Haverford&#8217;s policies, whether they occur on or off campus. Bryn
+Mawr/Haverford faculty are committed to helping to create a safe learning
+environment for all students and for the College community as a whole. If you
+have experienced any form of gender or sex-based discrimination, harassment, or
+violence, know that help and support are available. Staff members are trained
+to support students in navigating campus life, accessing health and counseling
+services, providing academic and housing accommodations, and more.</p>
+</div>
+<div class="paragraph">
+<p>The College strongly encourages all students to report any incidents of sexual
+misconduct. Please be aware that all Bryn Mawr/Haverford employees (other than
+those designated as confidential resources such as counselors, clergy, and
+healthcare providers) are required to report information about such
+discrimination and harassment to the
+<a href="https://www.haverford.edu/users/ktaylor4">Bi-College Title IX Coordinator</a>.</p>
+</div>
+<div class="paragraph">
+<p>Information about the College&#8217;s Sexual Misconduct policy, reporting options,
+and a list of campus and local resources can be found on the College&#8217;s
+website:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.brynmawr.edu/titleix">Bryn Mawr Sexual Misconduct Policy</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.haverford.edu/sexual-misconduct">Haverford Sexual Misconduct Policy</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_external_links">External Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Links that are related to the course may be posted here. If you have suggestions for links, let us know.</p>
+</div>
+<div class="ulist unstyled">
+<ul class="unstyled">
+<li>
+<p>This site was generated with <a href="https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/">asciidoctor</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-01-17 10:04:37 -0500
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Assignment 1: By the power of greyscale!</title>
+<link rel="stylesheet" href="style/cs21.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_assignment_1_by_the_power_of_greyscale">Assignment 1: By the power of greyscale!</a></li>
+<li><a href="#_getting_started">1. Getting started</a></li>
+<li><a href="#_ppm_image_class">2. ppm_image class</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements">2.1. Requirements</a></li>
+</ul>
+</li>
+<li><a href="#_walkthrough_and_tips">3. Walkthrough and tips</a>
+<ul class="sectlevel2">
+<li><a href="#_loadcopysave">3.1. Load/Copy/Save</a></li>
+<li><a href="#_resize">3.2. Resize</a></li>
+<li><a href="#_flip_horizontally">3.3. Flip horizontally</a></li>
+<li><a href="#_gamma_correction">3.4. Gamma correction</a></li>
+<li><a href="#_grayscale">3.5. Grayscale</a></li>
+<li><a href="#_subimage">3.6. Subimage</a></li>
+<li><a href="#_blend_and_replace">3.7. Blend and replace</a></li>
+</ul>
+</li>
+<li><a href="#_define_your_own_operators">4. Define your own operators</a></li>
+<li><a href="#_create_a_unique_image">5. Create a unique image</a></li>
+<li><a href="#_update_readme_md">6. Update Readme.md</a></li>
+<li><a href="#_what_to_hand_in">7. What to hand in</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_assignment_1_by_the_power_of_greyscale">Assignment 1: By the power of greyscale!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Due Monday, March 8, before midnight</strong></p>
+</div>
+<div class="paragraph">
+<p>The goals for this assignment are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement an class for loading and saving PPM files</p>
+</li>
+<li>
+<p>Implement various operations and filters for images</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">1. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fork the repository at <a href="https://github.com/BrynMawr-CS312-2021/pixmap-ops" class="bare">https://github.com/BrynMawr-CS312-2021/pixmap-ops</a></p>
+</div>
+<div class="paragraph">
+<p>Following the instructions in <code>Readme.md</code> to build and run the code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ppm_image_class">2. ppm_image class</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implement a class <code>ppm_image</code>, which can read and write ASCII PPM files,
+as described in this <a href="https://www.cs.swarthmore.edu/~soni/cs35/f13/Labs/extras/01/ppm_info.html">PPM Specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>You are given basecode in <code>ppm_image.h</code> and <code>ppm_image.cpp</code> to use as a starting point.</p>
+</div>
+<div class="paragraph">
+<p>We will use ASCII PPM (Portable Pix Map) format to save the images we render.
+Your PPM images should be readable and writeable from Gimp. Gimp saves files with a
+header comment, which you can remove, before loading the file in your program.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirements">2.1. Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Your class should implement an <strong>assignment operator</strong>, <strong>copy constructor</strong>, and <strong>destructor</strong></p>
+</li>
+<li>
+<p>Gimp should be able to load images saved by your PPM class.</p>
+</li>
+<li>
+<p>Your class should be capable of loading ascii format PPM files, exported from Gimp. You do not need to handle comments in the header. You can manually remove the comment before loading the file into your class.</p>
+</li>
+<li>
+<p>It&#8217;s up to you how you store the internal pixel data, but your implementation should not leak memory</p>
+</li>
+<li>
+<p>Your class should implement the following methods:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bool load(const std::string&amp; filename);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Loads the PPM file with the given name. Returns true if successful; False otherwise</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>bool save(const std::string&amp; filename);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Loads the PPM file with the given name. Returns true if successful; False otherwise</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>int width() const;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns the number of columns in this image</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>int height() const;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns the number of rows in this image</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_pixel get(int row, int col) const;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Gets a pixel (value range in [0,255]) at position (row, col)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>void set(int row, int col, const ppm_pixel&amp; c);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sets a pixel (value range in [0,255]) at position (row, col)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image flip_horizontal();</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a copy of the image flipped along the horizontal middle axis</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image resize(int width, int height);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a copy of the imaged resized to the given width and height</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image gammaCorrect(float gamma);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a copy of this image with the given gamma correction factor applied to it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image grayscale();</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a copy of this image as a grayscale image.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image blend(const ppm_image&amp; other, float alpha);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a copy of this image with the other image blended with it by factor alpha. E.g. result.pixel = this.pixel * (1 - alpha) + other.pixel * alpha. Assumes other and this have the same dimensions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ppm_image subimage(int row, int col, int width, int height) const;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Returns a sub-image with top,left corner at (x,y) and width and height</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>void replace(const ppm_image&amp; image, int row, int col);</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Replaces the block of pixels starting at (row, col) with the image. Should not assume image fits on this image.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_walkthrough_and_tips">3. Walkthrough and tips</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You are given the following starter code, <code>ppm_image.h</code>, <code>ppm_image.cpp</code>,
+and <code>pixmap_test.cpp</code>. See <code>Readme.md</code> for instructions on how to build
+and run.</p>
+</div>
+<div class="sect2">
+<h3 id="_loadcopysave">3.1. Load/Copy/Save</h3>
+<div class="paragraph">
+<p>To start, make sure that the file, <code>feep.ppm</code>, loads and saves correctly. Then test
+that your width, height, copy constructor, and assignment operator
+work correctly. Lastly, check that your destructor is cleaning up
+any memory created by your class!!</p>
+</div>
+<div class="paragraph">
+<p>The contents of <code>feep.ppm</code> are as follows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>P3
+4 4
+255
+0  0  0   100 0  0       0  0  0    255   0 255
+0  0  0    0 255 175     0  0  0     0    0  0
+0  0  0    0  0  0       0 15 175    0    0  0
+255 0 255  0  0  0       0  0  0    255  255 255</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resize">3.2. Resize</h3>
+<div class="paragraph">
+<p>Test resizing the image, <code>earth-ascii.ppm</code>.
+The following code and image show an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ppm_image resize = image.resize(200,300);
+resize.save("earth-200-300.ppm");</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-200-300.png" alt="earth 200 300">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flip_horizontally">3.3. Flip horizontally</h3>
+<div class="paragraph">
+<p>The following code and image show an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code> ----
+ppm_image flip = image.flip_horizontal();
+flip.save("earth-flip.ppm");
+----</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-flip.png" alt="earth flip">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gamma_correction">3.4. Gamma correction</h3>
+<div class="paragraph">
+<p>The following code and images show two examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ppm_image gamma = image.gammaCorrect(0.6f);
+gamma.save("earth-gamma-0.6.ppm");
+
+gamma = image.gammaCorrect(2.2f);
+gamma.save("earth-gamma-2.2.ppm");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gamma = 0.6</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-gamma-0.6.png" alt="earth gamma 0.6">
+</div>
+</div>
+<div class="paragraph">
+<p>Gamma = 2.2</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-gamma-2.2.png" alt="earth gamma 2.2">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grayscale">3.5. Grayscale</h3>
+<div class="paragraph">
+<p>The following code and image show an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ppm_image grayscale = image.grayscale();
+grayscale.save("earth-grayscale.ppm");</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-grayscale.png" alt="earth grayscale">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_subimage">3.6. Subimage</h3>
+<div class="paragraph">
+<p>The following code and image show an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ppm_image sub = image.subimage(200, 200, 100, 100);
+sub.save("earth-subimage.ppm");</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-subimage.png" alt="earth subimage">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_blend_and_replace">3.7. Blend and replace</h3>
+<div class="paragraph">
+<p>The following code and image show an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ppm_image soup;
+soup.load("../images/soup-ascii.ppm");
+
+int y = (int) (0.5f * (image.width() - soup.width()));
+int x = (int) (0.5f * (image.height() - soup.height()));
+ppm_image background = image.subimage(x, y, soup.width(), soup.height());
+background.save("background-test.ppm");
+
+ppm_image blend = background.alpha_blend(soup, 0.5f);
+image.replace(blend, x, y);
+image.save("earth-blend-0.5.ppm");</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/earth-blend-0.5.png" alt="earth blend 0.5">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_define_your_own_operators">4. Define your own operators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implement <strong>at least six</strong> additional operations for your ppm_image class. You can make
+up your own filter, re-implement a filter from Gimp, or research an interesting filter online.
+Make sure to document your choice in the <code>Readme.md</code> of your assignment. Below are some ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rotate 90 degrees: rotate the image clockwise by 90 degrees</p>
+</li>
+<li>
+<p>Swirl colors: rotate the colors of your image such that the red channel becomes the green channel, the green becomes blue, and the blue becomes red.</p>
+</li>
+<li>
+<p>Invert colors: subtract each color channel from the max value, 255.</p>
+</li>
+<li>
+<p>Add a border around the edge of your images.</p>
+</li>
+<li>
+<p>Distort: displace pixels based on sine and cosine.</p>
+</li>
+<li>
+<p>Extract the red, blue, or green channels</p>
+</li>
+<li>
+<p>Bitmap: Create a 'fat bits' version of your image</p>
+</li>
+<li>
+<p>Overlay a fill color, or blend a pattern of colors</p>
+</li>
+<li>
+<p>Lightest: given a ppm_image, implement <code>max(this.pixel, other.pixel)</code></p>
+</li>
+<li>
+<p>Darkest: given a ppm_image, implement <code>min(this.pixel, other.pixel)</code></p>
+</li>
+<li>
+<p>Difference: given a ppm_image, implement <code>this.pixel - other.pixel</code></p>
+</li>
+<li>
+<p>Multiply: given a ppm_image, implement <code>this.pixel * other.pixel</code></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Sobel_operator">Sobel operator</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Gaussian_blur">Gaussian blur</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Box_blur">Box blur</a></p>
+</li>
+<li>
+<p>Randomize colors or 'jitter' the colors</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_unique_image">5. Create a unique image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the program, <code>pixmap_art.cpp</code>, use multiple effects to create one or more
+unique images. Feel free to use your own images exported from Gimp
+(or another image application).</p>
+</div>
+<div class="paragraph">
+<p><strong>Make sure to use your custom operations from the previous question in your
+artworks!! You will not get credit for operators which you don&#8217;t test and show
+work correctly!</strong></p>
+</div>
+<div class="paragraph">
+<p>Below are some ideas:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/kitty-bitmap.png" alt="kitty bitmap" width="256px">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/SoupTile.png" alt="SoupTile" width="256px">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/SoupTunnel-Darkest.png" alt="SoupTunnel Darkest" width="128px">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update_readme_md">6. Update Readme.md</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Update <code>Readme.md</code> to include documentation on your unique features and art created with your class.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_to_hand_in">7. What to hand in</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Your code. Make sure your code is checked into github</p>
+</li>
+<li>
+<p>One or more images created using your software</p>
+</li>
+<li>
+<p>Update <code>Readme.md</code> so it includes a writeup of the features your application supports</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-03-04 08:55:44 -0500
+</div>
+</div>
+</body>
+</html>

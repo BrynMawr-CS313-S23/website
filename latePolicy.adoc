@@ -1,0 +1,23 @@
+
+=== Late Policy
+
+Because practice is so important for learning how to program, we will do frequent 
+exercises, assignments, and quizzes throughout the term.
+
+The purpose of this work is to give you hands on experience with the topics
+from class. Most of this work will be due in lecture or labs. The  
+weekly time commitment for this course is approximately 10 hours per week.
+
+Assignments will generally be due on Thursdays. However, you may submit up to
+one day late (until Friday) with permission.  No submissions beyond Friday will
+be accepted. This allows us time to grade assignments in a timely manner. 
+And it helps prevent you from falling behind.
+
+If you need to miss a quiz, let the instructor know and alternate arrangements for 
+taking it will be arranged if possible. 
+
+If you need to miss a lab, let the instructor know. Late lab work will not be accepted. 
+Instead, we will reweight the missing work to your quiz grades.  
+
+You may need to provide a doctor's note if you need special accommodations due to a 
+medical emergency.

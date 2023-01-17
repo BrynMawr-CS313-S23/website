@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Assignment 3: It's a material world</title>
+<link rel="stylesheet" href="style/cs21.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_assignment_3_its_a_material_world">Assignment 3: It&#8217;s a material world</a></li>
+<li><a href="#_getting_started">1. Getting started</a></li>
+<li><a href="#_getting_started_2">2. Getting started</a>
+<ul class="sectlevel2">
+<li><a href="#_lecture_demos">2.1. Lecture demos</a></li>
+<li><a href="#_basic_raytracer">2.2. Basic raytracer</a></li>
+</ul>
+</li>
+<li><a href="#_intersections">3. Intersections</a></li>
+<li><a href="#_materials">4. Materials</a></li>
+<li><a href="#_implement_a_unique_feature">5. Implement a unique feature</a></li>
+<li><a href="#_create_a_unique_image">6. Create a unique image</a></li>
+<li><a href="#_update_readme_md">7. Update Readme.md</a></li>
+<li><a href="#_what_to_hand_in">8. What to hand in</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_assignment_3_its_a_material_world">Assignment 3: It&#8217;s a material world</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Due Thursday, April 8, before midnight</strong></p>
+</div>
+<div class="paragraph">
+<p>The goals for this assignment are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement a raytracer containing a unique set of features</p>
+</li>
+<li>
+<p>Implement materials, such as lambert, phong, metals, glass</p>
+</li>
+<li>
+<p>Implement different primitive types, such as spheres, planes, triangles, and boxes</p>
+</li>
+<li>
+<p>Implement one or more unique scenes</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">1. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fork the repository at <a href="https://github.com/BrynMawr-CS312-2021/raytracer" class="bare">https://github.com/BrynMawr-CS312-2021/raytracer</a></p>
+</div>
+<div class="paragraph">
+<p>Follow the instructions in <code>Readme.md</code> to build and run the code.</p>
+</div>
+<div class="paragraph">
+<p>If you have already forked this repository, update your
+repository with the original repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>git remote add source https://github.com/BrynMawr-CS312-2021/raytracer.git
+git fetch source
+git merge source/main</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You may already have a script, <code>update.sh</code>, which performs the above steps.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started_2">2. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our raytracer basecode is based on the architecture in
+<a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">Ray tracing in one weekend</a>.
+Read this book to understand the classes and utilities included with your basecode.</p>
+</div>
+<div class="paragraph">
+<p>Your basecode uses the <a href="https://github.com/g-truc/glm/blob/master/manual.md">GLM math library</a>
+for vectors, points, and colors (all have type glm::vec3)</p>
+</div>
+<div class="paragraph">
+<p>Your base code also uses the ppm_image class to save your output to a PNG file.</p>
+</div>
+<div class="sect2">
+<h3 id="_lecture_demos">2.1. Lecture demos</h3>
+<div class="paragraph">
+<p>Make sure that you can build and run the examples from lecture.</p>
+</div>
+<div class="paragraph">
+<p><strong>gradient</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/gradient.png" alt="gradient">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>silhouette</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/silhouette.png" alt="silhouette">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>normals</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/normals.png" alt="normals">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_basic_raytracer">2.2. Basic raytracer</h3>
+<div class="paragraph">
+<p>Look at file, <code>basic.cpp</code>. This program implements a simple raytracer that
+supports lambertian materials using the architecture
+from <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">Ray tracing in one weekend</a>.
+This architecture defines classes for</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ray</p>
+</li>
+<li>
+<p>camera</p>
+</li>
+<li>
+<p>hittable</p>
+</li>
+<li>
+<p>hittable_list</p>
+</li>
+<li>
+<p>material</p>
+</li>
+<li>
+<p>sphere</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you run this program, you should see:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/basic-empty.png" alt="basic empty">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that the basecode implements the following features</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Spheres (section 5, 6.13)</p>
+</li>
+<li>
+<p>Antialiasing  (section 7)</p>
+</li>
+<li>
+<p>Gamma correction (section 8.22)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can improve the quality of the final image by modifying the parameters
+<code>samplers_per_pixel</code> and <code>max_depth</code> used by the raytracing algorithm.</p>
+</div>
+<div class="paragraph">
+<p>After you implement the lambertian material (probabilistic method from section 8), you
+should see the followng</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/basic.png" alt="basic">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intersections">3. Intersections</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your basecode already implements sphere intersections in <code>sphere.h</code>. Modify the
+function <code>sphere::hit</code> to use the geometric intersection test from lecture.
+Note that this architecture uses a <code>hit_record</code>, passed by non-const reference,
+to store the hit information, rather than just return time t.</p>
+</div>
+<div class="paragraph">
+<p>In the file, <code>intesection_tests.cpp</code>, we have included tests to help you debug
+your intersection tests.</p>
+</div>
+<div class="paragraph">
+<p>To run your tests from bash (mac)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>raytracer/build&gt; ../bin/intesection_tests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run your tests from bash (windows)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>raytracer&gt; ../bin/Debug/intesection_tests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Implement <strong>at least two</strong> additional primitives from the following list</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Planes (Implement <code>plane::hit</code> in <code>plane.h</code>)</p>
+</li>
+<li>
+<p>Triangles (Implement <code>triangle::hit</code> in <code>triangle.h</code>)</p>
+</li>
+<li>
+<p>Boxes (Implement <code>box::hit</code> in <code>box.h</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Update `intesection_tests.cpp`to test your code. Make sure you have at least 4 tests</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A ray outside the primitive, which hits the object</p>
+</li>
+<li>
+<p>A ray inside the primitive (hits)</p>
+</li>
+<li>
+<p>A ray outside, pointing towards the primitive that misses</p>
+</li>
+<li>
+<p>A ray outside, pointing away from the primitive (misses)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_materials">4. Materials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the file, <code>materials.h</code>, implement different materials.</p>
+</div>
+<div class="paragraph">
+<p><strong>Requirements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Phong shading model (Implement <code>phong::scatter</code>)</p>
+</li>
+<li>
+<p>Metal (section 9 - implement <code>metal::scatter</code>)</p>
+</li>
+<li>
+<p>Glass (section 10 - implement <code>dielectric::scatter</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Test your materials using the application implemented in <code>materials.cpp</code></p>
+</div>
+<div class="paragraph">
+<p>To run your tests from bash (mac)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>raytracer/build&gt; ../bin/materials</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run your tests from bash (windows)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>raytracer&gt; ../bin/Debug/materials</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A03/materials.png" alt="materials">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implement_a_unique_feature">5. Implement a unique feature</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implement <strong>at least one</strong> unique feature for your ray tracer. You may implement a
+feature from the ray tracing books, or come up with your own. Below are some
+ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support changing the camera position using look at and up vectors</p>
+</li>
+<li>
+<p>Add another primitive</p>
+</li>
+<li>
+<p>Lights</p>
+</li>
+<li>
+<p>Volumetric effects</p>
+</li>
+<li>
+<p>Acceleration data structures</p>
+</li>
+<li>
+<p>Focal blur</p>
+</li>
+<li>
+<p>Other materials</p>
+</li>
+<li>
+<p>Textures</p>
+</li>
+<li>
+<p>Post-processing effects (you can use your PPM class for this!)</p>
+</li>
+<li>
+<p>Enhance your raytracer so it accumulates samples across multiple frames. This will let the user see the image as it is computed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Be sure to highlight your unique feature in your readme!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_unique_image">6. Create a unique image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Create a unique and interesting scene. Note that you can
+procedurally create pattern and geometry in your scene using curves and formulas
+(same as assignment 2).</p>
+</div>
+<div class="paragraph">
+<p>Below are some ideas (choose <strong>at least</strong> 4).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Change the background colors</p>
+</li>
+<li>
+<p>Arrange spheres in a snowflake, DNA helix, or fractal pattern</p>
+</li>
+<li>
+<p>Arrange triangles to make plutonic solids or other interesting surfaces</p>
+</li>
+<li>
+<p>Use all your primitives</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Important: don&#8217;t forget to highlight the features you implement in your readme!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update_readme_md">7. Update Readme.md</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Update <code>Readme.md</code> to include documentation on your unique features and images created with your raytracer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_to_hand_in">8. What to hand in</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Your code. Make sure your code is checked into github</p>
+</li>
+<li>
+<p>One or more images created using your software</p>
+</li>
+<li>
+<p>Update <code>Readme.md</code> so it includes a writeup of the features your application supports. Make sure to include images. Be sure to point out any original features that you implement.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-04-06 08:36:33 -0400
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+include::header.adoc[]
+
+:title: Final project
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Due Thursday, May 20th**
+
+The goals for this project are:
+
+* Explore a graphics project of interest to you
+* Expand on skills and knowledge learned during the semester
+* Create a portfolio project 
+
+:sectnums:
+
+= Requirements
+
+* Your project should create a piece of software, but can be a plugin or stand-alone application
+* Your project should relate to modeling, rendering, or animation
+* Your project must have unique aspects and should not directly copy the code of an existing tutorial 
+
+Your final grade will be based on
+
+* Writeups and presentations
+* Whether your demo builds and runs
+* Demonstrated effort and creativity 
+
+= Milestones
+
+* Project idea: Due May3rd (Informally, email or slack your idea and github URL to the instructor.)
+* Project proposal report/presentation: Due May 6th.
+* Final project presentations: Due May 19th.
+* Final project submission: Due May 20th
+
+= Project Idea
+
+*Due May 3rd*
+
+Email or slack your idea to the instructor along with the github URL for your project.
+
+Resources and Ideas
+
+* Procedurally generate geometry, e.g. create trees and plants, buildings, or terrain
+* Implement a shader that supports skin, water, bump mapping, translucency, reflectance, fur, or non-photorealistic effects
+* Create a non-trivial particle effect, such as explosions or fire
+* Extend your ray tracer to include spatial data structure, do Monte Carlo path tracing, light sources, textures, or more
+* Procedurally generate meshes for 3D printing
+
+The following references might also help you come up with ideas
+
+* SIGGRAPH (early papers)
+* The graphics textbook for this class
+* GPU Gems
+* Shader X
+* shadertoy
+* OpenGL 4.0 cookbook
+
+= Project proposal
+
+*Due May 10th*
+
+Your project proposal should include:
+
+* Project title/idea
+* How will this project be unique from existing demos? 
+* Identify the features you plan to implement and a timeline for completing them
+** Sort your features into minimum required, good-to-have and stretch 
+* Writeup the algorithms, data structures and/or background math you plan to implement
+
+*Submit your proposal on github in a document, `Proposal.md`, located in your project repository*
+
+Your project presentation:
+
+* *5 minutes*
+* should summarize the project idea and describe the underlying algorithms, data structures, and underlying math needed for your project. 
+* on Zoom, during lecture: 1:10pm-2:30pm
+
+= Project presentations
+
+*On Zoom, May 19th, 9:30-12:30am EST*
+
+You final presentation:
+
+* 10 minutes
+* should summarize the project idea and show your results
+
+= Project 
+
+*Due May 20th*
+
+All reports and results should be included in your github repository for this project.
+You should submit:
+
+* Your code. Make sure your code is checked into github
+* At least one or more images or projects created using your software
+* In your `Readme.md`
+** A writeup describing the algorithms, data structures, and math behind your project
+** Instructions for how to build and run your project. We should be able to reproduce your results
+** Summary of results
+
+
+
+= Extra
+
+* Procedural modeling: grammars, fractal terrains, particle flows
+* Reference link:http://algorithmicbotany.org/[Plants]
+* Reference link:https://www.classes.cs.uchicago.edu/archive/2015/fall/23700-1/final-project/MusgraveTerrain00.pdf[Procedural terrains]
+* Reference link:https://dl.acm.org/doi/10.1145/1179352.1141931[Procedural modeling of buildings]
+* Reference link:https://www.cct.lsu.edu/~fharhad/ganbatte/siggraph2007/CD2/content/papers/088-neubert.pdf[Modeling trees with particle flows] 

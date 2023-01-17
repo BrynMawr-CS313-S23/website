@@ -1,0 +1,151 @@
+include::header.adoc[]
+//override default to include table css
+:stylesheet: front.css
+:leveloffset: -1
+
+:course: CS313
+:title: Computer Graphics
+:term: Spring 2023
+
+= {course}: {title} -- {term}
+
+[.anns]
+== Announcements
+
+[unstyled]
+* Topic this week: link:#week01[Introductions, C++]
+* link:asst00.html[Assignment 0] is due Thursday, January 19th.
+
+== Course Info
+
+image::jadeDragonWithSand.jpg[width=600px,align="center"]
+
+**Welcome to CS313**. An introduction to computer graphics. Computer graphics
+is a fundamental technology underlying many applications such as digital
+photography, film, video games, simulation, training, product design,
+architecture, and fabrication. 
+
+In this class, we will study the fundamental algorithms and data structures 
+used to generate images on a digital display. Students will learn 
+how to model 3-dimensional objects and simulate lights and materials. 
+
+Students will additionally gain experience programming with C++ and using git
+for source control. Students will also practice deriving the mathematical
+models that underlie common graphics algorithms. These skills will empower
+students to create their original digital artworks as part of assignments and
+the final project.
+
+Computer graphics is a multi-disciplinary subject, combining knowledge about
+hardware, design, physics, and linear algebra. Computer graphics can be a
+daunting subject because it draws on diverse knowledge and skills. But it
+also offers many opportunities and ways to succeed! You can focus on aesthetics, 
+user experience, hardware performance, mathematics, or software algorithms. 
+Computer graphics are a medium of self expression that let's you bring your own
+ideas to life and be able to share them with others!
+
+//=== Course Preview
+//
+//Below are examples from class demos and assignments.
+//
+//[cols="1a,1a"]
+//|===
+//|.Image filters. Learning goals include image-based filtering techniques.
+//image:soup.png[width=400px]
+//|.Mesh viewer. Learning goals include meshes and phong shading.
+//image:cow.png[width=400px]
+//|.Fire. Learning goals include particle systems, billboards, and glow rendering techniques.
+//image:fire.png[width=400px]
+//|.Path tracing. Learning goals include intersection testing, ray casting, and materials.
+//image:materials.png[width=400px]
+//|===
+
+=== Meeting Times
+
+[.center,options="header,autowidth"]
+|===
+| Activity | Location | Time
+
+| Lecture | Park 245 | Tuesday, Thursday, 1:10-2:30pm
+| Lab | Park 231 | Thursday, 2:25-3:45 pm
+| Office Hours | Park 200A/B | TBD, by appointment  
+
+|===
+
+== Texts and software
+
+**Texts**
+
+Most lecture materials will contain material covered in the following text books. Both should be 
+available from the library and as an e-book.
+
+//* Real-Time Rendering, 4th Edition, by Tomas Akenine-Moller, Eric Haines, Naty Hoffman 
+//* Fundamentals of Computer Graphics, 4th Edition, by Peter Shirley, Michael Ashikhmin, and Steve Marschner
+
+**References**
+
+* **GLFW** link:https://www.glfw.org/documentation[Documentation]
+* **OpenGL** link:https://www.khronos.org/registry/OpenGL/specs/gl/glspec46.core.pdf[Specification]
+* **GLSL** link:https://www.khronos.org/registry/OpenGL/specs/gl/GLSLangSpec.4.60.pdf[Specification]
+* **GLM** link:https://glm.g-truc.net/0.9.9/index.html[Project Page]
+
+**Software**
+
+The Bryn Mawr labs have the following software setup. Students may use the
+computers in Park 230/231 (Windows/Linux). 
+
+* **Github Account** Please go to link:https://github.com/[github.com] and register. You will be using github to submit assignments. 
+* **Slack** Please go to link:https://slack.com/signin[slack.com]. Our workspace is BrynMawr-CS312-S21. You can ask questions and request one-on-one help over zoom using this course's slack channel. 
+
+(Optional) If you would like to setup your own laptop for graphics development, use the resources below:
+
+* **C++ development environment** Please follow the instructions at link:https://github.com/BrynMawr-CS312-2021/cplusplus-beginners[cplusplus-beginners] 
+* **Graphics development environment** Please follow the instructions at link:https://github.com/BrynMawr-CS312-2021/getting-started[getting-started] 
+* **Blender** Please go to link:https://blender.org[blender.org]. Blender is an open-source 3D modeling tool and advanced renderer. We will occasionally use blender to inspect and edit models and materials.
+* **Gimp** Please go to link:https://gimp.org[gimp.org]. Gimp is an open-source image manipulation tol, similar to Photoshop. Photoshop is also fine to use if you are familiar with it. We will occasionally use this program to edit images and generate textures. 
+
+== **Schedule**
+
+The syllabus may change during the semester. Please check here every week for updates 
+on lecture content, worksheets, and assignments.
+
+include::schedule.adoc[]
+
+
+== Grading Policies
+
+All graded work will receive a grade, 4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7,
+1.3, 1.0, or 0.0. At the end of the semester, final grades will be calculated
+as a weighted average of all grades according to the following weights:
+
+|===
+|15% | Final Project
+|40% | Assignments
+|15% | Lab jams
+|15% | Class/Lab worksheets
+|20% | Quizzes
+|===
+
+//include::quizzes.adoc[]
+
+include::latePolicy.adoc[]
+
+include::labPolicy.adoc[]
+
+include::integrity.adoc[]
+
+include::accomodations.adoc[]
+
+== Academic and Student Support
+ 
+Resources:
+ 
+* link:https://www.brynmawr.edu/academicsupport/academic-and-student-support-services[Academic Support, including help with math and quantitative skills!]
+
+include::legal.adoc[]
+
+== External Links
+
+Links that are related to the course may be posted here. If you have suggestions for links, let us know.
+
+[unstyled]
+ * This site was generated with link:https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[asciidoctor]

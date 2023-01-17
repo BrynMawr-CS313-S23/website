@@ -1,0 +1,233 @@
+include::header.adoc[]
+
+:title: Assignment 1: By the power of greyscale!
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Due Monday, March 8, before midnight**
+
+The goals for this assignment are:
+
+* Implement an class for loading and saving PPM files
+* Implement various operations and filters for images
+
+:sectnums:
+
+= Getting started
+
+Fork the repository at https://github.com/BrynMawr-CS312-2021/pixmap-ops
+
+Following the instructions in `Readme.md` to build and run the code.
+
+= ppm_image class 
+
+Implement a class `ppm_image`, which can read and write ASCII PPM files, 
+as described in this link:https://www.cs.swarthmore.edu/~soni/cs35/f13/Labs/extras/01/ppm_info.html[PPM Specification]. 
+
+You are given basecode in `ppm_image.h` and `ppm_image.cpp` to use as a starting point.
+
+We will use ASCII PPM (Portable Pix Map) format to save the images we render. 
+Your PPM images should be readable and writeable from Gimp. Gimp saves files with a 
+header comment, which you can remove, before loading the file in your program. 
+
+== Requirements
+
+* Your class should implement an *assignment operator*, *copy constructor*, and *destructor*
+* Gimp should be able to load images saved by your PPM class.
+* Your class should be capable of loading ascii format PPM files, exported from Gimp. You do not need to handle comments in the header. You can manually remove the comment before loading the file into your class.
+* It's up to you how you store the internal pixel data, but your implementation should not leak memory
+* Your class should implement the following methods:
+** `bool load(const std::string& filename);` 
+*** Loads the PPM file with the given name. Returns true if successful; False otherwise
+** `bool save(const std::string& filename);` 
+*** Loads the PPM file with the given name. Returns true if successful; False otherwise
+** `int width() const;` 
+*** Returns the number of columns in this image
+** `int height() const;` 
+*** Returns the number of rows in this image
+** `ppm_pixel get(int row, int col) const;` 
+*** Gets a pixel (value range in [0,255]) at position (row, col)
+** `void set(int row, int col, const ppm_pixel& c);` 
+*** Sets a pixel (value range in [0,255]) at position (row, col)
+** `ppm_image flip_horizontal();`
+*** Returns a copy of the image flipped along the horizontal middle axis
+** `ppm_image resize(int width, int height);` 
+*** Returns a copy of the imaged resized to the given width and height
+** `ppm_image gammaCorrect(float gamma);` 
+*** Returns a copy of this image with the given gamma correction factor applied to it. 
+** `ppm_image grayscale();` 
+*** Returns a copy of this image as a grayscale image.
+** `ppm_image blend(const ppm_image& other, float alpha);` 
+*** Returns a copy of this image with the other image blended with it by factor alpha. E.g. result.pixel = this.pixel * (1 - alpha) + other.pixel * alpha. Assumes other and this have the same dimensions.
+** `ppm_image subimage(int row, int col, int width, int height) const;` 
+*** Returns a sub-image with top,left corner at (x,y) and width and height
+** `void replace(const ppm_image& image, int row, int col);` 
+*** Replaces the block of pixels starting at (row, col) with the image. Should not assume image fits on this image. 
+
+= Walkthrough and tips
+
+You are given the following starter code, `ppm_image.h`, `ppm_image.cpp`, 
+and `pixmap_test.cpp`. See `Readme.md` for instructions on how to build 
+and run. 
+
+== Load/Copy/Save
+
+To start, make sure that the file, `feep.ppm`, loads and saves correctly. Then test 
+that your width, height, copy constructor, and assignment operator 
+work correctly. Lastly, check that your destructor is cleaning up 
+any memory created by your class!!
+
+The contents of `feep.ppm` are as follows
+[source]
+----
+P3
+4 4
+255
+0  0  0   100 0  0       0  0  0    255   0 255
+0  0  0    0 255 175     0  0  0     0    0  0
+0  0  0    0  0  0       0 15 175    0    0  0
+255 0 255  0  0  0       0  0  0    255  255 255
+----
+
+== Resize
+
+Test resizing the image, `earth-ascii.ppm`. 
+The following code and image show an example.
+
+[source]
+----
+ppm_image resize = image.resize(200,300);
+resize.save("earth-200-300.ppm");
+----
+
+image::A01/earth-200-300.png[]
+
+== Flip horizontally
+
+The following code and image show an example.
+
+[source]
+ ----
+ppm_image flip = image.flip_horizontal(); 
+flip.save("earth-flip.ppm"); 
+----
+
+image::A01/earth-flip.png[]
+
+== Gamma correction
+
+The following code and images show two examples.
+
+[source]
+----
+ppm_image gamma = image.gammaCorrect(0.6f); 
+gamma.save("earth-gamma-0.6.ppm"); 
+
+gamma = image.gammaCorrect(2.2f);
+gamma.save("earth-gamma-2.2.ppm"); 
+----
+
+Gamma = 0.6
+
+image::A01/earth-gamma-0.6.png[]
+
+Gamma = 2.2
+
+image::A01/earth-gamma-2.2.png[]
+
+== Grayscale
+
+The following code and image show an example.
+
+[source]
+----
+ppm_image grayscale = image.grayscale(); 
+grayscale.save("earth-grayscale.ppm");
+----
+
+image::A01/earth-grayscale.png[]
+
+== Subimage
+
+The following code and image show an example.
+
+[source]
+----
+ppm_image sub = image.subimage(200, 200, 100, 100); 
+sub.save("earth-subimage.ppm"); 
+----
+
+image::A01/earth-subimage.png[]
+
+== Blend and replace
+
+The following code and image show an example.
+
+[source]
+----
+ppm_image soup;
+soup.load("../images/soup-ascii.ppm");
+
+int y = (int) (0.5f * (image.width() - soup.width()));
+int x = (int) (0.5f * (image.height() - soup.height()));
+ppm_image background = image.subimage(x, y, soup.width(), soup.height());
+background.save("background-test.ppm");
+
+ppm_image blend = background.alpha_blend(soup, 0.5f);
+image.replace(blend, x, y);
+image.save("earth-blend-0.5.ppm");
+----
+
+image::A01/earth-blend-0.5.png[]
+
+= Define your own operators
+
+Implement *at least six* additional operations for your ppm_image class. You can make 
+up your own filter, re-implement a filter from Gimp, or research an interesting filter online. 
+Make sure to document your choice in the `Readme.md` of your assignment. Below are some ideas:
+
+* Rotate 90 degrees: rotate the image clockwise by 90 degrees
+* Swirl colors: rotate the colors of your image such that the red channel becomes the green channel, the green becomes blue, and the blue becomes red.
+* Invert colors: subtract each color channel from the max value, 255.
+* Add a border around the edge of your images.
+* Distort: displace pixels based on sine and cosine.
+* Extract the red, blue, or green channels
+* Bitmap: Create a 'fat bits' version of your image
+* Overlay a fill color, or blend a pattern of colors
+* Lightest: given a ppm_image, implement `max(this.pixel, other.pixel)`
+* Darkest: given a ppm_image, implement `min(this.pixel, other.pixel)`
+* Difference: given a ppm_image, implement `this.pixel - other.pixel`
+* Multiply: given a ppm_image, implement `this.pixel * other.pixel`
+* link:https://en.wikipedia.org/wiki/Sobel_operator[Sobel operator]
+* link:https://en.wikipedia.org/wiki/Gaussian_blur[Gaussian blur]
+* link:https://en.wikipedia.org/wiki/Box_blur[Box blur]
+* Randomize colors or 'jitter' the colors 
+
+= Create a unique image
+
+In the program, `pixmap_art.cpp`, use multiple effects to create one or more
+unique images. Feel free to use your own images exported from Gimp 
+(or another image application).
+
+*Make sure to use your custom operations from the previous question in your 
+artworks!! You will not get credit for operators which you don't test and show 
+work correctly!*
+
+Below are some ideas:
+
+image::A01/kitty-bitmap.png[width=256px]
+image::A01/SoupTile.png[width=256px]
+image::A01/SoupTunnel-Darkest.png[width=128px]
+
+= Update Readme.md
+
+Update `Readme.md` to include documentation on your unique features and art created with your class.
+
+= What to hand in
+
+. Your code. Make sure your code is checked into github
+. One or more images created using your software
+. Update `Readme.md` so it includes a writeup of the features your application supports 

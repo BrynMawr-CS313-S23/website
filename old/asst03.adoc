@@ -1,0 +1,201 @@
+include::header.adoc[]
+
+:title: Assignment 3: It's a material world
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Due Thursday, April 8, before midnight**
+
+The goals for this assignment are:
+
+* Implement a raytracer containing a unique set of features
+* Implement materials, such as lambert, phong, metals, glass
+* Implement different primitive types, such as spheres, planes, triangles, and boxes
+* Implement one or more unique scenes
+
+:sectnums:
+
+= Getting started
+
+Fork the repository at https://github.com/BrynMawr-CS312-2021/raytracer
+
+Follow the instructions in `Readme.md` to build and run the code.
+
+If you have already forked this repository, update your 
+repository with the original repository.
+
+[source,subs=quotes]
+----
+git remote add source https://github.com/BrynMawr-CS312-2021/raytracer.git
+git fetch source
+git merge source/main
+----
+
+You may already have a script, `update.sh`, which performs the above steps.
+
+= Getting started
+
+Our raytracer basecode is based on the architecture in 
+link:https://raytracing.github.io/books/RayTracingInOneWeekend.html[Ray tracing in one weekend].
+Read this book to understand the classes and utilities included with your basecode.
+
+Your basecode uses the link:https://github.com/g-truc/glm/blob/master/manual.md[GLM math library] 
+for vectors, points, and colors (all have type glm::vec3)
+
+Your base code also uses the ppm_image class to save your output to a PNG file.
+
+== Lecture demos
+
+Make sure that you can build and run the examples from lecture.
+
+*gradient* 
+
+image::A03/gradient.png[]
+
+*silhouette*
+
+image::A03/silhouette.png[]
+
+*normals*
+
+image::A03/normals.png[]
+
+== Basic raytracer
+
+Look at file, `basic.cpp`. This program implements a simple raytracer that 
+supports lambertian materials using the architecture 
+from link:https://raytracing.github.io/books/RayTracingInOneWeekend.html[Ray tracing in one weekend].
+This architecture defines classes for
+
+* ray 
+* camera
+* hittable
+* hittable_list
+* material
+* sphere
+
+When you run this program, you should see:
+
+image::A03/basic-empty.png[]
+
+Notice that the basecode implements the following features
+
+* Spheres (section 5, 6.13)
+* Antialiasing  (section 7)
+* Gamma correction (section 8.22)
+
+You can improve the quality of the final image by modifying the parameters
+`samplers_per_pixel` and `max_depth` used by the raytracing algorithm.
+
+After you implement the lambertian material (probabilistic method from section 8), you 
+should see the followng
+
+image::A03/basic.png[]
+
+= Intersections
+
+Your basecode already implements sphere intersections in `sphere.h`. Modify the 
+function `sphere::hit` to use the geometric intersection test from lecture. 
+Note that this architecture uses a `hit_record`, passed by non-const reference, 
+to store the hit information, rather than just return time t.
+
+In the file, `intesection_tests.cpp`, we have included tests to help you debug 
+your intersection tests. 
+
+To run your tests from bash (mac)
+[source,sub=quotes]
+----
+raytracer/build> ../bin/intesection_tests
+----
+
+To run your tests from bash (windows)
+[source,sub=quotes]
+----
+raytracer> ../bin/Debug/intesection_tests
+----
+
+Implement *at least two* additional primitives from the following list
+
+* Planes (Implement `plane::hit` in `plane.h`)
+* Triangles (Implement `triangle::hit` in `triangle.h`)
+* Boxes (Implement `box::hit` in `box.h`)
+
+Update `intesection_tests.cpp`to test your code. Make sure you have at least 4 tests
+
+* A ray outside the primitive, which hits the object 
+* A ray inside the primitive (hits)
+* A ray outside, pointing towards the primitive that misses
+* A ray outside, pointing away from the primitive (misses)
+
+= Materials
+
+In the file, `materials.h`, implement different materials. 
+
+**Requirements**
+
+* Phong shading model (Implement `phong::scatter`)
+* Metal (section 9 - implement `metal::scatter`)
+* Glass (section 10 - implement `dielectric::scatter`)
+
+Test your materials using the application implemented in `materials.cpp`
+
+To run your tests from bash (mac)
+[source,sub=quotes]
+----
+raytracer/build> ../bin/materials
+----
+
+To run your tests from bash (windows)
+[source,sub=quotes]
+----
+raytracer> ../bin/Debug/materials
+----
+
+image::A03/materials.png[]
+
+= Implement a unique feature
+
+Implement *at least one* unique feature for your ray tracer. You may implement a 
+feature from the ray tracing books, or come up with your own. Below are some 
+ideas:
+
+* Support changing the camera position using look at and up vectors
+* Add another primitive 
+* Lights
+* Volumetric effects
+* Acceleration data structures
+* Focal blur
+* Other materials
+* Textures
+* Post-processing effects (you can use your PPM class for this!)
+* Enhance your raytracer so it accumulates samples across multiple frames. This will let the user see the image as it is computed. 
+
+*Be sure to highlight your unique feature in your readme!*
+
+= Create a unique image
+
+Create a unique and interesting scene. Note that you can 
+procedurally create pattern and geometry in your scene using curves and formulas 
+(same as assignment 2).
+
+Below are some ideas (choose *at least* 4).
+
+* Change the background colors
+* Arrange spheres in a snowflake, DNA helix, or fractal pattern
+* Arrange triangles to make plutonic solids or other interesting surfaces 
+* Use all your primitives
+
+*Important: don't forget to highlight the features you implement in your readme!*
+
+= Update Readme.md
+
+Update `Readme.md` to include documentation on your unique features and images created with your raytracer.
+
+= What to hand in
+
+. Your code. Make sure your code is checked into github
+. One or more images created using your software
+. Update `Readme.md` so it includes a writeup of the features your application supports. Make sure to include images. Be sure to point out any original features that you implement.

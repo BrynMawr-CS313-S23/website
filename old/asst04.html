@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>Assignment 4: Give it your best PLY</title>
+<link rel="stylesheet" href="style/cs21.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_assignment_4_give_it_your_best_ply">Assignment 4: Give it your best PLY</a></li>
+<li><a href="#_getting_started">1. Getting started</a></li>
+<li><a href="#_getting_started_2">2. Getting started</a></li>
+<li><a href="#_a_simple_mesh">3. A simple mesh</a></li>
+<li><a href="#_mesh_viewer">4. Mesh viewer</a>
+<ul class="sectlevel2">
+<li><a href="#_meshes">4.1. Meshes</a></li>
+<li><a href="#_shading_examples">4.2. Shading examples</a></li>
+</ul>
+</li>
+<li><a href="#_mesh_demo">5. Mesh demo</a></li>
+<li><a href="#_update_readme_md">6. Update Readme.md</a></li>
+<li><a href="#_what_to_hand_in">7. What to hand in</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_assignment_4_give_it_your_best_ply">Assignment 4: Give it your best PLY</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Due Monday, April 19, before midnight</strong></p>
+</div>
+<div class="paragraph">
+<p>The goals for this assignment are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement an interactive model viewer using openGL 4.0+</p>
+</li>
+<li>
+<p>Read and display meshes in PLY file format</p>
+</li>
+<li>
+<p>Implement blinn-phong materials using shaders</p>
+</li>
+<li>
+<p>Try importing your own models, and implementing your own effects and shaders</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">1. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fork the repository at <a href="https://github.com/BrynMawr-CS312-2021/mesh-viewer" class="bare">https://github.com/BrynMawr-CS312-2021/mesh-viewer</a></p>
+</div>
+<div class="paragraph">
+<p>Follow the instructions in <code>Readme.md</code> to build and run the code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started_2">2. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will be using <a href="https://www.khronos.org/files/opengl4-quick-reference-card.pdf">OpenGL</a>
+to build our viewer.</p>
+</div>
+<div class="paragraph">
+<p>Your basecode uses the <a href="https://github.com/g-truc/glm/blob/master/manual.md">GLM math library</a>
+for vectors, points, and colors (all have type glm::vec3)</p>
+</div>
+<div class="paragraph">
+<p>Make sure that you can build and run the examples from lecture.
+The examples from lecture can be found <a href="https://github.com/BrynMawr-CS312-2021/opengl-examples">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_simple_mesh">3. A simple mesh</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modify <code>simple.cpp</code> to draw a simple pyramidal mesh using vbos and an index buffer (here is a good <a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/">reference</a>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/simple-onetri.png" alt="simple onetri">
+</div>
+</div>
+<div class="paragraph">
+<p>You are given basecode which renders one triangle. To run it from your build
+directory on windows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>build $ ../bin/Debug/mesh-simple.exe</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and on mac</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>build $ ../bin/mesh-simple</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You are given an implementation that draws a single triangle with corners
+(1,-1,0.5), (-1,-1,0.5), and (0,1,0.5). You are also given a shader, <code>unlit</code>, that colors
+each vertex based on its normal. Add two more triangles with the following
+coordinates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(-1,-1,0.5), (0,-1,-0.5), and (0,1,0.5)</p>
+</li>
+<li>
+<p>(0,-1,-0.5), (1,-1,0.5), and (0,1,0.5)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This example uses <em>flat</em> shading, so we will repeat the vertices for
+each triangle. Your new <strong>positions</strong> buffer will have 9 vertices (27 floats) in it;
+your new <strong>normals</strong> buffer will have 9 (27 floats) directions in it; and your new <strong>indices</strong>
+buffer will have 9 indexes in its. The number of triangles will now be 3.</p>
+</div>
+<div class="paragraph">
+<p>Your application is using the default orthographic projection and camera.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modify your program to use a perspective projection.</p>
+</li>
+<li>
+<p>Modify your program to support a camera that rotates around the origin with the mouse.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Dragging with the left mouse down should rotate the camera around the origin.</p>
+</li>
+<li>
+<p>SHIFT+Drag with the left mouse button down should move the camera towards and away from the origin</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Perspective projection</strong></p>
+</div>
+<div class="paragraph">
+<p>Define a <code>mat4</code> to hold the projection. Use the function <code>glm::perspective</code>
+to set the properties of the projection.</p>
+</div>
+<div class="paragraph">
+<p>Add a uniform mat4 variable, <code>mvp</code>, to your vertex shader, <code>unlit.vs</code>. This variable will
+hold the model-view-projection matrix from your application.</p>
+</div>
+<div class="paragraph">
+<p>Modify <code>simple.cpp</code> to set the value of <code>mvp</code> using <code>glUniformMatrix4fv</code>. See the class example,
+<code>triangle-shadermvp.cpp</code> for an example.</p>
+</div>
+<div class="paragraph">
+<p><strong>Camera controls</strong></p>
+</div>
+<div class="paragraph">
+<p>Define a <code>mat4</code> to hold the current camera orientation and position. Use the function
+<code>glm::lookat</code> to set its properties. To implement a camera that orbits around the origin:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lookat</code> position will be (0,0,0)</p>
+</li>
+<li>
+<p><code>lookfrom</code> position should rotate horizontally around the Y axis and elevate vertically around the XZ plane. This is most easily implemented using polar coordinates. Let <code>azimuth</code> be the rotation around the Y axis, <code>elevation</code> be the vertical rotation, and <code>dist</code> by the distance from the origin. Then the position <code>lookfrom</code> is</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>x = Dist * sin(Azimuth) * cos(Elevation)
+y = Dist * sin(Elevation)
+z = Dist * cos(Azimuth) * cos(Elevation)</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <code>cursor_position_callback</code>, compute the change in mouse movement from the last frame and use the changes in the horizontal and vertical directions to modify <code>Azimuth</code> and <code>Elevation</code>. When SHIFT is pressed, modify <code>Dist</code>.</p>
+</li>
+<li>
+<p>Modify your program to send the combined view and projection matrices to your shader</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/simple-threetri.gif" alt="simple threetri">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mesh_viewer">4. Mesh viewer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implement an application that can preview the meshes in the <code>/models</code> directory.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/mesh-viewer.gif" alt="mesh viewer">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Controls</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>n or N goes to the next model</p>
+</li>
+<li>
+<p>p or P goes to the previous model</p>
+</li>
+<li>
+<p>Left-drag orbits the camera around the model</p>
+</li>
+<li>
+<p>SHIFT-left drag zooms in and out</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Features/Requirements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When loading a model, your must ensure that the model fits inside in the view volume. You can either scale and translate the model to make it fit, or modify the camera and projection (your choice).</p>
+</li>
+<li>
+<p>Your model should be rendered with phong-blinn shading. Implement your shader in <code>phong.vs</code> and <code>phong.fs</code></p>
+</li>
+<li>
+<p>Your viewer should support the same camera controls as the simple mesh viewer</p>
+</li>
+<li>
+<p>Your Mesh class should not leak memory</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You are given basecode for this assignment. Window and openGL features are in <code>meshviewer.cpp</code>.
+Your mesh code is in <code>mesh.h</code> and <code>mesh.cpp</code>.</p>
+</div>
+<div class="paragraph">
+<p>You are given basecode which renders one triangle. To run it from your build
+directory on windows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>build $ ../bin/Debug/mesh-viewer.exe</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and on mac</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>build $ ../bin/mesh-viewer</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_meshes">4.1. Meshes</h3>
+<div class="paragraph">
+<p>Implement a class <code>Mesh</code> that is capable of loading <a href="http://paulbourke.net/dataformats/ply/">PLY files</a>.
+Your mesh should</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>represent triangles using vbos and indexed lists</p>
+</li>
+<li>
+<p>load the PLY file format</p>
+</li>
+<li>
+<p>compute the axis-aligned bounding box for its vertices. An axis-aligned bounding box consists of</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the minimum values of x, y, and z</p>
+</li>
+<li>
+<p>the maximum values of x, y, and z
+You can compute the minimum and maximum values when you load the PLY file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The mesh class must implement the following API:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Mesh()</p>
+</li>
+<li>
+<p>~Mesh()</p>
+</li>
+<li>
+<p>loadPLY(const std::string&amp; filename)</p>
+</li>
+<li>
+<p>getMinBounds()</p>
+</li>
+<li>
+<p>getMaxBounds()</p>
+</li>
+<li>
+<p>numVertices()</p>
+</li>
+<li>
+<p>positions()</p>
+</li>
+<li>
+<p>normals()</p>
+</li>
+<li>
+<p>numTriangles()</p>
+</li>
+<li>
+<p>indices()</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feel free to add additional methods as needed.</p>
+</div>
+<div class="paragraph">
+<p><strong>The PLY file format</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ply
+format ascii 1.0
+element vertex 4
+property float32 x
+property float32 y
+property float32 z
+property float32 nx
+property float32 ny
+property float32 nz
+element face 3
+property list uint8 int32 vertex_indices
+end_header
+-0.001 0.002 0.070 1.000 0.000 0.000
+-0.009 0.044 0.088 1.000 0.000 0.000
+-0.01 0.033 0.09 1.000 0.000 0.000
+-0.023 0.031 0.082 1.000 0.000 0.000
+3 0 1 2
+3 2 3 1
+3 3 0 2</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/PLYFileAdvice-ExtSchool.png" alt="PLYFileAdvice ExtSchool">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shading_examples">4.2. Shading examples</h3>
+<div class="paragraph">
+<p>Using the unlit shader (default)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-unlit.png" alt="cow unlit">
+</div>
+</div>
+<div class="paragraph">
+<p>Using per-vertex phong shading</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-phong-pervertex.gif" alt="cow phong pervertex">
+</div>
+</div>
+<div class="paragraph">
+<p>Using per-pixel phong shading</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-phong-perpixel.gif" alt="cow phong perpixel">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mesh_demo">5. Mesh demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implement your own mesh demo in the file <code>meshdemo.cpp</code>.</p>
+</div>
+<div class="paragraph">
+<p>Add <strong>at least one</strong> unique feature to your viewer.</p>
+</div>
+<div class="paragraph">
+<p>You can also add new files for your viewer. You can export PLY files from
+Blender. Try finding a free model online and converting to PLY, or even
+create a model of your own! Be sure to credit the artist if you use someone
+else&#8217;s work.</p>
+</div>
+<div class="paragraph">
+<p>Ideas for unique features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement your own shader: you might try toon shading, procedural textures, or color effects</p>
+</li>
+<li>
+<p>Support textures. Load UV coordinates and pass them to your shader along with an image.</p>
+</li>
+<li>
+<p>Animate the vertices of the model in your vertex shader</p>
+</li>
+<li>
+<p>Add a feature to animate the light source</p>
+</li>
+<li>
+<p>Implement per-pixel lighting</p>
+</li>
+<li>
+<p>Implement features that allow a user to edit a model</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is the cow with toon shading</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-toon.gif" alt="cow toon">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update_readme_md">6. Update Readme.md</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Update <code>Readme.md</code> to include documentation on your unique features and images created with your mesh-viewer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_to_hand_in">7. What to hand in</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Your code. Make sure your code is checked into github</p>
+</li>
+<li>
+<p>One or more images created using your software</p>
+</li>
+<li>
+<p>Update <code>Readme.md</code> so it includes a writeup of the features your application supports. Make sure to include images. Be sure to point out any original features that you implement.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-04-20 16:00:52 -0400
+</div>
+</div>
+</body>
+</html>

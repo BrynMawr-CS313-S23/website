@@ -1,0 +1,176 @@
+include::header.adoc[]
+
+:title: Assignment 5: Special effects
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Due Thursday, April 29, before midnight**
+
+The goals for this assignment are:
+
+* Implement particle systems using point sprites, or billboards
+
+:sectnums:
+
+= Getting started
+
+Fork the repository at https://github.com/BrynMawr-CS312-2021/particles
+
+Follow the instructions in `Readme.md` to build and run the code.
+
+= Getting started
+
+You are given basecode for rendering quads with textures. The basecode uses
+
+* link:https://www.khronos.org/files/opengl4-quick-reference-card.pdf[OpenGL] 
+* link:https://github.com/g-truc/glm/blob/master/manual.md[GLM math library] 
+
+= Billboards
+
+Edit the shader `billboard.vs` to draw a billboard. Your billboard should be
+
+* centered at the position `uOffset`
+* scaled to match `uSize`
+* rotated to point towards `uCameraPos`
+
+To get started, run the program implemented in `main-billboard.cpp`. This program uses the class 
+`Renderer` to draw a single billboard using the shader `billboard.vs` and `billboard.fs`.
+
+On windows
+
+[source]
+----
+build $ ../bin/Debug/billboard.exe 
+----
+
+and on mac
+
+[source]
+----
+build $ ../bin/billboard
+----
+
+When you run this program, you should see
+
+image::A05/billboard-start.png[]
+
+This program implements a billboard as a quad with vertices at (0,0,0),
+(1,0,0), (1,1,0), and (0,1,0). It textures the quad using the image `particle.png`.
+
+After you implement the position and scale (do not multiply by uVP yet), you should see
+
+image::A05/billboard-scale-offset.png[]
+
+Next, apply the view-projection matrix to the billboard position. You should see
+
+image::A05/billboard-norot.gif[]
+
+The camera is rotating around the billboard, but the image does not remain facing the camera.
+Compute and apply a rotation matrix in your shader that points the billboard towards the 
+camera (Hint: use cross products). Once working, you should see
+
+image::A05/billboard-rot.gif[]
+
+= Confetti
+
+In `confetti.cpp`, implement a particle system with the following features
+
+* The initial position of each particle is randomly within a unit cube 
+** Hint: use the function `random_unit_cube` defined in `AGLM.h`
+* The colors of each particle is randomized
+* The velocities of each particle is randomized
+* The size of each particle is 0.25
+* The particles should stay within a cube with minimum point (-1,-1,-1) and maximum point (1,1,1) 
+
+
+On windows
+
+[source]
+----
+build $ ../bin/Debug/confetti.exe 
+----
+
+and on mac
+
+[source]
+----
+build $ ../bin/confetti
+----
+
+Walkthrough and hints:
+
+* The particle system, `Confetti`, overrides the abstract class ParticleSystem, defined in `particlesystem.h`. Subclasses must override `createParticles` and `update`. The base class contains the renderer and performs drawing each frame.
+* The main application is implemented in `main-confetti.cpp`
+* In the function `Confetti::createParticles`, 
+** load the particle texture with the code `mTexture = theRenderer.loadTexture("../textures/particle.png");`
+** initialize the list of particles based on the size. The baseclass manages its list of particles using `std::vector mParticles`. Use the function `push_back` to add particles to `mParticles`
+* In the function `Confetti::update`, update the position of each particle based on its velocity. 
+** If the position goes out of the bounds [-1,1], reflect the velocity 
+
+At this point, you should see the following with a single particle (edit `confetti-main.cpp` to initialize the system to have 1 particle). 
+
+image::A05/confetti-single.gif[]
+
+With 500 particles, you should see
+
+video::A05/confetti-nosort.mp4[]
+
+Notice all the black, square edges. This occurs because our particles are not drawn from back to front 
+in relationship to the camera. The blending cannot work correctly if the particles are not sorted. To fix this, 
+you should also sort the particles in `update`.
+
+* You can call `theRenderer.cameraPosition()` to get the camera position.
+* You can use a _sorting shortcut_ which takes advantage of the fact that particles do not shift too much between frames (called _spatial and temporal coherency_). In this approach, go through the list once, compare consecutive particles, and swap if one particle should be in front of another. 
+
+[source]
+----
+// cheap sort
+for each particle
+   d2 = distance from particle to camera
+   d1 = distance from previous particle to camera
+   if d2 < d1
+      swap(particle, previous particle) 
+----
+
+video::A05/confetti-sort.mp4[]
+
+= Unique demo
+
+Implement a unique particle system. Here are some ideas:
+
+* Fire (animated sprites)
+* Smoke plume
+* Fireworks
+* Sparkle trailing effect 
+
+* Implement your particle system as a subclass of `ParticleSystem` in `myparticlesystem.h/cpp`
+* Test your particle system in `main-demo.cpp`
+
+On windows
+
+[source]
+----
+build $ ../bin/Debug/demo.exe 
+----
+
+and on mac
+
+[source]
+----
+build $ ../bin/demo
+----
+
+video::A05/fire.mp4[]
+
+= Update Readme.md
+
+Update `Readme.md` to include documentation on your unique features and images created with your mesh-viewer.
+
+= What to hand in
+
+. Your code. Make sure your code is checked into github
+. One or more images created using your software
+. Update `Readme.md` so it includes a writeup of the features your application supports. Make sure to include images. Be sure to point out any original features that you implement.

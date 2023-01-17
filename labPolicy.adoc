@@ -1,0 +1,10 @@
+=== Labs
+
+Labs will consist of active practice, quizzes, and additional office hour time. 
+I expect that you will run into 
+problems while working on your assignments. Lab is the perfect time to ask 
+for debugging advice and clarifications on the assignment. 
+That's what I'm here for. 
+
+At the end of the semester, we will use lab to share weekly progress on our projects. 
+

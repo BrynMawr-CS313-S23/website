@@ -1,0 +1,149 @@
+
+
+[cols="1,2,6a", options="header"]
+|===
+| Week 
+| Date 
+| Topics & ToDo
+
+//-----------------------------
+|1
+|Jan 17, 19
+|*3D Graphics Fundamentals, C++* anchor:week01[]
+
+* Topics: Graphics development environment, interactive programming patterns, C++
+* link:asst00.html[Assignment 00: Hello, CS313!] is due January 19 at midnight
+* (Optional) link:https://www.udemy.com/course/free-learn-c-tutorial-beginners/[C++ Course]
+* link:https://gameprogrammingpatterns.com/game-loop.html[Game Loop]
+* link:https://gameprogrammingpatterns.com/update-method.html[Update Loop]
+
+//-----------------------------
+|2
+|Jan 24,26
+|*Pixels and colors* anchor:week02[]
+
+* Topics: pixels, images, color, compositing, C++ classes, structs, pointers and arrays
+* link:asst01.html[Assignment 01: Interaction] is due January 26 at midnight
+* Read: Marschner and Shirley, Chapter 3
+
+//-----------------------------
+|3
+|Jan 31, Feb 2
+|*Geometry fundamentals*  anchor:week03[]
+
+* Topics: Lines, vectors, points, coordinate systems, dot and cross product, sine, cosine, tangent.
+* Read: link:http://immersivemath.com/ila/index.html[Immersive Linear Algebra]:Chapter 2,3
+* link:.html[Assignment 02: By the power of grayscale] is due in two parts: Feb 2 and Feb 9 at midnight
+
+//-----------------------------
+|4
+|Feb 7,9
+|*2D Drawing* anchor:week04[]
+
+* Topics: Bresenham's algorithm, Barycentric coordinates, Triangle/Polygon rasterization
+* Read: Marschner and Shirley, Sections 8.1.1, 8.1.2
+
+//-----------------------------
+|5
+|Feb 14,16
+|*Meshes, Transformations I* anchor:week05[]
+
+* Topics: Vertices, Edges, Faces, Matrices, Translation, Rotation, Scale
+* Read: Real-time Rendering, Chpt 4, 16.1-16.4.5
+* Read: Marschner and Shirley, Chapter 6 and 7
+* link:.html[Assignment 03: Green eggs and Bresenham] is due in two parts
+* Read link:http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/[Meshes: VBO Indexing]
+* Read link:http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/[OpenGL Matrix tutorial]
+* Reference link:https://learnopengl.com/Getting-started/Coordinate-Systems[OpenGL Coordinate Systems] 
+* Reference link:https://glm.g-truc.net/0.9.4/api/a00151.html#ga8925161ecc1767957900c5ca8b922dc4[GLM matrix reference]
+
+//-----------------------------
+|6
+|Feb 21,23
+|*Cameras, Projections, Transformations II* anchor:week06[]
+
+* Topics: Projections, View transforms, Matrix stacks
+* Read: Real-time Rendering, Chpt 4
+* Read: Marschner and Shirley, Chapter 6 and 7
+
+//-----------------------------
+|7
+|Feb 28, March 2
+|*Shaders* anchor:week07[]
+
+* Topics: Graphics pipeline, graphics processing unit, shaders 
+* Read: Real-time Rendering, Chpt 2, 3, 5
+* link:.html[Assignment 04: Meshes] 
+* Lab: Modeling in Blender
+
+//-----------------------------
+|8
+|March 7,9
+|*Spring Break* anchor:week08[]
+
+* *No lab/class this week*
+
+//-----------------------------
+|9
+|March 14,16
+|*Lighting, Materials* anchor:week09[]
+
+* Topics: Normals, Light sources, Phong shading model, Cartoon shading
+* link:.html[Assignment 05: Give it your best PLY] is due in three parts
+
+//-----------------------------
+|10
+|March 21,23
+|*Textures* anchor:week10[]
+
+* Topics: Texture mapping, sky boxes
+
+
+//-----------------------------
+|11
+|March 28,30
+|*Materials II* anchor:week11[]
+
+* Topics: Environment mapping, reflection, transparency, glow
+* LaJune McMillan Visit
+
+//-----------------------------
+|12
+|April 4,6
+|*Particles* anchor:week12[]
+
+* Topics: Billboards, sprites, textures, alpha blending and transparency
+* link:.html[Assignment 06: Special effects]
+* link:.html[Project details]
+
+
+//-----------------------------
+|13
+|April 11,13
+|*Advanced topics (TBD)* anchor:week13[]
+
+* *May 10: Project presentations (in Lecture, 5 min each)* 
+* *May 10: Project proposals due* 
+
+//-----------------------------
+|14
+|April 18,20
+|*Shadertoy* anchor:week14[]
+
+* *May 10: Project presentations (in Lecture, 5 min each)* 
+* Ray tracing, ray marching, signed-distance functions
+* Reference link:https://thebookofshaders.com/[Book of Shaders]
+* Reference link:https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm[Signed-distance functions]
+
+//-----------------------------
+|15
+|April 25,27
+|*Shadertoy* anchor:week15[]
+
+* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
+* *May 10: Project presentations (in Lecture, 5 min each)* 
+* Ray marching, signed-distance functions
+* Reference link:https://thebookofshaders.com/[Book of Shaders]
+* Reference link:https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm[Signed-distance functions]
+
+|===
