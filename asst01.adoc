@@ -24,5 +24,9 @@ C++ programs to get our bearings.
 Fork the repository at link:https://github.com/BrynMawr-CS312-2021/cpp-warmup[cpp-warmup]. 
 Complete the programs and push them back to github.
 
-If you have questions about using github and programming in C++, we will have
-a git/C++ workshop during our first lab on February 18th, at 2:30pm.
+// Implement isSorted on an array of random values (randomness is important)
+// Implement Rose curve class
+
+= Rose curves
+
+// Implement a rose curve drawer

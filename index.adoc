@@ -118,11 +118,11 @@ All graded work will receive a grade, 4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7,
 as a weighted average of all grades according to the following weights:
 
 |===
-|15% | Final Project
+|10% | Final Project
 |40% | Assignments
-|15% | Lab jams
+|15% | Lab jams (quizzes)
 |15% | Class/Lab worksheets
-|20% | Quizzes
+|20% | Final exam
 |===
 
 //include::quizzes.adoc[]

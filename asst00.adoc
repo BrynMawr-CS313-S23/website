@@ -14,7 +14,7 @@ The goals for this assignment are:
 * Sign-up for github
 * Join slack
 * Look at the website!
-* Setup your graphics development environment
+* (Optional) Setup your graphics development environment
 
 :sectnums:
 
@@ -43,7 +43,7 @@ algorithms, you must attribute them!
 = Join slack
 
 I will be inviting you all to join the course slack channel. In the
-introduction channel, say and introduce yourself:
+`#computer-graphics` channel, say and introduce yourself:
 
 * What is your preferred name and pronouns?
 * Post an image created with computer graphics with a brief sentence about it.
