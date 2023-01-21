@@ -14,7 +14,7 @@ include::header.adoc[]
 
 [unstyled]
 * Topic this week: link:#week01[Introductions, C++]
-* link:asst00.html[Assignment 0] is due Thursday, January 19th.
+* link:asst01.html[Assignment 1] is due Thursday, January 25th.
 
 == Course Info
 

@@ -1,9 +1,10 @@
 include::header.adoc[]
 
-:title: Assignment 01: Hello C++!
+:title: Assignment 01: Blobilism
 :Author Initials: ASN
 :Date:    2020-02-07
 :Revision: 0.1
+:stem: latexmath
 
 = {title}
 
@@ -11,22 +12,67 @@ include::header.adoc[]
 
 The goals for this assignment are:
 
-* Build and write simple C++ programs
 * Build and write a simple interactive application
+* Repond to user key and mouse events
+* Write a C++ program 
+* Use std::vector
+* Work within a 2D coordinate system
 
 :sectnums:
 
-= C++ warm-up 
+= Description
 
-If you're used to programming in Java, modern C++ will be similar. Let's write some basic 
-C++ programs to get our bearings.
+In the file, `drawer.cpp`, implement a drawing program. 
 
-Fork the repository at link:https://github.com/BrynMawr-CS312-2021/cpp-warmup[cpp-warmup]. 
-Complete the programs and push them back to github.
+* Support a circle brush type
+* Support multiple brush sizes (no smaller than size 1)
+* Support multiple colors with a pallette (at least three) 
+* Support transparency
+* Clear an image
 
-// Implement isSorted on an array of random values (randomness is important)
-// Implement Rose curve class
+NOTE: Your program will use a simple API based on openGL and GLFW. link:https://alinen.github.io/tinygl-cpp/html/functions.html[Click here to see the documentation].
 
-= Rose curves
+video::A01/Blobilism.mp4[]
 
-// Implement a rose curve drawer
+= Build
+
+Fork the repository at https://github.com/BrynMawr-CS313-S23/blobilism into your 
+own repository.
+
+Clone the repository to your own machine and follow the directions in the README 
+to build.
+
+NOTE: Don't forget to do an "out of source" build and run `cmake ..` from the `/build` directory!
+
+You are given basecode for this assignment. When you run the basecode, you should see the following image.
+
+image::A01/basecode.png[]
+
+= Requirements
+
+* Your program should accept the following *key input*
+** The 'c' key should clear the canvas. 
+** The 'UP' key should increase the brush size
+** The 'DOWN' key should decrease the brush size. The brush size should not be allowed to go smaller than 1.
+** The 'RIGHT' key should decrease the transparency. The transparency should go no smaller than 0.
+** The 'LEFT' key should increase the transparency.
+* You program should have *circle buttons* for changing the current color 
+** Check whether the user clicked inside any of the pallet buttons. If yes, change the current color to the pallet button's color.
+* When the user moves the mouse, you should store the current size, color, and (x,y) coordinate in a vector. (Hint: Use a struct or class to store this information together)
+* Your program should follow the course link:styleguide.html[style guide].
+* *DON'T FORGET* to update the README! 
+
+= Hints
+
+*Computing distance*
+
+To check whether the user clicks a pallette circle, compute the distance between 
+the current mouse position and each of the circles in your pallette. Recall that 
+the distance between two points a and b is
+
+[stem]
+++++
+d = \sqrt{(ax - bx)^2 + (ay - by)^2}
+++++ 
+
+

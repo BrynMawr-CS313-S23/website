@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Assignment 01: Hello C++!</title>
+<title>Assignment 01: Blobilism</title>
 <link rel="stylesheet" href="style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,14 +14,17 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_assignment_01_hello_c">Assignment 01: Hello C++!</a></li>
-<li><a href="#_c_warm_up">1. C++ warm-up</a></li>
+<li><a href="#_assignment_01_blobilism">Assignment 01: Blobilism</a></li>
+<li><a href="#_description">1. Description</a></li>
+<li><a href="#_build">2. Build</a></li>
+<li><a href="#_requirements">3. Requirements</a></li>
+<li><a href="#_hints">4. Hints</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_assignment_01_hello_c">Assignment 01: Hello C++!</h2>
+<h2 id="_assignment_01_blobilism">Assignment 01: Blobilism</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Due Thursday, January 26, before midnight</strong></p>
@@ -32,37 +35,200 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Build and write simple C++ programs</p>
+<p>Build and write a simple interactive application</p>
 </li>
 <li>
-<p>Build and write a simple interactive application</p>
+<p>Repond to user key and mouse events</p>
+</li>
+<li>
+<p>Write a C++ program</p>
+</li>
+<li>
+<p>Use std::vector</p>
+</li>
+<li>
+<p>Work within a 2D coordinate system</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_c_warm_up">1. C++ warm-up</h2>
+<h2 id="_description">1. Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you&#8217;re used to programming in Java, modern C will be similar. Let's write some basic
-C programs to get our bearings.</p>
+<p>In the file, <code>drawer.cpp</code>, implement a drawing program.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support a circle brush type</p>
+</li>
+<li>
+<p>Support multiple brush sizes (no smaller than size 1)</p>
+</li>
+<li>
+<p>Support multiple colors with a pallette (at least three)</p>
+</li>
+<li>
+<p>Support transparency</p>
+</li>
+<li>
+<p>Clear an image</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your program will use a simple API based on openGL and GLFW. <a href="https://alinen.github.io/tinygl-cpp/html/functions.html">Click here to see the documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="img/A01/Blobilism.mp4" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build">2. Build</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fork the repository at <a href="https://github.com/BrynMawr-CS313-S23/blobilism" class="bare">https://github.com/BrynMawr-CS313-S23/blobilism</a> into your
+own repository.</p>
 </div>
 <div class="paragraph">
-<p>Fork the repository at <a href="https://github.com/BrynMawr-CS312-2021/cpp-warmup">cpp-warmup</a>.
-Complete the programs and push them back to github.</p>
+<p>Clone the repository to your own machine and follow the directions in the README
+to build.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to do an "out of source" build and run <code>cmake ..</code> from the <code>/build</code> directory!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>If you have questions about using github and programming in C, we will have
-a git/C workshop during our first lab on February 18th, at 2:30pm.</p>
+<p>You are given basecode for this assignment. When you run the basecode, you should see the following image.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A01/basecode.png" alt="basecode">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements">3. Requirements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Your program should accept the following <strong>key input</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The 'c' key should clear the canvas.</p>
+</li>
+<li>
+<p>The 'UP' key should increase the brush size</p>
+</li>
+<li>
+<p>The 'DOWN' key should decrease the brush size. The brush size should not be allowed to go smaller than 1.</p>
+</li>
+<li>
+<p>The 'RIGHT' key should decrease the transparency. The transparency should go no smaller than 0.</p>
+</li>
+<li>
+<p>The 'LEFT' key should increase the transparency.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You program should have <strong>circle buttons</strong> for changing the current color</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check whether the user clicked inside any of the pallet buttons. If yes, change the current color to the pallet button&#8217;s color.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>When the user moves the mouse, you should store the current size, color, and (x,y) coordinate in a vector. (Hint: Use a struct or class to store this information together)</p>
+</li>
+<li>
+<p>Your program should follow the course <a href="styleguide.html">style guide</a>.</p>
+</li>
+<li>
+<p><strong>DON&#8217;T FORGET</strong> to update the README!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hints">4. Hints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Computing distance</strong></p>
+</div>
+<div class="paragraph">
+<p>To check whether the user clicks a pallette circle, compute the distance between
+the current mouse position and each of the circles in your pallette. Recall that
+the distance between two points a and b is</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[d = \sqrt{(ax - bx)^2 + (ay - by)^2}\]
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-16 14:16:06 -0500
+Last updated 2023-01-20 19:39:42 -0500
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
