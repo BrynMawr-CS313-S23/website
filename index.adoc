@@ -59,7 +59,7 @@ ideas to life and be able to share them with others!
 //image:materials.png[width=400px]
 //|===
 
-=== Meeting Times
+=== Meeting Times:
 
 [.center,options="header,autowidth"]
 |===

@@ -70,7 +70,7 @@ image::A01/basecode.png[]
 * You program should have *circle buttons* for changing the current color 
 ** Check whether the user clicked inside any of the pallet buttons. If yes, change the current color to the pallet button's color.
 * Draw a circle whenever the user moves the mouse with the left-mouse button pressed. To implement this feature, store the current size, color, and (x,y) coordinate in a vector whenever the mouse moves. (Hint: Use a struct or class to store this information together. Add the information in response to the "mouse move" event)
-* Your program should follow the course link:styleguide.html[style guide].
+* Your program should follow the course link:codingstandard.html[coding standard guide].
 * *DON'T FORGET* to update the README with images that you've made with your program! 
 
 Please feel free to customize your drawer! Some ideas
