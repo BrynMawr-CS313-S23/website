@@ -19,6 +19,7 @@
 <li><a href="#_build">2. Build</a></li>
 <li><a href="#_requirements">3. Requirements</a></li>
 <li><a href="#_hints">4. Hints</a></li>
+<li><a href="#_submit_your_work">5. Submit your work</a></li>
 </ul>
 </div>
 </div>
@@ -57,7 +58,7 @@
 <h2 id="_description">1. Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the file, <code>drawer.cpp</code>, implement a drawing program.</p>
+<p>In the file, <code>src/blobilism.cpp</code>, implement a drawing program.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -122,8 +123,19 @@ Don&#8217;t forget to do an "out of source" build and run <code>cmake ..</code> 
 </tr>
 </table>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ git clone git@github.com:&lt;username&gt;/blobilism.git
+$ cd blobilism
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make (or start blobilism.sln)</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>You are given basecode for this assignment. When you run the basecode, you should see the following image.</p>
+<p>You are given basecode for this assignment in <code>src/blobilism.cpp</code>.
+When you run the basecode, you should see the following image.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -170,13 +182,26 @@ Don&#8217;t forget to do an "out of source" build and run <code>cmake ..</code> 
 </div>
 </li>
 <li>
-<p>When the user moves the mouse, you should store the current size, color, and (x,y) coordinate in a vector. (Hint: Use a struct or class to store this information together)</p>
+<p>Draw a circle whenever the user moves the mouse with the left-mouse button pressed. To implement this feature, store the current size, color, and (x,y) coordinate in a vector whenever the mouse moves. (Hint: Use a struct or class to store this information together. Add the information in response to the "mouse move" event)</p>
 </li>
 <li>
 <p>Your program should follow the course <a href="styleguide.html">style guide</a>.</p>
 </li>
 <li>
-<p><strong>DON&#8217;T FORGET</strong> to update the README!</p>
+<p><strong>DON&#8217;T FORGET</strong> to update the README with images that you&#8217;ve made with your program!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please feel free to customize your drawer! Some ideas</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Choose your own pallette colors</p>
+</li>
+<li>
+<p>Implement a unique brush. Although the draw API only supports circles, rectangles, and triangles, you can combine them to make different shapes.</p>
 </li>
 </ul>
 </div>
@@ -200,10 +225,42 @@ the distance between two points a and b is</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_submit_your_work">5. Submit your work</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Submission checklist:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compiles on unix (test on a lab machine or goldengate.cs.brynmawr.edu).</p>
+</li>
+<li>
+<p>Updated README (All "todos" should be replaced with your work!)</p>
+</li>
+<li>
+<p>Pushed to github</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To push to github, make sure you add and commit your local changes and then push to Github.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ cd blobilism
+$ git add .
+$ git commit -m "assignment complete"
+$ git push</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-20 19:39:42 -0500
+Last updated 2023-01-21 11:34:32 -0500
 </div>
 </div>
 <script type="text/x-mathjax-config">

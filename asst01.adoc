@@ -22,7 +22,7 @@ The goals for this assignment are:
 
 = Description
 
-In the file, `drawer.cpp`, implement a drawing program. 
+In the file, `src/blobilism.cpp`, implement a drawing program. 
 
 * Support a circle brush type
 * Support multiple brush sizes (no smaller than size 1)
@@ -44,7 +44,18 @@ to build.
 
 NOTE: Don't forget to do an "out of source" build and run `cmake ..` from the `/build` directory!
 
-You are given basecode for this assignment. When you run the basecode, you should see the following image.
+[source]
+----
+$ git clone git@github.com:<username>/blobilism.git
+$ cd blobilism
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make (or start blobilism.sln) 
+----
+
+You are given basecode for this assignment in `src/blobilism.cpp`. 
+When you run the basecode, you should see the following image.
 
 image::A01/basecode.png[]
 
@@ -58,9 +69,14 @@ image::A01/basecode.png[]
 ** The 'LEFT' key should increase the transparency.
 * You program should have *circle buttons* for changing the current color 
 ** Check whether the user clicked inside any of the pallet buttons. If yes, change the current color to the pallet button's color.
-* When the user moves the mouse, you should store the current size, color, and (x,y) coordinate in a vector. (Hint: Use a struct or class to store this information together)
+* Draw a circle whenever the user moves the mouse with the left-mouse button pressed. To implement this feature, store the current size, color, and (x,y) coordinate in a vector whenever the mouse moves. (Hint: Use a struct or class to store this information together. Add the information in response to the "mouse move" event)
 * Your program should follow the course link:styleguide.html[style guide].
-* *DON'T FORGET* to update the README! 
+* *DON'T FORGET* to update the README with images that you've made with your program! 
+
+Please feel free to customize your drawer! Some ideas
+
+* Choose your own pallette colors
+* Implement a unique brush. Although the draw API only supports circles, rectangles, and triangles, you can combine them to make different shapes.
 
 = Hints
 
@@ -75,4 +91,20 @@ the distance between two points a and b is
 d = \sqrt{(ax - bx)^2 + (ay - by)^2}
 ++++ 
 
+= Submit your work
 
+*Submission checklist:* 
+
+* Compiles on unix (test on a lab machine or goldengate.cs.brynmawr.edu).
+* Updated README (All "todos" should be replaced with your work!)
+* Pushed to github
+
+To push to github, make sure you add and commit your local changes and then push to Github.
+
+[source]
+----
+$ cd blobilism
+$ git add .
+$ git commit -m "assignment complete"
+$ git push 
+----
