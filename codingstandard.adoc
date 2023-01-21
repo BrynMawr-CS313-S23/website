@@ -72,7 +72,7 @@ properties:
 ** Re-using variables to match a mathematical formula (use a comment to document) 
 * Use single letter variables for simple loop indices and occasionally generic integers.
 * The use of very obvious, common, meaningful abbreviations is permitted. For example,
-“number” can be abbreviated as “num” as in numStudents.
+"number" can be abbreviated as "num" as in numStudents.
 * Use _camel case_ for variables, instance variables, and method names. Camel case starts with a lower-case letter and putting the first letter of subsequent words in uppercase. For example, `numStudents`.
 * Use a naming convention to distinguish instance variables from other variables. Commong choices are to 
 ** pre-pend or post-pend underscore, e.g. `_radius` or `radius_`
