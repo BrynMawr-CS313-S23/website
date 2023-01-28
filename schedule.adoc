@@ -33,7 +33,7 @@
 
 * Topics: Lines, vectors, points, coordinate systems, dot and cross product, sine, cosine, tangent.
 * Read: link:http://immersivemath.com/ila/index.html[Immersive Linear Algebra]:Chapter 2,3
-* link:.html[Assignment 02: By the power of grayscale] is due in two parts: Feb 2 and Feb 9 at midnight
+* link:asst02.html[Assignment 02: By the power of grayscale] is due in two parts: Feb 2 and Feb 9 at midnight
 
 //-----------------------------
 |4

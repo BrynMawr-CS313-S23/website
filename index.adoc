@@ -13,8 +13,8 @@ include::header.adoc[]
 == Announcements
 
 [unstyled]
-* Topic this week: link:#week01[Introductions, C++]
-* link:asst01.html[Assignment 1] is due Thursday, January 25th.
+* Topic this week: link:#week03[Geometry Fundamentals]
+* link:asst02.html[Assignment 2 - Part I] is due Thursday, February 2nd.
 
 == Course Info
 

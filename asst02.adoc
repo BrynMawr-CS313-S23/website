@@ -1,0 +1,255 @@
+include::header.adoc[]
+
+:title: Assignment 2: By the power of greyscale!
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Part I is due on Thursday, February 2, before midnight**
+**Part II is due on Thursday, February 9, before midnight**
+
+The goals for this assignment are:
+
+* Implement an class for loading and saving image files
+* Implement various operations and filters for images
+
+
+= Getting started
+
+Fork the repository at https://github.com/BrynMawr-CS313-S23/pixmap-ops
+
+Clone your copy of the repository to your own computer. To build,
+
+
+NOTE: Don't forget to do an "out of source" build and run `cmake ..` from the `/build` directory!
+
+[source]
+----
+$ git clone git@github.com:<username>/pixmap-ops.git
+$ cd pixmap-ops
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make (or start pixmap-ops.sln) 
+$ ../bin/pixmap_test (or ../bin/Debug/pixmap_test from the developer console in Visual Studio)
+$ ../bin/pixmap_art (or ../bin/Debug/pixmap_art from the developer console in Visual Studio)
+----
+
+:sectnums:
+
+= Part I: Image class 
+
+**Due Thursday, February 2, by midnight**
+
+Complete the implementation of a class `Image` in the files `image.h` and `image.cpp`. 
+Your `Image` class should use the STB library to load and save image files. 
+
+* link:https://github.com/nothings/stb/blob/master/stb_image.h[Documentation for STB]
+
+The base code uses a *header file* to keep the class definition separate from its 
+implementation. The header file is included in your main application file. If you add 
+new methods to `Image`, you will need to edit both the header (.h) and source (.cpp) 
+files. 
+
+== Requirements
+
+* Your class should implement an *assignment operator*, *copy constructor*, and *destructor*
+* It's up to you how you store the internal pixel data, but your implementation should not leak memory.
+* Your class should implement the following methods:
+** `bool load(const std::string& filename);` 
+*** Loads the file with the given name. Returns true if successful; False otherwise
+** `bool save(const std::string& filename);` 
+*** Saves the file with the given name. Returns true if successful; False otherwise
+** `int width() const;` 
+*** Returns the number of columns in this image
+** `int height() const;` 
+*** Returns the number of rows in this image
+** `Pixel get(int row, int col) const;` 
+*** Gets a pixel (value range in [0,255]) at position (row, col). 
+** `void set(int row, int col, const Pixel& c);` 
+*** Sets a pixel (value range in [0,255]) at position (row, col)
+** `Image flip_horizontal();`
+*** Returns a copy of the image flipped along the horizontal middle axis
+** `Image resize(int width, int height);` 
+*** Returns a copy of the imaged resized to the given width and height
+** `Image gammaCorrect(float gamma);` 
+*** Returns a copy of this image with the given gamma correction factor applied to it. 
+** `Image grayscale();` 
+*** Returns a copy of this image as a grayscale image.
+** `Image blend(const Image& other, float alpha);` 
+*** Returns a copy of this image with the other image blended with it by factor alpha. E.g. result.pixel = this.pixel * (1 - alpha) + other.pixel * alpha. Assumes other and this have the same dimensions.
+** `Image subimage(int row, int col, int width, int height) const;` 
+*** Returns a sub-image with top,left corner at (x,y) and width and height
+** `void replace(const Image& image, int row, int col);` 
+*** Replaces the block of pixels starting at (row, col) with the image. Should not assume image fits on this image. 
+
+NOTE: I recommend working with RGB color for this assignment. When you load images with STB, request 3 channels, rather than 4.
+
+=== Testing
+
+You are given a program to test your image class, implemented in `pixmap_test.cpp`. 
+
+[source, subs="quotes"]
+----
+$ *../bin/pixmap_test* (or ../bin/Debug/pixmap_test from the developer console in Visual Studio)
+(0,0,0) (100,0,0) (0,0,0) (255,0,255)
+(0,0,0) (0,255,175) (0,0,0) (0,0,0)
+(0,0,0) (0,0,0) (0,15,175) (0,0,0)
+(255,0,255) (0,0,0) (0,0,0) (255,255,255)
+loaded feep: 4 4
+0 255 175
+loaded earth: 400 400
+----
+
+== Load/Copy/Save
+
+To start, make sure that the file, `earth.png`, loads and saves correctly. Then test 
+that your width, height, copy constructor, and assignment operator 
+work correctly. Lastly, check that your destructor is cleaning up 
+any memory created by your class!!
+
+== Resize
+
+Test resizing the image, `earth.png`. 
+The following code and image show an example.
+
+[source]
+----
+Image resize = image.resize(200,300);
+resize.save("earth-200-300.png");
+----
+
+image::A02/earth-200-300.png[]
+
+== Flip horizontally
+
+The following code and image show an example.
+
+[source]
+ ----
+Image flip = image.flip_horizontal(); 
+flip.save("earth-flip.png"); 
+----
+
+image::A02/earth-flip.png[]
+
+== Gamma correction
+
+The following code and images show two examples.
+
+[source]
+----
+Image gamma = image.gammaCorrect(0.6f); 
+gamma.save("earth-gamma-0.6.png"); 
+
+gamma = image.gammaCorrect(2.2f);
+gamma.save("earth-gamma-2.2.png"); 
+----
+
+Gamma = 0.6
+
+image::A02/earth-gamma-0.6.png[]
+
+Gamma = 2.2
+
+image::A02/earth-gamma-2.2.png[]
+
+== Grayscale
+
+The following code and image show an example.
+
+[source]
+----
+Image grayscale = image.grayscale(); 
+grayscale.save("earth-grayscale.png");
+----
+
+image::A02/earth-grayscale.png[]
+
+== Subimage
+
+The following code and image show an example.
+
+[source]
+----
+Image sub = image.subimage(200, 200, 100, 100); 
+sub.save("earth-subimage.png"); 
+----
+
+image::A02/earth-subimage.png[]
+
+== Blend and replace
+
+The following code and image show an example.
+
+[source]
+----
+Image soup;
+soup.load("../images/soup.png");
+
+int y = (int) (0.5f * (image.width() - soup.width()));
+int x = (int) (0.5f * (image.height() - soup.height()));
+Image background = image.subimage(x, y, soup.width(), soup.height());
+background.save("background-test.png");
+
+Image blend = background.alpha_blend(soup, 0.5f);
+image.replace(blend, x, y);
+image.save("earth-blend-0.5.png");
+----
+
+image::A02/earth-blend-0.5.png[]
+
+= Part II: Cool operators
+
+**Due Thursday, February 9, by midnight**
+
+In `Image.h` and `Image.cpp`, implement *at least eight* additional operations. You can make 
+up your own filter, re-implement a filter from Gimp, or research an interesting filter online. 
+Make sure to document your choice in the `Readme.md` of your assignment. Below are some ideas:
+
+* Rotate 90 degrees: rotate the image clockwise by 90 degrees
+* Swirl colors: rotate the colors of your image such that the red channel becomes the green channel, the green becomes blue, and the blue becomes red.
+* Invert colors: subtract each color channel from the max value, 255.
+* Add a border around the edge of your images.
+* Distort: displace pixels based on sine and cosine.
+* Extract the red, blue, or green channels
+* Bitmap: Create a 'fat bits' version of your image
+* Overlay a fill color, or blend a pattern of colors
+* Lightest: given a Image, implement `max(this.pixel, other.pixel)`
+* Darkest: given a Image, implement `min(this.pixel, other.pixel)`
+* Difference: given a Image, implement `this.pixel - other.pixel`
+* Multiply: given a Image, implement `this.pixel * other.pixel`
+* link:https://en.wikipedia.org/wiki/Sobel_operator[Sobel operator]
+* link:https://en.wikipedia.org/wiki/Gaussian_blur[Gaussian blur]
+* link:https://en.wikipedia.org/wiki/Box_blur[Box blur]
+* Randomize colors or 'jitter' the colors 
+* Glow: produce a glow effect around all pixels of a given color, such as white
+* Painterly effect
+* Glitch effect
+
+== Create unique images
+
+In the program, *`pixmap_art.cpp`*, use multiple effects to create one or more
+unique images. Feel free to use your own images exported from Gimp 
+(or another image application).
+
+*Make sure to use your custom operations from the previous question in your 
+artworks!! You will not get credit for operators which you don't test and show 
+work correctly!*
+
+Below are some ideas:
+
+image::A02/kitty-bitmap.png[width=256px]
+image::A02/SoupTile.png[width=256px]
+image::A02/SoupTunnel-Darkest.png[width=128px]
+
+== Update Readme.md
+
+Update `Readme.md` to include documentation on your unique features and art you created with your assignment.
+
+= What to hand in
+
+. Your code. Make sure your code is checked into github. Make sure it adheres to the link:codingstandard.html[coding style].
+. Update `Readme.md` so it includes a writeup of the features your application supports. Your readme should include images showing off your custom features. *Make sure you replace all todos in your README!* 

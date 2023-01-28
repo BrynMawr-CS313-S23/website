@@ -52,6 +52,7 @@ $ mkdir build
 $ cd build
 $ cmake ..
 $ make (or start blobilism.sln) 
+$ ../bin/blobilism (or ../bin/Debug/blobilism from the developer console in Visual Studio)
 ----
 
 You are given basecode for this assignment in `src/blobilism.cpp`. 
@@ -108,3 +109,4 @@ $ git add .
 $ git commit -m "assignment complete"
 $ git push 
 ----
+
