@@ -63,7 +63,7 @@ The computer labs will be setup for graphics (both on Windows and Linux).
 However, if you would like to work on your own laptop, following the instructions 
 here:
 
-* link:https://github.com/BrynMawr-CS313-S23/getting-started[getting-started] 
+* link:{repo}/getting-started[getting-started] 
 
 The above repository includes detailed instructions for setting up either windows, 
 linux, or mac. 

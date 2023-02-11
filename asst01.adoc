@@ -36,7 +36,7 @@ video::A01/Blobilism.mp4[]
 
 = Build
 
-Fork the repository at https://github.com/BrynMawr-CS313-S23/blobilism into your 
+Fork the repository at {repo}/blobilism into your 
 own repository.
 
 Clone the repository to your own machine and follow the directions in the README 

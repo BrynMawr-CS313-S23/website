@@ -31,30 +31,30 @@
 |Jan 31, Feb 2
 |*Geometry fundamentals*  anchor:week03[]
 
-* Topics: Lines, vectors, points, coordinate systems, dot and cross product, sine, cosine, tangent.
+* Topics: Lines, vectors, points, coordinate systems, sine, cosine, tangent.
 * Read: link:http://immersivemath.com/ila/index.html[Immersive Linear Algebra]:Chapter 2,3
 * link:asst02.html[Assignment 02: By the power of grayscale] is due in two parts: Feb 2 and Feb 9 at midnight
+* Reference link:https://learnopengl.com/Getting-started/Coordinate-Systems[OpenGL Coordinate Systems] 
 
 //-----------------------------
 |4
 |Feb 7,9
 |*2D Drawing* anchor:week04[]
 
-* Topics: Bresenham's algorithm, Barycentric coordinates, Triangle/Polygon rasterization
-* Read: Marschner and Shirley, Sections 8.1.1, 8.1.2
+* Topics: Line equations. Bresenham's algorithm, Barycentric coordinates, Triangle/Polygon rasterization
+* Read: Marschner and Shirley, Sections 2.7, 8.1.1, 8.1.2
 
 //-----------------------------
 |5
 |Feb 14,16
 |*Meshes, Transformations I* anchor:week05[]
 
-* Topics: Vertices, Edges, Faces, Matrices, Translation, Rotation, Scale
+* Topics: Dot and cross product, Meshes (Vertices, Edges, Faces), Matrices and GLM, Transformations (Translation, Rotation, Scale)
 * Read: Real-time Rendering, Chpt 4, 16.1-16.4.5
-* Read: Marschner and Shirley, Chapter 6 and 7
-* link:.html[Assignment 03: Green eggs and Bresenham] is due in two parts
-* Read link:http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/[Meshes: VBO Indexing]
+* Read: Marschner and Shirley, Chapter 6 
+* link:asst03.html[Assignment 03: Green eggs and Bresenham] is due in two parts on Feb 16th and 23rd
+//* Read link:http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/[Meshes: VBO Indexing]
 * Read link:http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/[OpenGL Matrix tutorial]
-* Reference link:https://learnopengl.com/Getting-started/Coordinate-Systems[OpenGL Coordinate Systems] 
 * Reference link:https://glm.g-truc.net/0.9.4/api/a00151.html#ga8925161ecc1767957900c5ca8b922dc4[GLM matrix reference]
 
 //-----------------------------
@@ -64,7 +64,7 @@
 
 * Topics: Projections, View transforms, Matrix stacks
 * Read: Real-time Rendering, Chpt 4
-* Read: Marschner and Shirley, Chapter 6 and 7
+* Read: Marschner and Shirley, Chapter 7
 
 //-----------------------------
 |7
@@ -73,6 +73,7 @@
 
 * Topics: Graphics pipeline, graphics processing unit, shaders 
 * Read: Real-time Rendering, Chpt 2, 3, 5
+* Read: Marschner and Shirley, Chapter 8
 * link:.html[Assignment 04: Meshes] 
 * Lab: Modeling in Blender
 

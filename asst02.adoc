@@ -18,10 +18,9 @@ The goals for this assignment are:
 
 = Getting started
 
-Fork the repository at https://github.com/BrynMawr-CS313-S23/pixmap-ops
+Fork the repository at {repo}/pixmap-ops
 
 Clone your copy of the repository to your own computer. To build,
-
 
 NOTE: Don't forget to do an "out of source" build and run `cmake ..` from the `/build` directory!
 
@@ -46,7 +45,8 @@ $ ../bin/pixmap_art (or ../bin/Debug/pixmap_art from the developer console in Vi
 Complete the implementation of a class `Image` in the files `image.h` and `image.cpp`. 
 Your `Image` class should use the STB library to load and save image files. 
 
-* link:https://github.com/nothings/stb/blob/master/stb_image.h[Documentation for STB]
+* link:https://github.com/nothings/stb/blob/master/stb_image.h[Documentation for STB (Loading files)]
+* link:https://github.com/nothings/stb/blob/master/stb_image_write.h[Documentation for STB (Writing files)]
 
 The base code uses a *header file* to keep the class definition separate from its 
 implementation. The header file is included in your main application file. If you add 
@@ -189,8 +189,8 @@ The following code and image show an example.
 Image soup;
 soup.load("../images/soup.png");
 
-int y = (int) (0.5f * (image.width() - soup.width()));
-int x = (int) (0.5f * (image.height() - soup.height()));
+int x = (int) (0.5f * (image.width() - soup.width()));
+int y = (int) (0.5f * (image.height() - soup.height()));
 Image background = image.subimage(x, y, soup.width(), soup.height());
 background.save("background-test.png");
 
@@ -253,3 +253,6 @@ Update `Readme.md` to include documentation on your unique features and art you 
 
 . Your code. Make sure your code is checked into github. Make sure it adheres to the link:codingstandard.html[coding style].
 . Update `Readme.md` so it includes a writeup of the features your application supports. Your readme should include images showing off your custom features. *Make sure you replace all todos in your README!* 
+
+= Grading rubric
+

@@ -8,3 +8,4 @@
 :leveloffset: +1
 :toc: left
 :csweb: https://www.cs.brynmawr.edu/
+:repo: https://github.com/BrynMawr-CS313-S23

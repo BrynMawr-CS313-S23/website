@@ -35,6 +35,7 @@
 </ul>
 </li>
 <li><a href="#_what_to_hand_in">3. What to hand in</a></li>
+<li><a href="#_grading_rubric">4. Grading rubric</a></li>
 </ul>
 </div>
 </div>
@@ -109,7 +110,10 @@ Your <code>Image</code> class should use the STB library to load and save image 
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/nothings/stb/blob/master/stb_image.h">Documentation for STB</a></p>
+<p><a href="https://github.com/nothings/stb/blob/master/stb_image.h">Documentation for STB (Loading files)</a></p>
+</li>
+<li>
+<p><a href="https://github.com/nothings/stb/blob/master/stb_image_write.h">Documentation for STB (Writing files)</a></p>
 </li>
 </ul>
 </div>
@@ -420,8 +424,8 @@ sub.save("earth-subimage.png");</code></pre>
 <pre class="highlight"><code>Image soup;
 soup.load("../images/soup.png");
 
-int y = (int) (0.5f * (image.width() - soup.width()));
-int x = (int) (0.5f * (image.height() - soup.height()));
+int x = (int) (0.5f * (image.width() - soup.width()));
+int y = (int) (0.5f * (image.height() - soup.height()));
 Image background = image.subimage(x, y, soup.width(), soup.height());
 background.save("background-test.png");
 
@@ -564,10 +568,16 @@ work correctly!</strong></p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_grading_rubric">4. Grading rubric</h2>
+<div class="sectionbody">
+
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-28 14:02:08 -0500
+Last updated 2023-02-11 13:01:02 -0500
 </div>
 </div>
 </body>
