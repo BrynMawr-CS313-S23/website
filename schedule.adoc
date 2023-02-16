@@ -49,9 +49,9 @@
 |Feb 14,16
 |*Meshes, Transformations I* anchor:week05[]
 
-* Topics: Dot and cross product, Meshes (Vertices, Edges, Faces), Matrices and GLM, Transformations (Translation, Rotation, Scale)
+* Topics: cross product, Meshes (Vertices, Edges, Faces), Matrices and GLM, Transformations (Translation, Rotation, Scale)
 * Read: Real-time Rendering, Chpt 4, 16.1-16.4.5
-* Read: Marschner and Shirley, Chapter 6 
+* Read: Marschner and Shirley, Chapter 6, 12.1,12.1.1,12.1.2 
 * link:asst03.html[Assignment 03: Green eggs and Bresenham] is due in two parts on Feb 16th and 23rd
 //* Read link:http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/[Meshes: VBO Indexing]
 * Read link:http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/[OpenGL Matrix tutorial]
