@@ -47,35 +47,35 @@
 //-----------------------------
 |5
 |Feb 14,16
-|*Meshes, Transformations I* anchor:week05[]
+|*2D Drawing (Cont), Meshes* anchor:week05[]
 
-* Topics: cross product, Meshes (Vertices, Edges, Faces), Matrices and GLM, Transformations (Translation, Rotation, Scale)
+* Topics: Bresenham special cases. Edge handling for rasterization. Meshes (Vertices, Edges, Faces) 
 * Read: Real-time Rendering, Chpt 4, 16.1-16.4.5
-* Read: Marschner and Shirley, Chapter 6, 12.1,12.1.1,12.1.2 
+* Read: Marschner and Shirley, 12.1,12.1.1,12.1.2 
 * link:asst03.html[Assignment 03: Green eggs and Bresenham] is due in two parts on Feb 16th and 23rd
 //* Read link:http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-9-vbo-indexing/[Meshes: VBO Indexing]
-* Read link:http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/[OpenGL Matrix tutorial]
-* Reference link:https://glm.g-truc.net/0.9.4/api/a00151.html#ga8925161ecc1767957900c5ca8b922dc4[GLM matrix reference]
 
 //-----------------------------
 |6
 |Feb 21,23
-|*Cameras, Projections, Transformations II* anchor:week06[]
+|*Dot and Cross Product, Matrices, Transformations* anchor:week06[]
 
-* Topics: Projections, View transforms, Matrix stacks
+* Topics: Dot product, Cross product, Matrices, Transformations
 * Read: Real-time Rendering, Chpt 4
-* Read: Marschner and Shirley, Chapter 7
+* Read: Marschner and Shirley, Chapter 6
+* Read link:http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/[OpenGL Matrix tutorial]
+* Reference link:https://glm.g-truc.net/0.9.4/api/a00151.html#ga8925161ecc1767957900c5ca8b922dc4[GLM matrix reference]
 
 //-----------------------------
 |7
 |Feb 28, March 2
-|*Shaders* anchor:week07[]
+|*Graphics Pipeline, Shaders, Lighting and Materials I* anchor:week07[]
 
-* Topics: Graphics pipeline, graphics processing unit, shaders 
+* Topics: Cameras, Projections, Graphics pipeline, graphics processing unit, shaders, Blinn-Phong shading models
 * Read: Real-time Rendering, Chpt 2, 3, 5
 * Read: Marschner and Shirley, Chapter 8
-* link:.html[Assignment 04: Meshes] 
-* Lab: Modeling in Blender
+* link:asst04.html[Assignment 04: Enmeshed in 3D] is due in three parts: March 2nd, 16th, 23rd.
+* Lab (March 2nd): Quiz 01. link:studyguide1.html[Study Guide for Quiz 01].
 
 //-----------------------------
 |8
@@ -90,7 +90,6 @@
 |*Lighting, Materials* anchor:week09[]
 
 * Topics: Normals, Light sources, Phong shading model, Cartoon shading
-* link:.html[Assignment 05: Give it your best PLY] is due in three parts
 
 //-----------------------------
 |10

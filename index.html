@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.15">
 <title>Computer Graphics</title>
 <link rel="stylesheet" href="style/front.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,10 +45,10 @@
 <div class="ulist unstyled">
 <ul class="unstyled">
 <li>
-<p>Topic this week: <a href="#week03">Geometry Fundamentals</a></p>
+<p>Topic this week: <a href="#week07">Graphics Pipeline, Shaders</a></p>
 </li>
 <li>
-<p><a href="asst02.html">Assignment 2 - Part I</a> is due Thursday, February 2nd.</p>
+<p><a href="asst04.html">Assignment 4 - Part I</a> is due Thursday, March 2nd</p>
 </li>
 </ul>
 </div>
@@ -313,21 +313,41 @@ on lecture content, worksheets, and assignments.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Feb 14,16</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Meshes, Transformations I</strong> <a id="week05"></a></p>
+<p><strong>2D Drawing (Cont), Meshes</strong> <a id="week05"></a></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Topics: cross product, Meshes (Vertices, Edges, Faces), Matrices and GLM, Transformations (Translation, Rotation, Scale)</p>
+<p>Topics: Bresenham special cases. Edge handling for rasterization. Meshes (Vertices, Edges, Faces)</p>
 </li>
 <li>
 <p>Read: Real-time Rendering, Chpt 4, 16.1-16.4.5</p>
 </li>
 <li>
-<p>Read: Marschner and Shirley, Chapter 6, 12.1,12.1.1,12.1.2</p>
+<p>Read: Marschner and Shirley, 12.1,12.1.1,12.1.2</p>
 </li>
 <li>
 <p><a href="asst03.html">Assignment 03: Green eggs and Bresenham</a> is due in two parts on Feb 16th and 23rd</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 21,23</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Dot and Cross Product, Matrices, Transformations</strong> <a id="week06"></a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Topics: Dot product, Cross product, Matrices, Transformations</p>
+</li>
+<li>
+<p>Read: Real-time Rendering, Chpt 4</p>
+</li>
+<li>
+<p>Read: Marschner and Shirley, Chapter 6</p>
 </li>
 <li>
 <p>Read <a href="http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/">OpenGL Matrix tutorial</a></p>
@@ -339,35 +359,15 @@ on lecture content, worksheets, and assignments.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Feb 21,23</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Cameras, Projections, Transformations II</strong> <a id="week06"></a></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Topics: Projections, View transforms, Matrix stacks</p>
-</li>
-<li>
-<p>Read: Real-time Rendering, Chpt 4</p>
-</li>
-<li>
-<p>Read: Marschner and Shirley, Chapter 7</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Feb 28, March 2</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Shaders</strong> <a id="week07"></a></p>
+<p><strong>Graphics Pipeline, Shaders, Lighting and Materials I</strong> <a id="week07"></a></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Topics: Graphics pipeline, graphics processing unit, shaders</p>
+<p>Topics: Cameras, Projections, Graphics pipeline, graphics processing unit, shaders, Blinn-Phong shading models</p>
 </li>
 <li>
 <p>Read: Real-time Rendering, Chpt 2, 3, 5</p>
@@ -376,10 +376,10 @@ on lecture content, worksheets, and assignments.</p>
 <p>Read: Marschner and Shirley, Chapter 8</p>
 </li>
 <li>
-<p><a href=".html">Assignment 04: Meshes</a></p>
+<p><a href="asst04.html">Assignment 04: Enmeshed in 3D</a> is due in three parts: March 2nd, 16th, 23rd.</p>
 </li>
 <li>
-<p>Lab: Modeling in Blender</p>
+<p>Lab (March 2nd): Quiz 01. <a href="studyguide1.html">Study Guide for Quiz 01</a>.</p>
 </li>
 </ul>
 </div></div></td>
@@ -408,9 +408,6 @@ on lecture content, worksheets, and assignments.</p>
 <ul>
 <li>
 <p>Topics: Normals, Light sources, Phong shading model, Cartoon shading</p>
-</li>
-<li>
-<p><a href=".html">Assignment 05: Give it your best PLY</a> is due in three parts</p>
 </li>
 </ul>
 </div></div></td>
@@ -782,7 +779,7 @@ website:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-28 12:03:46 -0500
+Last updated 2023-02-24 12:59:54 -0500
 </div>
 </div>
 </body>

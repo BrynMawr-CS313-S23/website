@@ -261,3 +261,28 @@ Update `Readme.md` to include documentation on your unique features and art crea
 . One or more images created using your software
 . Update `Readme.md` so it includes a writeup of the features your application supports 
 
+= Grading rubric
+
+Grades each week are out of 4 points.
+
+* (4 points) Milestone #1
+** (1 points) Correct implementation of the interface 
+** (2 points) Drawing lines (all cases correct)
+** (1 points) Rasterizing triangles with edge case handling
+
+* (4 points) Milestone #2
+** (2.0 points) no memory errors
+** (1.0 points) readme and unique images/demos
+** (0.2 points) style and header comment
+** (0.8 points) unique features
+
+**Code rubrics**
+
+For full credit, your C++ programs must be feature-complete, robust (e.g. run without memory errors or crashing) and have good style.
+Some credit lost for missing features or bugs, depending on severity of error
+
+-5% for style errors. See the class coding style here.
+-50% for memory errors
+-100% for failure to checkin work to Github
+-100% for failure to compile on linux using make
+
