@@ -131,6 +131,9 @@ for vectors, points, and colors (which have types for glm::vec3 and glm::vec4).
 <p>p or P goes to the previous model</p>
 </li>
 <li>
+<p>s or S cycles through different shaders: unlit, normals, per-vertex phong, and per-pixel phong</p>
+</li>
+<li>
 <p>Left-click-drag orbits the camera around the model</p>
 </li>
 <li>
@@ -298,7 +301,10 @@ Positions:
 Normals:
   0.000000,  -0.000000,  -1.000000
   0.000000,  -0.000000,  -1.000000
-  0.000000,  -0.000000,  -1.000000</code></pre>
+  0.000000,  -0.000000,  -1.000000
+
+Indices:
+0 1 2</code></pre>
 </div>
 </div>
 </div>
@@ -382,7 +388,8 @@ public:
       renderer.translate(vec3(0, 0, 0));
       renderer.rotate(vec3(0, 0, 0));
       renderer.scale(vec3(1, 1, 1));
-      renderer.mesh(mesh);
+      renderer.mesh(mesh); // this line draws the mesh, affected by the given transforms
+      // renderer.teapot(); // you can try built-in meshes for testing
    }
 
 protected:
@@ -425,7 +432,7 @@ calls in <code>draw()</code>.</p>
 <p>After this step, you should see a red cube centered on a black screen.</p>
 </div>
 <div class="paragraph">
-<p>Requirements:</p>
+<p>Requirements/Hints:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -434,6 +441,9 @@ calls in <code>draw()</code>.</p>
 </li>
 <li>
 <p>Your program should resize the model so it fits within a 10x10x10 view volume.</p>
+</li>
+<li>
+<p>If the mesh is not loaded correctly, or positioned correctly, you will only see a black screen. Try displaying a default mesh to deubg problems with the view.</p>
 </li>
 </ul>
 </div>
@@ -447,10 +457,10 @@ function call <code>GetFilenamesInDir("../models", "ply")</code>, which is defin
 <div class="ulist">
 <ul>
 <li>
-<p>Pressing 'n' should show the next model in the list</p>
+<p>Pressing 'n' or 'N' should show the next model in the list</p>
 </li>
 <li>
-<p>Pressing 'N' should show the previous model in the list</p>
+<p>Pressing 'p' or 'P' should show the previous model in the list</p>
 </li>
 </ul>
 </div>
@@ -486,7 +496,7 @@ function call <code>GetFilenamesInDir("../models", "ply")</code>, which is defin
 </div>
 <div class="paragraph">
 <p>Using the algorithm from class, you should keep track of the radius, current elevation (up/down angle) and azimuth (left/right angle) to compute the camera&#8217;s
-position. The forward direction will then be (position - originPos) since the model will be centered at the origin. You can then compute up and right
+position (x,y,z). The forward direction will then be (position - originPos) since the model will be centered at the origin. You can then compute up and right
 using cross products. To move forward and backward, you simply need to change the radius of the sphere.</p>
 </div>
 <div class="listingblock">
@@ -512,10 +522,7 @@ three shaders and augment your <code>mesh-viewer.cpp</code> to switch between th
 <div class="ulist">
 <ul>
 <li>
-<p>the 's' key should cycle to the next shader</p>
-</li>
-<li>
-<p>the 'S' key should cycle to the previous shader</p>
+<p>The 's' or 'S' key should cycle to the next shader</p>
 </li>
 </ul>
 </div>
@@ -527,22 +534,25 @@ three shaders and augment your <code>mesh-viewer.cpp</code> to switch between th
 <pre class="highlight"><code>void setup() {
     renderer.loadShader("normals", "../shaders/normals.vs", "../shaders/normals.fs");
     renderer.loadShader("phong-vertex", "../shaders/phong-vertex.vs", "../shaders/phong-vertex.fs");
+    renderer.loadShader("phong-pixel", "../shaders/phong-pixel.vs", "../shaders/phong-pixel.fs");
     // etc
 }
 
 void draw() {
-    renderer.beginShader("normals"); // activate shader with given name
+    renderer.beginShader("normals"); // activates shader with given name
     // all primitives draw here will use the current shader
     renderer.endShader();
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Unlit shader</strong></p>
+<p><strong>Normals shader</strong></p>
 </div>
 <div class="paragraph">
-<p>In <code>unlit.vs</code> and <code>unlit.fs</code>, implement vertex and fragment shaders that uses the normals of your mesh to color the surface.
-This shader visualizes the normals that were loaded with your PLY file. The color of each pixel is simply the value of the normal at that point.</p>
+<p>In <code>normals.vs</code> and <code>normals.fs</code>, implement vertex and fragment shaders that uses the normals of your mesh to color the surface.
+This shader visualizes the normals that were loaded with your PLY file. The color of each pixel is determined by the value of the normal at that point.
+Normals have unit length, so each component will be in the range [-1,1]. Colors need to be in the range [0,1], so re-map each component of the
+normal to the range [0,1].</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -594,7 +604,7 @@ This shader visualizes the normals that were loaded with your PLY file. The colo
 <p>Support textures. Load UV coordinates and pass them to your shader along with an image.</p>
 </li>
 <li>
-<p>Animate the ligh source, or add additional light sources.</p>
+<p>Animate the light source, or add additional light sources.</p>
 </li>
 <li>
 <p>Load multiple models at once and create a unique scene</p>
@@ -602,11 +612,21 @@ This shader visualizes the normals that were loaded with your PLY file. The colo
 </ul>
 </div>
 <div class="paragraph">
-<p>Below is the cow with toon shading</p>
+<p>Below are some example shaders: toon shading, animated vertices, and polka dots</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="img/A04/cow-toon.gif" alt="cow toon">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-wavy.gif" alt="cow wavy">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A04/cow-spots.gif" alt="cow spots">
 </div>
 </div>
 <div class="sect2">
@@ -717,7 +737,7 @@ Some credit lost for missing features or bugs, depending on severity of error</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-24 16:49:23 -0500
+Last updated 2023-02-25 13:56:43 -0500
 </div>
 </div>
 </body>

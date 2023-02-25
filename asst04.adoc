@@ -52,6 +52,7 @@ image::A04/mesh-viewer.gif[]
 
 * n or N goes to the next model
 * p or P goes to the previous model
+* s or S cycles through different shaders: unlit, normals, per-vertex phong, and per-pixel phong
 * Left-click-drag orbits the camera around the model
 * Middle-mouse wheel, or SHIFT-left drag zooms in and out
 
@@ -137,6 +138,9 @@ Normals:
   0.000000,  -0.000000,  -1.000000
   0.000000,  -0.000000,  -1.000000
   0.000000,  -0.000000,  -1.000000
+
+Indices:
+0 1 2
 ----
 
 == PLY File Format
@@ -203,7 +207,8 @@ public:
       renderer.translate(vec3(0, 0, 0));
       renderer.rotate(vec3(0, 0, 0));
       renderer.scale(vec3(1, 1, 1));
-      renderer.mesh(mesh);
+      renderer.mesh(mesh); // this line draws the mesh, affected by the given transforms
+      // renderer.teapot(); // you can try built-in meshes for testing
    }
 
 protected:
@@ -232,18 +237,19 @@ calls in `draw()`.
 
 After this step, you should see a red cube centered on a black screen.
 
-Requirements:
+Requirements/Hints:
 
 * Your program should center the loaded model at (0,0,0)
 * Your program should resize the model so it fits within a 10x10x10 view volume.
+* If the mesh is not loaded correctly, or positioned correctly, you will only see a black screen. Try displaying a default mesh to deubg problems with the view.
 
 == Swapping models
 
 Implement a feature to cycle through all the models in the `/models` directory. You can load all the filenames from the `/models` dorectory using the 
 function call `GetFilenamesInDir("../models", "ply")`, which is defined in `osutils.h`.
 
-* Pressing 'n' should show the next model in the list
-* Pressing 'N' should show the previous model in the list
+* Pressing 'n' or 'N' should show the next model in the list
+* Pressing 'p' or 'P' should show the previous model in the list
 
 After this step, you should be able to scroll through each model. They will all show with a solid color (no shading!):
 
@@ -259,7 +265,7 @@ Implement orbit camera controls in `mesh-viewer.cpp`. Extend the `MeshViewer` to
 * right direction
 
 Using the algorithm from class, you should keep track of the radius, current elevation (up/down angle) and azimuth (left/right angle) to compute the camera's 
-position. The forward direction will then be (position - originPos) since the model will be centered at the origin. You can then compute up and right 
+position (x,y,z). The forward direction will then be (position - originPos) since the model will be centered at the origin. You can then compute up and right 
 using cross products. To move forward and backward, you simply need to change the radius of the sphere. 
 
 [source]
@@ -276,8 +282,7 @@ z = Radius * cos(Azimuth) * cos(Elevation)
 In the previous milestone, the mesh was rendered with a flat color and wireframe. In this milestone, you will implement 
 three shaders and augment your `mesh-viewer.cpp` to switch between them.
 
-* the 's' key should cycle to the next shader
-* the 'S' key should cycle to the previous shader
+* The 's' or 'S' key should cycle to the next shader
 
 In your basecode, you need to load your shaders in `setup()` and then specify the current shader you are using in `draw()`. 
 
@@ -286,20 +291,23 @@ In your basecode, you need to load your shaders in `setup()` and then specify th
 void setup() {
     renderer.loadShader("normals", "../shaders/normals.vs", "../shaders/normals.fs");
     renderer.loadShader("phong-vertex", "../shaders/phong-vertex.vs", "../shaders/phong-vertex.fs");
+    renderer.loadShader("phong-pixel", "../shaders/phong-pixel.vs", "../shaders/phong-pixel.fs");
     // etc
 }
 
 void draw() {
-    renderer.beginShader("normals"); // activate shader with given name
+    renderer.beginShader("normals"); // activates shader with given name
     // all primitives draw here will use the current shader
     renderer.endShader();
 }
 ----
 
-*Unlit shader* 
+*Normals shader* 
 
-In `unlit.vs` and `unlit.fs`, implement vertex and fragment shaders that uses the normals of your mesh to color the surface.
-This shader visualizes the normals that were loaded with your PLY file. The color of each pixel is simply the value of the normal at that point.
+In `normals.vs` and `normals.fs`, implement vertex and fragment shaders that uses the normals of your mesh to color the surface.
+This shader visualizes the normals that were loaded with your PLY file. The color of each pixel is determined by the value of the normal at that point.
+Normals have unit length, so each component will be in the range [-1,1]. Colors need to be in the range [0,1], so re-map each component of the 
+normal to the range [0,1].
 
 image::A04/cow-unlit.png[]
 
@@ -323,12 +331,14 @@ Add at least two features to your `mesh-viewer.cpp`.
 * Implement your own shader: you might try toon shading, procedural textures, or color effects
 * Try animating the vertices of the model in your vertex shader
 * Support textures. Load UV coordinates and pass them to your shader along with an image. 
-* Animate the ligh source, or add additional light sources. 
+* Animate the light source, or add additional light sources. 
 * Load multiple models at once and create a unique scene
 
-Below is the cow with toon shading
+Below are some example shaders: toon shading, animated vertices, and polka dots
 
 image::A04/cow-toon.gif[]
+image::A04/cow-wavy.gif[]
+image::A04/cow-spots.gif[]
 
 == Update Readme.md
 
