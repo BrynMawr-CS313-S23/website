@@ -1,0 +1,73 @@
+include::header.adoc[]
+
+:title: Study Guide 1: Mathematical foundations
+:Author Initials: ASN
+:Date:    2020-08-15
+:Revision: 0.1
+:stem: latexmath
+
+= {title}
+
+Quizes are closed book. 30 minutes in lab.
+
+Topics:
+
+* Vectors and points
+* Matrices, inverse matrix, matrix multiplication, identity matrix
+* Transformations, Euler angles, homogeneous coordinates
+* Trigonometry: sine, cosine, tangent
+* Dot and cross products
+* Line equations
+* Barycentric coordinates
+
+== Vectors and points
+
+1) Consider the points stem:[a=(-4, -1, 0)], stem:[b=(2, 2, 0)], and stem:[c=(-1, 6, 0)].  Draw these points on a coordinate plane.
+
+* Compute the vectors stem:[v_{ab} = b-a] and stem:[v_{ac} = c-a]. In the space above, draw them. 
+
+* Compute and draw the sum of stem:[v_{ab} + v_{ac}].
+
+* Compute and draw the vector stem:[-v_{ab}]. What the geometric interpretation of negating a vector?
+
+* Compute and draw the vector stem:[2v_{ac}]. What the geometric interpretation of scaling the vector by 2?
+
+* What is the implicit line equation that goes through the points stem:[(-4, -1, 0)] and stem:[(-1, 6, 0)]? 
+
+* Consider the same line as before. Use the implicit line equation to determine whether the point stem:[(0, 0, 0)] is above, below, or on the line.
+
+* Compute the unit vector of stem:[v_{ab}] defined above.
+
+* Compute the dot product between stem:[v_{ab}] and stem:[v_{ac}].
+
+* Compute the cross product between stem:[v_{ab}] and stem:[(1,0,1)].
+
+2) Suppose a point p has barycentric coordinate (1,0,0) in relation to the triangle with points a, b, and c. What can we tell about the point p?o
+
+3) What is the difference between a vector and a point?
+
+4) Suppose a point p has homogeneous coordinate stem:[(2,-3,4,0)^T]. Is this point a point or a vector? What is the corresponding ordinary point of p?
+
+5) Suppose a point p has 2D coordinate (2,4). What is the distance between p and the origin (0,0)?
+
+6) Suppose we have a forward direction (-1,2,0). Construct an orthogonal basis for which (-1,2,0) corresopnds to the Z-axis with respect to the world coordinate frame. 
+
+== Matrices and transforms
+
+1) Suppose matrix A has dimentions 2x6 and matrix B has dimensions 3x2. Can we multiply AB? What about BA?
+
+2) Suppose a 3x3 matrix A has an inverse stem:[A^{-1}]. What is stem:[A A^{-1}]?
+
+3) Suppose we are using XYZ euler angles. Give a 3x3 matrix expression that corresponds to the (30, 0, 90) degrees euler angles. Give your answer as a product of three 3x3 rotation matrices.
+
+4) Give a 3x3 matrix that scales the height of an object by 2. 
+
+5) Give a 4x4 matrix that translates an object by (10, -5, 2).  
+
+6) Suppose we have an unit cube that is rotated by 30 degrees, scaled by 3, and then translated to (10,-5, 2). What will be the final position of the top right corner? Draw the effects of each transformation on the unit cube.
+
+7) Consider again the unit cube. Suppose we translate it by (10,-5,2) and then rotate it by 30 degrees. What will be the final position of the top, right corner?
+
+8) Consider the transformation from question 7, represent the series of transformations as a single transformation matrix in block matrix form.
+
+9) Multiply the matrix stem:[\begin{bmatrix}3 & 2\\ 4 & -1 \end{bmatrix}] and stem:[\begin{bmatrix}2 & 0\\ -2 & -1 \end{bmatrix}] 
