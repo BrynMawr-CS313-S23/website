@@ -42,7 +42,7 @@ Topics:
 
 * Compute the cross product between stem:[v_{ab}] and stem:[(1,0,1)].
 
-2) Suppose a point p has barycentric coordinate (1,0,0) in relation to the triangle with points a, b, and c. What can we tell about the point p?o
+2) Suppose a point p has barycentric coordinate (1,0,0) in relation to the triangle with points a, b, and c. What can we tell about the point p?
 
 3) What is the difference between a vector and a point?
 
@@ -50,7 +50,7 @@ Topics:
 
 5) Suppose a point p has 2D coordinate (2,4). What is the distance between p and the origin (0,0)?
 
-6) Suppose we have a forward direction (-1,2,0). Construct an orthogonal basis for which (-1,2,0) corresopnds to the Z-axis with respect to the world coordinate frame. 
+6) Suppose we have a forward direction (-1,2,0) for an object. Construct an orthogonal basis for which (-1,2,0) corresopnds to the Z-axis with respect to the world coordinate frame. 
 
 == Matrices and transforms
 
@@ -66,7 +66,7 @@ Topics:
 
 6) Suppose we have an unit cube that is rotated by 30 degrees, scaled by 3, and then translated to (10,-5, 2). What will be the final position of the top right corner? Draw the effects of each transformation on the unit cube.
 
-7) Consider again the unit cube. Suppose we translate it by (10,-5,2) and then rotate it by 30 degrees. What will be the final position of the top, right corner?
+7) Consider again the unit cube. Suppose we translate it by (10,-5,2) and then rotate it by 30 degrees around the Z axis. What will be the final position of the top, right corner?
 
 8) Consider the transformation from question 7, represent the series of transformations as a single transformation matrix in block matrix form.
 
