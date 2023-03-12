@@ -15,6 +15,7 @@ include::header.adoc[]
 [unstyled]
 * Topic this week: link:#week09[Graphics Pipeline, Shaders]
 * link:asst04.html[Assignment 4 - Part II] is due Thursday, March 16th
+* *Final exam* will be May 3, 9:30am, 3 hours, one cheat sheet allowed
 
 == Course Info
 
