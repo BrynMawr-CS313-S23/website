@@ -13,9 +13,8 @@ include::header.adoc[]
 == Announcements
 
 [unstyled]
-* Topic this week: link:#week07[Graphics Pipeline, Shaders]
-* link:asst04.html[Assignment 4 - Part I] is due Thursday, March 2nd
-* link:studyguide1.html[Quiz 1] will be in lab, Thursday, March 2nd (closed book, 30 minutes)
+* Topic this week: link:#week09[Graphics Pipeline, Shaders]
+* link:asst04.html[Assignment 4 - Part II] is due Thursday, March 16th
 
 == Course Info
 

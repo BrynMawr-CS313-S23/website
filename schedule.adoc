@@ -71,7 +71,7 @@
 |Feb 28, March 2
 |*Graphics Pipeline, Shaders, Lighting and Materials I* anchor:week07[]
 
-* Topics: Cameras, Projections, Graphics pipeline, graphics processing unit, shaders, Blinn-Phong shading models
+* Topics: Cameras, Projections, Graphics pipeline, graphics processing unit, shaders, Phong shading models
 * Read: Real-time Rendering, Chpt 2, 3, 5
 * Read: Marschner and Shirley, Chapter 8
 * link:asst04.html[Assignment 04: Enmeshed in 3D] is due in three parts: March 2nd, 16th, 23rd.
@@ -87,17 +87,19 @@
 //-----------------------------
 |9
 |March 14,16
-|*Lighting, Materials* anchor:week09[]
+|*Lighting, Materials, Graphics Pipeline II* anchor:week09[]
 
-* Topics: Normals, Light sources, Phong shading model, Cartoon shading
+* Topics: Normals, Light sources, Phong shading model, Cartoon shading, Projection matrix derivation
+* Read: link:https://people.inf.elte.hu/plisaai/pdf/David%20Wolff%20-%20OpenGL%204.0%20Shading%20Language%20Cookbook%20(2).pdf[OpenGL 4.0 Shader Cookbook: Chapter 2 and 3 (pages 47-62, 81-94)]
+* link:asst04.html[Assignment 04: Enmeshed in 3D] is due in three parts: March 2nd, 16th, 23rd.
 
 //-----------------------------
 |10
 |March 21,23
 |*Textures* anchor:week10[]
 
-* Topics: Texture mapping, sky boxes
-
+* Topics: Texture mapping, sky boxes, sprites, billboards, particle effects
+* link:asst04.html[Assignment 04: Enmeshed in 3D] is due in three parts: March 2nd, 16th, 23rd.
 
 //-----------------------------
 |11
@@ -106,14 +108,14 @@
 
 * Topics: Environment mapping, reflection, transparency, glow
 * LaJune McMillan Visit
+* link:.html[Assignment 05: Special effects]
 
 //-----------------------------
 |12
 |April 4,6
-|*Particles* anchor:week12[]
+|*Advanced topics (TBD)* anchor:week12[]
 
-* Topics: Billboards, sprites, textures, alpha blending and transparency
-* link:.html[Assignment 06: Special effects]
+* Topics: TBD
 * link:.html[Project details]
 
 
@@ -122,16 +124,15 @@
 |April 11,13
 |*Advanced topics (TBD)* anchor:week13[]
 
-* *May 10: Project presentations (in Lecture, 5 min each)* 
-* *May 10: Project proposals due* 
+* Topics: TBD
 
 //-----------------------------
 |14
 |April 18,20
 |*Shadertoy* anchor:week14[]
 
-* *May 10: Project presentations (in Lecture, 5 min each)* 
-* Ray tracing, ray marching, signed-distance functions
+* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
+* Topics: Ray marching, signed-distance functions, constructive solid geometry
 * Reference link:https://thebookofshaders.com/[Book of Shaders]
 * Reference link:https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm[Signed-distance functions]
 
@@ -140,8 +141,7 @@
 |April 25,27
 |*Shadertoy* anchor:week15[]
 
-* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
-* *May 10: Project presentations (in Lecture, 5 min each)* 
+* *April 27: Project presentations (in Lecture, 10 min each)* 
 * Ray marching, signed-distance functions
 * Reference link:https://thebookofshaders.com/[Book of Shaders]
 * Reference link:https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm[Signed-distance functions]
