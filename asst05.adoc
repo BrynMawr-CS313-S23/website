@@ -1,0 +1,151 @@
+include::header.adoc[]
+
+:title: Assignment 5: Special effects
+:Author Initials: ASN
+:Date:    2020-02-07
+:Revision: 0.1
+
+= {title}
+
+**Milestone 1: Due Thursday, March 30, before midnight**
+
+**Milestone 2: Due Thursday, April 6th, before midnight**
+
+The goals for this assignment are:
+
+* Implement different particle systems 
+
+:sectnums:
+
+= Getting started
+
+Fork the repository at {repo}/particles
+
+Clone your copy of the repository to your own computer. To build,
+don't forget to do an "out of source" build and run `cmake ..` from the `/build` directory!
+
+[source]
+----
+$ git clone git@github.com:<username>/particles.git
+$ cd particles
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make (or start particles.sln) 
+$ ../bin/sparkles (or ../bin/Debug/sparkles from the developer console in Visual Studio)
+----
+
+NOTE: Your basecode uses the link:https://github.com/g-truc/glm/blob/master/manual.md[GLM math library] 
+for vectors, points, and colors (which have types for glm::vec3 and glm::vec4). 
+
+NOTE: Your basecode is based on OpenGL 4.0 and so your shaders should be written in GLSL. This
+link:https://www.khronos.org/files/opengl4-quick-reference-card.pdf[documentation] contains a quick 
+reference for GLSL!
+
+= Milestone 1
+
+*Due March 30*
+
+Implement the following demos using particle systems and billboards.
+
+== Sparkles
+
+You are given the source code for the sparkles demo we covered in class. The particle system is 
+implemented in `sparkles.cpp`. The point-sprite billboards are implemented in the vertex and fragment 
+shaders `billboard.vs` and `billboard.fs`.
+
+image::A05/confetti-sort.gif[]
+
+== Sparkle Trail
+
+Create a sparkle trailing effect. Use `sparkles` as a starting point. 
+
+image::A05/sparkle-trail.gif[width=500]
+
+Hints/Requirements:
+
+* Start by animating the star to move in a circle (hint: use sine and cosine to update the position).
+* When you update the particle system, add new particles at the position of the main star.
+* The above demo updates the transparency, size, and rotation of the particles.
+* The above system initializes the velocity using the current velocity of the star. This makes the trail look like its trailing from the star.
+* Use an object pool to enforce a maximum number of particles
+
+== Explosion
+
+In `explosion.cpp`, implement an explosion effect based on a sprite sheet. 
+
+image::A05/explosion.gif[width=500]
+
+Hints/Requirements:
+
+* Your program should modify `billboard-animated.vs` to compute the UV coordinates based on the number of rows and columns in the sprite sheet and 
+the current frame. 
+* Your program should modify `explosion.cpp` to change the current frame based on the time. The animation framerate should be 30 frames per second.
+
+== Axis Billboard 
+
+In `billboard-axis.cpp`, implement an axis billboard that rotates around the Y axis. Your starting basecode looks like 
+the following.
+
+image::A05/tree-start.gif[width=500]
+
+After you get the billboard working, it should look like
+
+image::A05/tree-axis-billboard.gif[width=500]
+
+Hints/Requirements:
+
+* Use a matrix stack to implement your billboard. 
+* Integrate your camera from the mesh-viewer so you can rotate around the billboard to check whether it is working.
+
+= Milestone #2
+
+*Due April 6th*
+
+== Unique demo
+
+In this file `demo.cpp`, implement a unique particle system. Here are some ideas:
+
+* Fire (animated sprites)
+* Smoke plume
+* Fireworks
+* Shape desolve
+* Trailing effects
+* Integrate particle effects with PLY models to make a scene
+* Implement a forest, or grass, or try an overlapping vegetation model
+
+video::A05/fire.mp4[]
+
+== Update Readme.md
+
+Update `Readme.md` to include documentation on your unique features and images created with your mesh-viewer.
+
+== What to hand in
+
+. Your code. Make sure your code is checked into github
+. One or more gifs or videos created using your software
+. Update `Readme.md` so it includes a writeup of the features your application supports. Be sure to point out any original features that you implement.
+
+= Grading rubric
+
+Grades each week are out of 4 points.
+
+* (4 points) Milestone #1
+** (2 points) Sparkle trailing effect
+** (1 points) Explosion
+** (1 points) Axis billboard with tree
+
+* (4 points) Milestone #2
+** (0.5 points) Compiles and runs without crashing (on linux)
+** (1.3 points) readme and unique images/demos
+** (0.2 points) style and header comment
+** (2.0 points) unique features
+
+**Code rubrics**
+
+For full credit, your C++ programs must be feature-complete, robust (e.g. run without memory errors or crashing) and have good style.
+Some credit lost for missing features or bugs, depending on severity of error
+
+-5% for style errors. See the class coding style here.
+-100% for failure to checkin work to Github
+-100% for failure to compile on linux using make

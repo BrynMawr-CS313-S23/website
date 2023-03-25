@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.18">
+<title>Assignment 5: Special effects</title>
+<link rel="stylesheet" href="style/cs21.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_assignment_5_special_effects">Assignment 5: Special effects</a></li>
+<li><a href="#_getting_started">1. Getting started</a></li>
+<li><a href="#_milestone_1">2. Milestone 1</a>
+<ul class="sectlevel2">
+<li><a href="#_sparkles">2.1. Sparkles</a></li>
+<li><a href="#_sparkle_trail">2.2. Sparkle Trail</a></li>
+<li><a href="#_explosion">2.3. Explosion</a></li>
+<li><a href="#_axis_billboard">2.4. Axis Billboard</a></li>
+</ul>
+</li>
+<li><a href="#_milestone_2">3. Milestone #2</a>
+<ul class="sectlevel2">
+<li><a href="#_unique_demo">3.1. Unique demo</a></li>
+<li><a href="#_update_readme_md">3.2. Update Readme.md</a></li>
+<li><a href="#_what_to_hand_in">3.3. What to hand in</a></li>
+</ul>
+</li>
+<li><a href="#_grading_rubric">4. Grading rubric</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_assignment_5_special_effects">Assignment 5: Special effects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Milestone 1: Due Thursday, March 30, before midnight</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Milestone 2: Due Thursday, April 6th, before midnight</strong></p>
+</div>
+<div class="paragraph">
+<p>The goals for this assignment are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement different particle systems</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">1. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fork the repository at <a href="https://github.com/BrynMawr-CS313-S23/particles" class="bare">https://github.com/BrynMawr-CS313-S23/particles</a></p>
+</div>
+<div class="paragraph">
+<p>Clone your copy of the repository to your own computer. To build,
+don&#8217;t forget to do an "out of source" build and run <code>cmake ..</code> from the <code>/build</code> directory!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ git clone git@github.com:&lt;username&gt;/particles.git
+$ cd particles
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make (or start particles.sln)
+$ ../bin/sparkles (or ../bin/Debug/sparkles from the developer console in Visual Studio)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your basecode uses the <a href="https://github.com/g-truc/glm/blob/master/manual.md">GLM math library</a>
+for vectors, points, and colors (which have types for glm::vec3 and glm::vec4).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your basecode is based on OpenGL 4.0 and so your shaders should be written in GLSL. This
+<a href="https://www.khronos.org/files/opengl4-quick-reference-card.pdf">documentation</a> contains a quick
+reference for GLSL!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_milestone_1">2. Milestone 1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Due March 30</strong></p>
+</div>
+<div class="paragraph">
+<p>Implement the following demos using particle systems and billboards.</p>
+</div>
+<div class="sect2">
+<h3 id="_sparkles">2.1. Sparkles</h3>
+<div class="paragraph">
+<p>You are given the source code for the sparkles demo we covered in class. The particle system is
+implemented in <code>sparkles.cpp</code>. The point-sprite billboards are implemented in the vertex and fragment
+shaders <code>billboard.vs</code> and <code>billboard.fs</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A05/confetti-sort.gif" alt="confetti sort">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sparkle_trail">2.2. Sparkle Trail</h3>
+<div class="paragraph">
+<p>Create a sparkle trailing effect. Use <code>sparkles</code> as a starting point.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A05/sparkle-trail.gif" alt="sparkle trail" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Hints/Requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start by animating the star to move in a circle (hint: use sine and cosine to update the position).</p>
+</li>
+<li>
+<p>When you update the particle system, add new particles at the position of the main star.</p>
+</li>
+<li>
+<p>The above demo updates the transparency, size, and rotation of the particles.</p>
+</li>
+<li>
+<p>The above system initializes the velocity using the current velocity of the star. This makes the trail look like its trailing from the star.</p>
+</li>
+<li>
+<p>Use an object pool to enforce a maximum number of particles</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_explosion">2.3. Explosion</h3>
+<div class="paragraph">
+<p>In <code>explosion.cpp</code>, implement an explosion effect based on a sprite sheet.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A05/explosion.gif" alt="explosion" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Hints/Requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your program should modify <code>billboard-animated.vs</code> to compute the UV coordinates based on the number of rows and columns in the sprite sheet and
+the current frame.</p>
+</li>
+<li>
+<p>Your program should modify <code>explosion.cpp</code> to change the current frame based on the time. The animation framerate should be 30 frames per second.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_axis_billboard">2.4. Axis Billboard</h3>
+<div class="paragraph">
+<p>In <code>billboard-axis.cpp</code>, implement an axis billboard that rotates around the Y axis. Your starting basecode looks like
+the following.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A05/tree-start.gif" alt="tree start" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>After you get the billboard working, it should look like</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/A05/tree-axis-billboard.gif" alt="tree axis billboard" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Hints/Requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use a matrix stack to implement your billboard.</p>
+</li>
+<li>
+<p>Integrate your camera from the mesh-viewer so you can rotate around the billboard to check whether it is working.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_milestone_2">3. Milestone #2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Due April 6th</strong></p>
+</div>
+<div class="sect2">
+<h3 id="_unique_demo">3.1. Unique demo</h3>
+<div class="paragraph">
+<p>In this file <code>demo.cpp</code>, implement a unique particle system. Here are some ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fire (animated sprites)</p>
+</li>
+<li>
+<p>Smoke plume</p>
+</li>
+<li>
+<p>Fireworks</p>
+</li>
+<li>
+<p>Shape desolve</p>
+</li>
+<li>
+<p>Trailing effects</p>
+</li>
+<li>
+<p>Integrate particle effects with PLY models to make a scene</p>
+</li>
+<li>
+<p>Implement a forest, or grass, or try an overlapping vegetation model</p>
+</li>
+</ul>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="img/A05/fire.mp4" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_readme_md">3.2. Update Readme.md</h3>
+<div class="paragraph">
+<p>Update <code>Readme.md</code> to include documentation on your unique features and images created with your mesh-viewer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_to_hand_in">3.3. What to hand in</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Your code. Make sure your code is checked into github</p>
+</li>
+<li>
+<p>One or more gifs or videos created using your software</p>
+</li>
+<li>
+<p>Update <code>Readme.md</code> so it includes a writeup of the features your application supports. Be sure to point out any original features that you implement.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_grading_rubric">4. Grading rubric</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Grades each week are out of 4 points.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(4 points) Milestone #1</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(2 points) Sparkle trailing effect</p>
+</li>
+<li>
+<p>(1 points) Explosion</p>
+</li>
+<li>
+<p>(1 points) Axis billboard with tree</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>(4 points) Milestone #2</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(0.5 points) Compiles and runs without crashing (on linux)</p>
+</li>
+<li>
+<p>(1.3 points) readme and unique images/demos</p>
+</li>
+<li>
+<p>(0.2 points) style and header comment</p>
+</li>
+<li>
+<p>(2.0 points) unique features</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Code rubrics</strong></p>
+</div>
+<div class="paragraph">
+<p>For full credit, your C++ programs must be feature-complete, robust (e.g. run without memory errors or crashing) and have good style.
+Some credit lost for missing features or bugs, depending on severity of error</p>
+</div>
+<div class="paragraph">
+<p>-5% for style errors. See the class coding style here.
+-100% for failure to checkin work to Github
+-100% for failure to compile on linux using make</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-03-25 16:17:40 -0400
+</div>
+</div>
+</body>
+</html>
