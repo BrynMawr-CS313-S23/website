@@ -1,0 +1,23 @@
+include::header.adoc[]
+
+:title: Study Guide 2: 3D Math for Graphics
+:Author Initials: ASN
+:Date:    2020-08-15
+:Revision: 0.1
+:stem: latexmath
+
+= {title}
+
+Quizes are closed book. 30 minutes in lab.
+
+Topics:
+
+Everything from link:studyguide01.html[Quiz 01] plus
+
+* Phong shading algorithm, Normals
+* Meshes and normals
+* View and projection matrices
+* Matrix stack
+* Graphics pipeline
+* Shaders
+* Particle systems

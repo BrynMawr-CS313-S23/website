@@ -87,9 +87,9 @@
 //-----------------------------
 |9
 |March 14,16
-|*Lighting, Materials, Graphics Pipeline II* anchor:week09[]
+|*Lighting, Materials* anchor:week09[]
 
-* Topics: Normals, Light sources, Phong shading model, Cartoon shading, Projection matrix derivation
+* Topics: Normals, Light sources, Phong shading model, Cartoon shading
 * Read: link:https://people.inf.elte.hu/plisaai/pdf/David%20Wolff%20-%20OpenGL%204.0%20Shading%20Language%20Cookbook%20(2).pdf[OpenGL 4.0 Shader Cookbook: Chapter 2 and 3 (pages 47-62, 81-94)]
 * link:asst04.html[Assignment 04: Enmeshed in 3D] is due in three parts: March 2nd, 16th, 23rd.
 
@@ -104,20 +104,20 @@
 //-----------------------------
 |11
 |March 28,30
-|*Materials II* anchor:week11[]
+|*Special guest lecturem, Particles, View/Projection matrices* anchor:week11[]
 
-* Topics: Environment mapping, reflection, transparency, glow
-* LaJune McMillan Visit
-* link:.html[Assignment 05: Special effects]
+* LaJune McMillan special guest lecture!
+* Topics: Particle systems (continued). Graphics Pipeline II: View and Projection matrix derivations
+* link:asst05.html[Assignment 05: Special effects] is due in two parts: March 30th and April 6th
 
 //-----------------------------
 |12
 |April 4,6
-|*Advanced topics (TBD)* anchor:week12[]
+|*Materials II* anchor:week12[]
 
-* Topics: TBD
-* link:.html[Project details]
-
+* Topics: Environment mapping, reflection, transparency, glow
+* link:asst05.html[Assignment 05: Special effects] is due in two parts: March 30th and April 6th
+* Lab (April 6th): *Quiz 02*. link:studyguide2.html[Study Guide for Quiz 02].
 
 //-----------------------------
 |13
@@ -125,6 +125,7 @@
 |*Advanced topics (TBD)* anchor:week13[]
 
 * Topics: TBD
+* link:.html[Project details]
 
 //-----------------------------
 |14

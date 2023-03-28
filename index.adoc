@@ -13,8 +13,8 @@ include::header.adoc[]
 == Announcements
 
 [unstyled]
-* Topic this week: link:#week09[Graphics Pipeline, Shaders]
-* link:asst04.html[Assignment 4 - Part II] is due Thursday, March 16th
+* Topic this week: link:#week11[LaJune McMillian!, Matrices]
+* link:asst05.html[Assignment 5 - Part 1] is due Thursday, March 29th
 * *Final exam* will be May 3, 9:30am, 3 hours, one cheat sheet allowed (location: Park 245)
 
 == Course Info
