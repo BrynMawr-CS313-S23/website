@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.18">
+<title>Study Guide 2: 3D Math for Graphics</title>
+<link rel="stylesheet" href="style/cs21.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quizes are closed book. 30 minutes in lab.</p>
+</div>
+<div class="paragraph">
+<p>Topics:</p>
+</div>
+<div class="paragraph">
+<p>Everything from <a href="studyguide01.html">Quiz 01</a> plus</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View matrix</p>
+</li>
+<li>
+<p>Projection matrix</p>
+</li>
+<li>
+<p>Normal matrix</p>
+</li>
+<li>
+<p>Advanced shading</p>
+</li>
+<li>
+<p>Intersection testing</p>
+</li>
+<li>
+<p>Ray tracing and ray marching</p>
+</li>
+</ul>
+</div>
+<h3 id="_short_answers" class="discrete">Short Answers</h3>
+<div class="paragraph">
+<p>View matrix</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We typically position the camera using the <code>lookAt</code> function which takes the camera position, look at position, and up vector as arguments. How can these values be used to calculate the view matrix?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Projection Matrix</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What is the differences between an orthographic and perspective camera?</p>
+</li>
+<li>
+<p>What parameters do we need to specify an orthographic camera?</p>
+</li>
+<li>
+<p>What parameters do we need to specify a perspective camera?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Normal matrix</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-04-04 12:39:51 -0400
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -14,7 +14,11 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</a></li>
+<li><a href="#_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</a>
+<ul class="sectlevel2">
+<li><a href="#_example_questions">Example questions</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -34,16 +38,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Phong shading algorithm, Normals</p>
-</li>
-<li>
 <p>Meshes and normals</p>
-</li>
-<li>
-<p>View and projection matrices</p>
-</li>
-<li>
-<p>Matrix stack</p>
 </li>
 <li>
 <p>Graphics pipeline</p>
@@ -52,16 +47,267 @@
 <p>Shaders</p>
 </li>
 <li>
+<p>Phong shading</p>
+</li>
+<li>
+<p>Matrix stack</p>
+</li>
+<li>
 <p>Particle systems</p>
+</li>
+</ul>
+</div>
+<h3 id="_short_answers" class="discrete">Short Answers</h3>
+<div class="paragraph">
+<p>Meshes and normals</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What is a triangle mesh?</p>
+</li>
+<li>
+<p>A well-formed mesh is a manifold? What properties does this imply?</p>
+</li>
+<li>
+<p>If we wish to allow a manifold with boundaries, what properties apply?</p>
+</li>
+<li>
+<p>What is triangle orientation and why is it important for meshes?</p>
+</li>
+<li>
+<p>How do we store a triangle mesh using shared vertices?</p>
+</li>
+<li>
+<p>What are surface normals? Why are they important for shading?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Graphics pipeline and shaders</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The four primary stages of the graphics pipeline are the application, geometry processing, rasterization, and pixel processing. Briefly describe each step.</p>
+</li>
+<li>
+<p>What operations happen during geometry processing?</p>
+</li>
+<li>
+<p>During which stage of the graphics pipeline is the vertex shader called?</p>
+</li>
+<li>
+<p>During which stage of the graphics pipeline is the fragment shader called?</p>
+</li>
+<li>
+<p>During which stage of the graphics pipeline do we handle user input?</p>
+</li>
+<li>
+<p>During which stage of the graphics pipeline do we perform blending when we need transparency?</p>
+</li>
+<li>
+<p>What is camera (aka eye or view) space?</p>
+</li>
+<li>
+<p>What is local (aka object or model) space?</p>
+</li>
+<li>
+<p>What is world space?</p>
+</li>
+<li>
+<p>What is the canonical view volume (CVV)?</p>
+</li>
+<li>
+<p>Why do we project positions to the CVV as opposed to a 2D image?</p>
+</li>
+<li>
+<p>What is clipping?</p>
+</li>
+<li>
+<p>What is the depth, or Z buffer?</p>
+</li>
+<li>
+<p>Why do transparent objects need to be rendered from back to front, with respect to the camera?</p>
+</li>
+<li>
+<p>What types of operations does the graphics card compute in parallel?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Phong shading</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What three colors do we compute as part of the phong shading model?</p>
+</li>
+<li>
+<p>When rendering an object with phong shading, what uniform parameters do we need to specify to configure the material of an object?</p>
+</li>
+<li>
+<p>The diffuse intensity is computed using which vectors at a point p?</p>
+</li>
+<li>
+<p>The specular intensity is computed using which vectors at a point p?</p>
+</li>
+<li>
+<p>What coordinate system do we use to compute shading?</p>
+</li>
+<li>
+<p>What is the position of the camera in eye space?</p>
+</li>
+<li>
+<p>Sketch how to implement phong shading in a vertex shader.</p>
+</li>
+<li>
+<p>Sketch how to implement phong shading in a fragment shader.</p>
+</li>
+<li>
+<p>Sketch how to implement a toon shader without an outline.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Textures</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What is a texture?</p>
+</li>
+<li>
+<p>What are the benefits of using textures?</p>
+</li>
+<li>
+<p>What are texture coordinates? How do they relate to texturing meshes?</p>
+</li>
+<li>
+<p>How can we handle cases where the texture coordinates do not range between 0 and 1?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Particles and billboards</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What is a particle system?</p>
+</li>
+<li>
+<p>What is an object pool?</p>
+</li>
+<li>
+<p>Why might we use billboards to render particles?</p>
+</li>
+<li>
+<p>What else might we render with billboards besides particle systems?</p>
+</li>
+<li>
+<p>What is the difference between additive and alpha blending?</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_example_questions">Example questions</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Which of the following meshes is a manifold? Why or why not?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/Study/manifold-ex1.jpg" alt="manifold ex1" width="400px"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Which of the following meshes is a manifold? Why or why not?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="img/Study/manifold-ex2.jpg" alt="manifold ex2" width="400px"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose we wish to store the following geometry using an indexed mesh (shared vertices) and triangle strip primitive. What would our position and index buffers contain?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>image:Study/triangle-strip-ex1.jpg</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose we wish to store the following geometry using an indexed mesh (shared vertices) and triangle primitives. What would our position and index buffers contain?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>image:Study/triangle-strip-ex1.jpg</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose we have a triangle with corner points a, b, and c. What is the normal to the surface? Give a formula in terms of a, b, and c.</p>
+</li>
+<li>
+<p>Sketch the code for a vertex shader which takes in positions in local coordinates and outputs gl_Position in projected coordinates. Be sure to include any uniform parameters you need as well as any buffer inputs.</p>
+</li>
+<li>
+<p>Sketch the code for a fragment shader that colors are pixels green, e.g. (0,1,0).</p>
+</li>
+<li>
+<p>Show how you would modify the following shader to animate the light so it revolves around the object. Assume the object is centered at the origin and has maximum size of 10 units.</p>
+</li>
+<li>
+<p>What is the normal to the XY plane?</p>
+</li>
+<li>
+<p>Suppose we are visualizing normals in a fragment shader using the formula <code>color = (normal + 1)*0.5</code>. If the normal is (-1,0,0), what color do we expect to see?</p>
+</li>
+<li>
+<p>Visualize the matrix stack corresponding to the following code.</p>
+</li>
+<li>
+<p>Draw the shapes corresponding to the following code.</p>
+</li>
+<li>
+<p>Sketch code for implementing a cone that always faces the camera.</p>
+</li>
+<li>
+<p>Sketch an algorithm for implementing a particle system that implements a dust trail effect. How should particles be initialized? And how should they be updated?</p>
+</li>
+<li>
+<p>Suppose I have an object with bounding box (5, 10, 1). How can I rescale the box so it fits inside a unit cube. Be cause that your approach does not distort the model!</p>
+</li>
+<li>
+<p>Sketch the algorithm for implementing a car that drives in a circle. Orient the car so it faces the direction of travel.</p>
+</li>
+<li>
+<p>Consider the algorithm from the previous question. Add code that uses a matrix stack to place Beethoven at the steering wheel.</p>
+</li>
+<li>
+<p>Consider the following texture. How would the texture render on the following meshes?</p>
+</li>
+<li>
+<p>Suppose we shade the point p with the Phong shading model. Is p in light or shadow? Is p part of the specular hightlight, or no? Apply the phong shading equations to justify your answer.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-28 10:14:37 -0400
+Last updated 2023-04-04 12:48:18 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">

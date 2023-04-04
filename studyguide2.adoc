@@ -14,10 +14,114 @@ Topics:
 
 Everything from link:studyguide01.html[Quiz 01] plus
 
-* Phong shading algorithm, Normals
 * Meshes and normals
-* View and projection matrices
-* Matrix stack
 * Graphics pipeline
 * Shaders
+* Phong shading 
+* Matrix stack
 * Particle systems
+
+[discrete]
+== Short Answers
+
+Meshes and normals
+
+* What is a triangle mesh?
+* A well-formed mesh is a manifold? What properties does this imply?
+* If we wish to allow a manifold with boundaries, what properties apply?
+* What is triangle orientation and why is it important for meshes?
+* How do we store a triangle mesh using shared vertices?
+* What are surface normals? Why are they important for shading?
+
+Graphics pipeline and shaders
+
+* The four primary stages of the graphics pipeline are the application, geometry processing, rasterization, and pixel processing. Briefly describe each step.
+* What operations happen during geometry processing?
+* During which stage of the graphics pipeline is the vertex shader called?
+* During which stage of the graphics pipeline is the fragment shader called?
+* During which stage of the graphics pipeline do we handle user input?
+* During which stage of the graphics pipeline do we perform blending when we need transparency?
+* What is camera (aka eye or view) space?
+* What is local (aka object or model) space?
+* What is world space?
+* What is the canonical view volume (CVV)?
+* Why do we project positions to the CVV as opposed to a 2D image?
+* What is clipping?
+* What is the depth, or Z buffer?
+* Why do transparent objects need to be rendered from back to front, with respect to the camera?
+* What types of operations does the graphics card compute in parallel?
+
+Phong shading
+
+* What three colors do we compute as part of the phong shading model?
+* When rendering an object with phong shading, what uniform parameters do we need to specify to configure the material of an object?
+* The diffuse intensity is computed using which vectors at a point p?
+* The specular intensity is computed using which vectors at a point p?
+* What coordinate system do we use to compute shading?
+* What is the position of the camera in eye space?
+* Sketch how to implement phong shading in a vertex shader.
+* Sketch how to implement phong shading in a fragment shader.
+* Sketch how to implement a toon shader without an outline.
+
+Textures
+
+* What is a texture?
+* What are the benefits of using textures?
+* What are texture coordinates? How do they relate to texturing meshes?
+* How can we handle cases where the texture coordinates do not range between 0 and 1?
+
+Particles and billboards
+
+* What is a particle system?
+* What is an object pool?
+* Why might we use billboards to render particles?
+* What else might we render with billboards besides particle systems?
+* What is the difference between additive and alpha blending?
+
+== Example questions
+
+* Which of the following meshes is a manifold? Why or why not?
+
+image:Study/manifold-ex1.jpg[width=400px]
+
+* Which of the following meshes is a manifold? Why or why not?
+
+image:Study/manifold-ex2.jpg[width=400px]
+
+* Suppose we wish to store the following geometry using an indexed mesh (shared vertices) and triangle strip primitive. What would our position and index buffers contain?
+
+image:Study/triangle-strip-ex1.jpg
+
+* Suppose we wish to store the following geometry using an indexed mesh (shared vertices) and triangle primitives. What would our position and index buffers contain?
+
+image:Study/triangle-strip-ex1.jpg
+
+* Suppose we have a triangle with corner points a, b, and c. What is the normal to the surface? Give a formula in terms of a, b, and c.
+
+* Sketch the code for a vertex shader which takes in positions in local coordinates and outputs gl_Position in projected coordinates. Be sure to include any uniform parameters you need as well as any buffer inputs. 
+
+* Sketch the code for a fragment shader that colors are pixels green, e.g. (0,1,0). 
+
+* Show how you would modify the following shader to animate the light so it revolves around the object. Assume the object is centered at the origin and has maximum size of 10 units. 
+
+* What is the normal to the XY plane?
+
+* Suppose we are visualizing normals in a fragment shader using the formula `color = (normal + 1)*0.5`. If the normal is (-1,0,0), what color do we expect to see?
+
+* Visualize the matrix stack corresponding to the following code.
+
+* Draw the shapes corresponding to the following code.
+
+* Sketch code for implementing a cone that always faces the camera.
+
+* Sketch an algorithm for implementing a particle system that implements a dust trail effect. How should particles be initialized? And how should they be updated?
+
+* Suppose I have an object with bounding box (5, 10, 1). How can I rescale the box so it fits inside a unit cube. Be cause that your approach does not distort the model!
+
+* Sketch the algorithm for implementing a car that drives in a circle. Orient the car so it faces the direction of travel.
+
+* Consider the algorithm from the previous question. Add code that uses a matrix stack to place Beethoven at the steering wheel. 
+
+* Consider the following texture. How would the texture render on the following meshes?
+
+* Suppose we shade the point p with the Phong shading model. Is p in light or shadow? Is p part of the specular hightlight, or no? Apply the phong shading equations to justify your answer.
