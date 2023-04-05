@@ -21,6 +21,8 @@ Everything from link:studyguide1.html[Study Guide 1] plus
 * Matrix stack
 * Particle systems
 
+Please also use your lab worksheets as study resources.
+
 [discrete]
 = Short Answers
 
