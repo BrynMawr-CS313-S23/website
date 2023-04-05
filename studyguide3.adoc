@@ -12,7 +12,7 @@ Quizes are closed book. 30 minutes in lab.
 
 Topics:
 
-Everything from link:studyguide01.html[Quiz 01] plus
+Everything from link:studyguide2.html[Study Guide 2] plus
 
 * View matrix
 * Projection matrix
@@ -21,20 +21,23 @@ Everything from link:studyguide01.html[Quiz 01] plus
 * Intersection testing
 * Ray tracing and ray marching
 
-[discrete]
-== Short Answers
+Please also use your lab worksheets as study resources.
 
-View matrix
+[discrete]
+= Short Answers
+
+== View matrix
 
 * We typically position the camera using the `lookAt` function which takes the camera position, look at position, and up vector as arguments. How can these values be used to calculate the view matrix?
 
-Projection Matrix
+== Projection Matrix
 
 * What is the differences between an orthographic and perspective camera?
 * What parameters do we need to specify an orthographic camera?
 * What parameters do we need to specify a perspective camera?
 
-
-Normal matrix
+== Normal matrix
 
 * Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?
+
+= Sample Questions
