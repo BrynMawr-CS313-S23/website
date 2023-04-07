@@ -13,9 +13,10 @@ include::header.adoc[]
 == Announcements
 
 [unstyled]
-* Topic this week: link:#week11[LaJune McMillian!, Matrices]
-* link:asst05.html[Assignment 5 - Part 2] is due Thursday, April 6
-* Quiz in Lab. Check out the study guide for practice. link:studyguide02.html[Study Guide 02]
+* Topic this week: link:#week13[Advanced shader and material effects]
+* link:project.html[Project] ideas are due Thursday, April 13th
+* Quiz 03 will be in lab April 20th. Check out the study guide for practice. link:studyguide3.html[Study Guide 3]
+* link:project.html[Final Project and Presentation] are due Thursday, April 27th
 * *Final exam* will be May 3, 9:30am, 3 hours, one cheat sheet allowed (location: Park 245)
 
 == Course Info

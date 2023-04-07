@@ -7,7 +7,8 @@ include::header.adoc[]
 
 = {title}
 
-**Due Thursday, April 27th**
+**Idea: Due Thursday, April 13th**
+**Project: Due Thursday, April 27th**
 
 The goals for this project are:
 
@@ -82,7 +83,7 @@ All documentation should be in your README.md on Github and should include
 * Instructions for how to build and run your project. We should be able to reproduce your results
 * Summary of results
 
-== Presentation:
+== Presentation
 
 *Due April 27th*
 
@@ -95,37 +96,35 @@ All documentation should be in your README.md on Github and should include
 = Project Ideas
 
 Try to think of a project that is similar in scope to an assignment. You will only have 
-a few weeks to work on it! Below are some ideas
+a few weeks to work on it! If you implement an effect or shader, be sure to include it in an 
+interactive demo or scene. Below are some ideas
 
 * Make a video game
-* Interactive scene
 * Procedural modeling
 ** Plants: link:http://algorithmicbotany.org/[Algorithmic Botany], https://www.cct.lsu.edu/~fharhad/ganbatte/siggraph2007/CD2/content/papers/088-neubert.pdf[Modeling trees with particle flows] 
-** Terrain: link:https://www.classes.cs.uchicago.edu/archive/2015/fall/23700-1/final-project/MusgraveTerrain00.pdf[Reference]
-** Buildings: https://dl.acm.org/doi/10.1145/1179352.1141931[Procedural modeling of buildings]
-** Cities
+** Terrain: link:https://www.classes.cs.uchicago.edu/archive/2015/fall/23700-1/final-project/MusgraveTerrain00.pdf[Procedural Fractal Terrains]
+** Buildings and Cities: https://dl.acm.org/doi/10.1145/1179352.1141931[Procedural modeling of buildings]
 * Simulation
-** Mass-pring systems (cloth, jello)
-** Object dissolve 
-** Water
-** Flocks
-* Metaballs 
-* Fractal flames
-* Paintly rendering filter
+** Mass-pring systems (cloth, jello): link:https://dl.acm.org/doi/abs/10.1145/1198555.1198571[Stable but responsive cloth]
+** Video game particle effects: link:https://assetstore.unity.com/packages/vfx/particles/3d-games-effects-pack-free-42285[Unity free particle assets (Use as a reference)] 
+** Water: link:https://ubm-twvideo01.s3.amazonaws.com/o1/vault/gdc08/slides/S6509i1.pdf[Fast water simulation using height fields]
+** Flocks: link:https://www.red3d.com/cwr/boids/[Boids]
+** Smoothed particle hydrodynamics (SPH): link:https://interactivecomputergraphics.github.io/SPH-Tutorial/[SPH Tutorial]
+* Metaballs/Blobs: link:http://www.geisswerks.com/ryan/BLOBS/blobs.html[Blobs Tutorial] 
+* Fractal flames: link:https://flam3.com/flame_draves.pdf[Paper]
 * Shaders and advanced real-time effects
-** Ambient Occulusion
-** Glow
-** Skin
-** Pen and ink effects 
-** Shadows
-** Fur
-** Skinning
+** Ambient Occulusion (OpenGL 4.0 Cookbook)
+** Glow (OpenGL 4.0 Cookbook, link:https://developer.nvidia.com/gpugems/gpugems/part-iv-image-processing/chapter-21-real-time-glow[Glow (GPU Gems)])
+** Skin: link:https://developer.nvidia.com/gpugems/gpugems3/part-iii-rendering/chapter-14-advanced-techniques-realistic-real-time-skin[Skin (GPU Gems)]
+** Shadows (OpenGL 4.0 Cookbook)
+** Hair/Fur: link:https://www.xbdev.net/directx3dx/specialX/Fur/index.php[Fur effects], link:https://dl.acm.org/doi/pdf/10.1145/74334.74361[Seminal research paper]
+** Skinning: link:https://skinning.org/direct-methods.pdf[Linear blend skinning tutorial (SIGGRAPH)]
 * Mesh modeling tools
-** Scene creator
-** Mesh editor
-** Extrude or revolve tools 
-** Bezier surfaces
-** Draw on a mesh
+** Scene creator, e.g mini-maya
+** Draw on a mesh, e.g. interactive texture editor
+** Mesh editing: link:https://www.cs.princeton.edu/courses/archive/spring22/cos426/assignments/A2/[Mesh operations assignment]
+* Graphics data-structures
+** link:https://en.wikipedia.org/wiki/K-d_tree[KD-Trees], or link:https://en.wikipedia.org/wiki/Octree[Octrees]
 
 The following references might also help you come up with ideas
 
