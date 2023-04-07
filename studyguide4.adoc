@@ -1,0 +1,40 @@
+include::header.adoc[]
+
+:title: Study Guide 4: Ray tracing and marching
+:Author Initials: ASN
+:Date:    2020-08-15
+:Revision: 0.1
+:stem: latexmath
+
+= {title}
+
+Quizes are closed book. 30 minutes in lab.
+
+Topics:
+
+Everything from link:studyguide3.html[Study Guide 3] plus
+
+* Intersection testing
+* Ray tracing and ray marching
+
+Please also use your lab worksheets as study resources.
+
+[discrete]
+= Short Answers
+
+== Ray tracing/marching
+
+* What is the difference between ray tracing and rasterization for how it renders objects?
+* In a ray tracer, how do we determine the color of each pixel?
+* In a ray tracer, how do we determine that a pixel is in shadow?
+* What is a signed-distance-function?
+* What is the difference between ray marching an ray tracing?
+
+= Sample Questions
+
+* Suppose we are ray tracing a 400x300 image. The camera is at location (0,0,2) and the image plane is centered at (0,0,0) with minimum corner at (-2,-1.5) and maximum corner at (2, 1.5). What is the camera ray at pixel (100, 100)?
+* Suppose we have a ray at position (0,0,2) and direction (0,0,-1). At what point would it intersect the sphere centered at (1,0,0) with radius (10)?
+* Suppose we have a ray at position (0,0,2) and direction (0,0,-1). At what point would it intersect the box centered at (0,0,0) with dimensions (3,1,1)?
+* Suppose we have a ray at position (0,0,2) and direction (0,0,-1). At what point would it intersect the triangle with corners (-1,-1,0), (1,-1,0), (0,4,0)?
+
+NOTE: You will be given psuedocode on your exam for intersection testing.

@@ -1,6 +1,6 @@
 include::header.adoc[]
 
-:title: Study Guide 2: 3D Math for Graphics
+:title: Study Guide 3: View, Normal, Projection matrices
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
@@ -17,7 +17,6 @@ Everything from link:studyguide2.html[Study Guide 2] plus
 * View matrix
 * Projection matrix
 * Normal matrix
-* Advanced shading
 * Intersection testing
 * Ray tracing and ray marching
 
@@ -28,16 +27,45 @@ Please also use your lab worksheets as study resources.
 
 == View matrix
 
+* What is the modelview matrix?
 * We typically position the camera using the `lookAt` function which takes the camera position, look at position, and up vector as arguments. How can these values be used to calculate the view matrix?
+* Sketch how to implement an orbit camera.
+* Sketch how to implement a fly-through camera.
+* After we 
 
 == Projection Matrix
 
 * What is the differences between an orthographic and perspective camera?
 * What parameters do we need to specify an orthographic camera?
 * What parameters do we need to specify a perspective camera?
+* Draw the view volume associated with an orthographic camera. Label the orthographic parameters on the view volume.
+* Draw the view volume associated with a perspective camera. Label the perspective parameters on the view volume.
+* What is perspective division?
+* Why do we project points into the canonical view volume instead of to the near plane?
 
 == Normal matrix
 
-* Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?
+* The normal matrix converts from local coordinates to eye coordinates. Why can't we use the model-view matrix that we use for vertices?
+* How do we compute the normal matrix from the model-view matrix?
+
 
 = Sample Questions
+
+* Construct the view matrix that would be computed when we call `lookAt(vec3(2,1,0), vec3(0,1,0), vec3(0,1,0))`
+* Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?
+* Suppose the modelview matrix is stem:[MV = T(1,2,3)*R_x(45)*S(0.5, 2, 2)]. Compute the normal matrix corresponding to MV. Express your answer as a transform expression. 
+* Construct the projection matrix that would be computed when we call `ortho(-2,3,0,5, -1, 1)`
+* Construct the projection matrix that would be computed when we call `persp(pi/6, 1.3, 0.1, 10)`
+* Construct the projection matrix that would be computed if we wanted to project all points to the plane `z = -2`.
+* Suppose we project a point p = (1,1,2) using the following matrix. What would be the value of the point's psuedodepth?
+[stem]
+++++
+\begin{bmatrix}
+\sqrt{3} & 0 & 0 & 0 \\
+0 & \sqrt{3} & 0 & 0 \\
+0 & 0 & -5/4 & -9/4 \\
+0 & 0 & -1 & 0
+\end{bmatrix}
+++++
+
+NOTE: You will be given formulas for orthographic and perspective matrices.

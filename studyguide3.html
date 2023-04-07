@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>Study Guide 2: 3D Math for Graphics</title>
+<title>Study Guide 3: View, Normal, Projection matrices</title>
 <link rel="stylesheet" href="style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +14,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</a>
+<li><a href="#_study_guide_3_view_normal_projection_matrices">Study Guide 3: View, Normal, Projection matrices</a>
 <ul class="sectlevel2">
 <li><a href="#_view_matrix">View matrix</a></li>
 <li><a href="#_projection_matrix">Projection Matrix</a></li>
@@ -27,7 +27,7 @@
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_study_guide_2_3d_math_for_graphics">Study Guide 2: 3D Math for Graphics</h2>
+<h2 id="_study_guide_3_view_normal_projection_matrices">Study Guide 3: View, Normal, Projection matrices</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Quizes are closed book. 30 minutes in lab.</p>
@@ -50,9 +50,6 @@
 <p>Normal matrix</p>
 </li>
 <li>
-<p>Advanced shading</p>
-</li>
-<li>
 <p>Intersection testing</p>
 </li>
 <li>
@@ -69,7 +66,19 @@
 <div class="ulist">
 <ul>
 <li>
+<p>What is the modelview matrix?</p>
+</li>
+<li>
 <p>We typically position the camera using the <code>lookAt</code> function which takes the camera position, look at position, and up vector as arguments. How can these values be used to calculate the view matrix?</p>
+</li>
+<li>
+<p>Sketch how to implement an orbit camera.</p>
+</li>
+<li>
+<p>Sketch how to implement a fly-through camera.</p>
+</li>
+<li>
+<p>After we</p>
 </li>
 </ul>
 </div>
@@ -87,6 +96,18 @@
 <li>
 <p>What parameters do we need to specify a perspective camera?</p>
 </li>
+<li>
+<p>Draw the view volume associated with an orthographic camera. Label the orthographic parameters on the view volume.</p>
+</li>
+<li>
+<p>Draw the view volume associated with a perspective camera. Label the perspective parameters on the view volume.</p>
+</li>
+<li>
+<p>What is perspective division?</p>
+</li>
+<li>
+<p>Why do we project points into the canonical view volume instead of to the near plane?</p>
+</li>
 </ul>
 </div>
 </div>
@@ -95,7 +116,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?</p>
+<p>The normal matrix converts from local coordinates to eye coordinates. Why can&#8217;t we use the model-view matrix that we use for vertices?</p>
+</li>
+<li>
+<p>How do we compute the normal matrix from the model-view matrix?</p>
 </li>
 </ul>
 </div>
@@ -105,13 +129,55 @@
 <div class="sect1">
 <h2 id="_sample_questions">Sample Questions</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>Construct the view matrix that would be computed when we call <code>lookAt(vec3(2,1,0), vec3(0,1,0), vec3(0,1,0))</code></p>
+</li>
+<li>
+<p>Consider the XZ plane. Suppose we scale it by (1,2,1) and then rotate it around Z by 45 degrees. How should we modify the normal (0,1,0) so it remains perpendicular to the surface?</p>
+</li>
+<li>
+<p>Suppose the modelview matrix is \(MV = T(1,2,3)*R_x(45)*S(0.5, 2, 2)\). Compute the normal matrix corresponding to MV. Express your answer as a transform expression.</p>
+</li>
+<li>
+<p>Construct the projection matrix that would be computed when we call <code>ortho(-2,3,0,5, -1, 1)</code></p>
+</li>
+<li>
+<p>Construct the projection matrix that would be computed when we call <code>persp(pi/6, 1.3, 0.1, 10)</code></p>
+</li>
+<li>
+<p>Construct the projection matrix that would be computed if we wanted to project all points to the plane <code>z = -2</code>.</p>
+</li>
+<li>
+<p>Suppose we project a point p = (1,1,2) using the following matrix. What would be the value of the point&#8217;s psuedodepth?</p>
+</li>
+</ul>
+</div>
+\begin{bmatrix}
+\sqrt{3} & 0 & 0 & 0 \\
+0 & \sqrt{3} & 0 & 0 \\
+0 & 0 & -5/4 & -9/4 \\
+0 & 0 & -1 & 0
+\end{bmatrix}
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will be given formulas for orthographic and perspective matrices.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-05 12:05:08 -0400
+Last updated 2023-04-07 09:45:26 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">

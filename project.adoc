@@ -7,7 +7,7 @@ include::header.adoc[]
 
 = {title}
 
-**Due Thursday, May 20th**
+**Due Thursday, April 27th**
 
 The goals for this project are:
 
@@ -19,95 +19,118 @@ The goals for this project are:
 
 = Requirements
 
-* Your project should create a piece of software, but can be a plugin or stand-alone application
+* Your project should create a piece of software, such as a demo, tool, or game
 * Your project should relate to modeling, rendering, or animation
-* Your project must have unique aspects and should not directly copy the code of an existing tutorial 
+* Your project must have unique aspects and should not directly copy the code of an existing project or tutorial 
 
 Your final grade will be based on
 
-* Writeups and presentations
-* Whether your demo builds and runs
+* Git reports, README and presentation
+* Whether your demo builds and runs out-of-the-box
 * Demonstrated effort and creativity 
 
 = Milestones
 
-* Project idea: Due May3rd (Informally, email or slack your idea and github URL to the instructor.)
+* Project idea: *Due April 13th* (Informally, email or slack your idea and github URL to the instructor.)
 * Project proposal report/presentation: Due May 6th.
 * Final project presentations: Due May 19th.
 * Final project submission: Due May 20th
 
 = Project Idea
 
-*Due May 3rd*
+*Due April 13th*
 
-Email or slack your idea to the instructor along with the github URL for your project.
+Email or slack your idea and title to anormoyle@brynmawr.edu along with the github URL for your project.
 
-Resources and Ideas
+Your project idea should include:
 
-* Procedurally generate geometry, e.g. create trees and plants, buildings, or terrain
-* Implement a shader that supports skin, water, bump mapping, translucency, reflectance, fur, or non-photorealistic effects
-* Create a non-trivial particle effect, such as explosions or fire
-* Extend your ray tracer to include spatial data structure, do Monte Carlo path tracing, light sources, textures, or more
-* Procedurally generate meshes for 3D printing
+* Project title/idea
+* Github repository for your project
+* How will this project be unique from existing demos? 
+* Identify the features you plan to implement and a timeline for completing them
+** Sort your features into minimum required, good-to-have and stretch 
+* Provide references for the algorithms, data structures and/or background math you plan to implement
+
+= Project
+
+*Due April 27th*
+
+Your complete project should consist of:
+
+* Implementation
+* Documentation
+* Presentation (10 minutes)
+
+== Implementation 
+
+*Due April 27th*
+
+All code and results should be included in your github repository for this project.
+You should submit:
+
+* Your code. Make sure your code is checked into github
+* Any dependencies needed to run
+* At least one or more images or videos created using your software
+
+== Documentation
+
+*Due April 27th*
+
+All documentation should be in your README.md on Github and should include
+
+* A writeup describing the algorithms, data structures, and math behind your project
+* Instructions for how to build and run your project. We should be able to reproduce your results
+* Summary of results
+
+== Presentation:
+
+*Due April 27th*
+
+* *10 minutes*
+* Should summarize the project idea and describe the underlying algorithms, data structures, and underlying math needed for your project. 
+* Should summarize the project idea and show your results
+* During lecture/lab on Thursday April 27th 
+
+
+= Project Ideas
+
+Try to think of a project that is similar in scope to an assignment. You will only have 
+a few weeks to work on it! Below are some ideas
+
+* Make a video game
+* Interactive scene
+* Procedural modeling
+** Plants: link:http://algorithmicbotany.org/[Algorithmic Botany], https://www.cct.lsu.edu/~fharhad/ganbatte/siggraph2007/CD2/content/papers/088-neubert.pdf[Modeling trees with particle flows] 
+** Terrain: link:https://www.classes.cs.uchicago.edu/archive/2015/fall/23700-1/final-project/MusgraveTerrain00.pdf[Reference]
+** Buildings: https://dl.acm.org/doi/10.1145/1179352.1141931[Procedural modeling of buildings]
+** Cities
+* Simulation
+** Mass-pring systems (cloth, jello)
+** Object dissolve 
+** Water
+** Flocks
+* Metaballs 
+* Fractal flames
+* Paintly rendering filter
+* Shaders and advanced real-time effects
+** Ambient Occulusion
+** Glow
+** Skin
+** Pen and ink effects 
+** Shadows
+** Fur
+** Skinning
+* Mesh modeling tools
+** Scene creator
+** Mesh editor
+** Extrude or revolve tools 
+** Bezier surfaces
+** Draw on a mesh
 
 The following references might also help you come up with ideas
 
-* SIGGRAPH (early papers)
-* The graphics textbook for this class
+* SIGGRAPH 
 * GPU Gems
 * Shader X
 * shadertoy
 * OpenGL 4.0 cookbook
-
-= Project proposal
-
-*Due May 10th*
-
-Your project proposal should include:
-
-* Project title/idea
-* How will this project be unique from existing demos? 
-* Identify the features you plan to implement and a timeline for completing them
-** Sort your features into minimum required, good-to-have and stretch 
-* Writeup the algorithms, data structures and/or background math you plan to implement
-
-*Submit your proposal on github in a document, `Proposal.md`, located in your project repository*
-
-Your project presentation:
-
-* *5 minutes*
-* should summarize the project idea and describe the underlying algorithms, data structures, and underlying math needed for your project. 
-* on Zoom, during lecture: 1:10pm-2:30pm
-
-= Project presentations
-
-*On Zoom, May 19th, 9:30-12:30am EST*
-
-You final presentation:
-
-* 10 minutes
-* should summarize the project idea and show your results
-
-= Project 
-
-*Due May 20th*
-
-All reports and results should be included in your github repository for this project.
-You should submit:
-
-* Your code. Make sure your code is checked into github
-* At least one or more images or projects created using your software
-* In your `Readme.md`
-** A writeup describing the algorithms, data structures, and math behind your project
-** Instructions for how to build and run your project. We should be able to reproduce your results
-** Summary of results
-
-
-
-= Extra
-
-* Procedural modeling: grammars, fractal terrains, particle flows
-* Reference link:http://algorithmicbotany.org/[Plants]
-* Reference link:https://www.classes.cs.uchicago.edu/archive/2015/fall/23700-1/final-project/MusgraveTerrain00.pdf[Procedural terrains]
-* Reference link:https://dl.acm.org/doi/10.1145/1179352.1141931[Procedural modeling of buildings]
-* Reference link:https://www.cct.lsu.edu/~fharhad/ganbatte/siggraph2007/CD2/content/papers/088-neubert.pdf[Modeling trees with particle flows] 
