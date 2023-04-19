@@ -13,8 +13,7 @@ include::header.adoc[]
 == Announcements
 
 [unstyled]
-* Topic this week: link:#week13[Advanced shader and material effects]
-* link:project.html[Project] ideas are due Thursday, April 13th
+* Topic this week: link:#week14[Advanced shader and material effects]
 * Quiz 03 will be in lab April 20th. Check out the study guide for practice. link:studyguide3.html[Study Guide 3]
 * link:project.html[Final Project and Presentation] are due Thursday, April 27th
 * *Final exam* will be May 3, 9:30am, 3 hours, one cheat sheet allowed (location: Park 245)

@@ -15,11 +15,15 @@ Topics:
 Everything from link:studyguide3.html[Study Guide 3] plus
 
 * Intersection testing
-* Ray tracing and ray marching
+* Projection
+* Ray-based selection
 
 Please also use your lab worksheets as study resources.
 
 [discrete]
+
+
+////
 = Short Answers
 
 == Ray tracing/marching
@@ -38,3 +42,4 @@ Please also use your lab worksheets as study resources.
 * Suppose we have a ray at position (0,0,2) and direction (0,0,-1). At what point would it intersect the triangle with corners (-1,-1,0), (1,-1,0), (0,4,0)?
 
 NOTE: You will be given psuedocode on your exam for intersection testing.
+////

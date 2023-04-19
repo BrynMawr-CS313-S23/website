@@ -124,19 +124,16 @@
 |April 11,13
 |*Advanced Shaders and materials* anchor:week13[]
 
-* Topics: Environment mapping, reflection, transparency, glow, shadows
+* Topics: Environment mapping, reflection, transparency, bump mapping 
 * link:project.html[Project details]
 
 //-----------------------------
 |14
 |April 18,20
-|*Shadertoy* anchor:week14[]
+|*Advanced Shaders and materials* anchor:week14[]
 
-* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
-* Topics: Introduction to ray tracing and ray marching, intersction testing, signed-distance functions
+* Topics: Shadows, Screen-space effects, Render to texture, Vector projection and applications
 * Quiz 03: link:studyguide03.html[Study Guide 03]
-* Reference link:https://thebookofshaders.com/[Book of Shaders]
-* Reference link:https://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm[Signed-distance functions]
 
 //-----------------------------
 |15
@@ -144,6 +141,7 @@
 |*Shadertoy* anchor:week15[]
 
 * *April 27: Project presentations (in Lecture/Lab, 10 min each)* 
+* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
 * Ray marching, signed-distance functions
 * Final prep: link:studyguide04.html[Study Guide 04]
 * Reference link:https://thebookofshaders.com/[Book of Shaders]
