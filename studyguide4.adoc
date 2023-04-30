@@ -8,9 +8,7 @@ include::header.adoc[]
 
 = {title}
 
-Quizes are closed book. 30 minutes in lab.
-
-Topics:
+Final Exam Study Topics:
 
 Everything from link:studyguide3.html[Study Guide 3] plus
 
