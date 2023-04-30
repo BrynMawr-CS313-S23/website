@@ -14,17 +14,49 @@ Topics:
 
 Everything from link:studyguide3.html[Study Guide 3] plus
 
+* Advanced rendering techniques
 * Intersection testing
-* Projection
 * Ray-based selection
 
 Please also use your lab worksheets as study resources.
 
 [discrete]
+= Short Answers
 
+* What is a billboard?
+* What is a cubemap?
+* How can we implement reflective materials using shaders?
+* How can we implement refractive materials using shaders?
+* What is the fresnel effect?
+* How can we implement a toon material using shaders?
+* How does additive blending differ from alpha blending?
+* What is multi-pass rendering?
+* Give an example of an algorithm that uses multi-pass rendering?
+* What is render-to-texture?
+* What is a shadow map?
+* Why do jaggy artifacts happen in shadow mapping? How can we avoid these artifacts? 
+* What is a height map?
+* What is a bump, or normal map?
+* What are some advantages of bump mapping?
+* Suppose we would like to screen an effect that blurs the screen after rendering? How would we implement this effect using shaders?
+* Suppose we would like to screen an effect that inverts the colors of the screen after rendering? How would we implement this effect using shaders?
+* What is a depth texture?
+* How can we access a shadow map in our fragment map to test whether a point is in shadow?
+* Derive an expression for testing the intersection point for a ray and the plane Z = 2 (normal is (0,0,1)). Recall that a ray that hits a plane satisfies stem:[(p + tv - a) \ldot n = 0].
+* What steps do we need to take to convert a screen position to a world position?
+
+= Sample Questions
+
+* Suppose the user clicks on the screen at position (300, 200). The screen has dimensions (400, 400). What homogeneous clip coordinates, or projected coordinates, correspond to this position?
+* Suppose the eye position is at (0,0,2) and the user clicks at world position (-1.2, -0.5). What ray would we use for intersection testing?
+* Test whether the previous ray intersects a sphere at position (-1, 0, 0) and radius 2.0 using the sphere intersection function covered in class. [Assume you will have the algorithm on an exam]
+* Test whether the previous ray intersects a cube at position (-1, 0, 0) with size 2.0 using the cube intersection function covered in class. [Assume you will have the algorithm on an exam]
+* Suppose we have a vector (-1,1,0) that reflects around a normal (0,0.5, sqrt(3)/2). Compute the component of the vector that is perpendicular to the normal. Compute the component of the vector that is parellel to the normal. What is the reflection vector?
+* Suppose we wish to orient a point billboard so it always faces the eye. If the eye is at position (0,0,2) and the billboard is located at (1,1,2). What rotation matrix should we use to point towards the eye? Assume that billboard as (0,0,1) as forward and (0,1,0) as up in local coordinates.
+* Suppose we wish to orient an axis billboard so it always faces the eye. If the eye is at position (0,0,2) and the billboard is located at (1,1,2). What rotation matrix should we use to point towards the eye? Assume that billboard as (0,0,1) as forward and (0,1,0) as up in local coordinates.
+* Sketch an algorithm for a particle system that could be used to display smoke. 
 
 ////
-= Short Answers
 
 == Ray tracing/marching
 

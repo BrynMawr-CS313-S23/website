@@ -15,6 +15,7 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_study_guide_4_ray_tracing_and_marching">Study Guide 4: Ray tracing and marching</a></li>
+<li><a href="#_sample_questions">Sample Questions</a></li>
 </ul>
 </div>
 </div>
@@ -34,10 +35,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Intersection testing</p>
+<p>Advanced rendering techniques</p>
 </li>
 <li>
-<p>Projection</p>
+<p>Intersection testing</p>
 </li>
 <li>
 <p>Ray-based selection</p>
@@ -47,12 +48,113 @@
 <div class="paragraph">
 <p>Please also use your lab worksheets as study resources.</p>
 </div>
+<h2 id="_short_answers" class="discrete">Short Answers</h2>
+<div class="ulist">
+<ul>
+<li>
+<p>What is a billboard?</p>
+</li>
+<li>
+<p>What is a cubemap?</p>
+</li>
+<li>
+<p>How can we implement reflective materials using shaders?</p>
+</li>
+<li>
+<p>How can we implement refractive materials using shaders?</p>
+</li>
+<li>
+<p>What is the fresnel effect?</p>
+</li>
+<li>
+<p>How can we implement a toon material using shaders?</p>
+</li>
+<li>
+<p>How does additive blending differ from alpha blending?</p>
+</li>
+<li>
+<p>What is multi-pass rendering?</p>
+</li>
+<li>
+<p>Give an example of an algorithm that uses multi-pass rendering?</p>
+</li>
+<li>
+<p>What is render-to-texture?</p>
+</li>
+<li>
+<p>What is a shadow map?</p>
+</li>
+<li>
+<p>Why do jaggy artifacts happen in shadow mapping? How can we avoid these artifacts?</p>
+</li>
+<li>
+<p>What is a height map?</p>
+</li>
+<li>
+<p>What is a bump, or normal map?</p>
+</li>
+<li>
+<p>What are some advantages of bump mapping?</p>
+</li>
+<li>
+<p>Suppose we would like to screen an effect that blurs the screen after rendering? How would we implement this effect using shaders?</p>
+</li>
+<li>
+<p>Suppose we would like to screen an effect that inverts the colors of the screen after rendering? How would we implement this effect using shaders?</p>
+</li>
+<li>
+<p>What is a depth texture?</p>
+</li>
+<li>
+<p>How can we access a shadow map in our fragment map to test whether a point is in shadow?</p>
+</li>
+<li>
+<p>Derive an expression for testing the intersection point for a ray and the plane Z = 2 (normal is (0,0,1)). Recall that a ray that hits a plane satisfies \((p + tv - a) \ldot n = 0\).</p>
+</li>
+<li>
+<p>What steps do we need to take to convert a screen position to a world position?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_questions">Sample Questions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose the user clicks on the screen at position (300, 200). The screen has dimensions (400, 400). What homogeneous clip coordinates, or projected coordinates, correspond to this position?</p>
+</li>
+<li>
+<p>Suppose the eye position is at (0,0,2) and the user clicks at world position (-1.2, -0.5). What ray would we use for intersection testing?</p>
+</li>
+<li>
+<p>Test whether the previous ray intersects a sphere at position (-1, 0, 0) and radius 2.0 using the sphere intersection function covered in class. [Assume you will have the algorithm on an exam]</p>
+</li>
+<li>
+<p>Test whether the previous ray intersects a cube at position (-1, 0, 0) with size 2.0 using the cube intersection function covered in class. [Assume you will have the algorithm on an exam]</p>
+</li>
+<li>
+<p>Suppose we have a vector (-1,1,0) that reflects around a normal (0,0.5, sqrt(3)/2). Compute the component of the vector that is perpendicular to the normal. Compute the component of the vector that is parellel to the normal. What is the reflection vector?</p>
+</li>
+<li>
+<p>Suppose we wish to orient a point billboard so it always faces the eye. If the eye is at position (0,0,2) and the billboard is located at (1,1,2). What rotation matrix should we use to point towards the eye? Assume that billboard as (0,0,1) as forward and (0,1,0) as up in local coordinates.</p>
+</li>
+<li>
+<p>Suppose we wish to orient an axis billboard so it always faces the eye. If the eye is at position (0,0,2) and the billboard is located at (1,1,2). What rotation matrix should we use to point towards the eye? Assume that billboard as (0,0,1) as forward and (0,1,0) as up in local coordinates.</p>
+</li>
+<li>
+<p>Sketch an algorithm for a particle system that could be used to display smoke.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-19 10:23:56 -0400
+Last updated 2023-04-29 21:33:59 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">
