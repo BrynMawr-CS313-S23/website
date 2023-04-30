@@ -14,7 +14,7 @@ include::header.adoc[]
 
 [unstyled]
 * link:project.html[Final Project and Presentation] are due Thursday, April 27th
-* *Final exam* will be May 3, 9:30am, 3 hours, one cheat sheet allowed (location: Park 245)
+* *Final exam* will be May 3, 9:30am, 3 hours, one *hand-written* cheat sheet allowed (location: Park 245)
 * Checkout the link:studyguide4.html[Final Study Guide].
 
 == Course Info
