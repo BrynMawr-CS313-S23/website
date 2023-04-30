@@ -132,7 +132,7 @@
 |April 18,20
 |*Advanced Shaders and materials* anchor:week14[]
 
-* Topics: Shadows, Screen-space effects, Render to texture, Vector projection and applications
+* Topics: Shadows, Screen-space effects, Render to texture, Vector projection and applications, Picking
 * Quiz 03: link:studyguide03.html[Study Guide 03]
 
 //-----------------------------
@@ -141,7 +141,7 @@
 |*Shadertoy* anchor:week15[]
 
 * *April 27: Project presentations (in Lecture/Lab, 10 min each)* 
-* link:shadertoy.com[shadertoy], raytracing a sphere, fragment programs
+* link:shadertoy.com[shadertoy], raytracing a sphere/cube
 * Ray marching, signed-distance functions
 * Final prep: link:studyguide04.html[Study Guide 04]
 * Reference link:https://thebookofshaders.com/[Book of Shaders]
