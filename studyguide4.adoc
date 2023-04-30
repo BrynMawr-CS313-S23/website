@@ -43,6 +43,7 @@ Please also use your lab worksheets as study resources.
 * Derive an expression for testing the intersection point for a ray and the plane Z = 2 (normal is (0,0,1)). Recall that a ray that hits a plane satisfies stem:[(p + tv - a) \ldot n = 0].
 * What steps do we need to take to convert a screen position to a world position?
 
+[discret]
 = Sample Questions
 
 * Suppose the user clicks on the screen at position (300, 200). The screen has dimensions (400, 400). What homogeneous clip coordinates, or projected coordinates, correspond to this position?
